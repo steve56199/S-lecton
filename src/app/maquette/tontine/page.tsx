@@ -30,22 +30,47 @@ export default function TontineMaquette() {
 
           <div className="mt-6 grid grid-cols-1 gap-6 border border-line p-6 sm:grid-cols-2">
             <div>
-              <p className="text-xs tracking-[0.15em] text-ink/45">FRÉQUENCE</p>
-              <p className="mt-2 text-sm">Mensuelle</p>
+              <label className="text-xs tracking-[0.15em] text-ink/45">FRÉQUENCE</label>
+              <select
+                disabled
+                defaultValue="mensuelle"
+                className="mt-2 w-full border border-line bg-ivory px-3 py-2.5 text-sm"
+              >
+                <option value="hebdomadaire">Hebdomadaire</option>
+                <option value="bi-hebdomadaire">Bi-hebdomadaire</option>
+                <option value="mensuelle">Mensuelle</option>
+                <option value="trimestrielle">Trimestrielle</option>
+              </select>
             </div>
             <div>
-              <p className="text-xs tracking-[0.15em] text-ink/45">MONTANT PAR MEMBRE</p>
-              <p className="mt-2 text-sm">25 000 XAF</p>
+              <label className="text-xs tracking-[0.15em] text-ink/45">MONTANT PAR MEMBRE</label>
+              <input
+                disabled
+                defaultValue="25 000 XAF"
+                className="mt-2 w-full border border-line bg-ivory px-3 py-2.5 text-sm"
+              />
             </div>
             <div>
-              <p className="text-xs tracking-[0.15em] text-ink/45">NOMBRE DE MEMBRES / TOURS</p>
-              <p className="mt-2 text-sm">10 membres, 10 tours</p>
+              <label className="text-xs tracking-[0.15em] text-ink/45">NOMBRE DE MEMBRES / TOURS</label>
+              <input
+                disabled
+                defaultValue="10 membres, 10 tours"
+                className="mt-2 w-full border border-line bg-ivory px-3 py-2.5 text-sm"
+              />
             </div>
             <div>
-              <p className="text-xs tracking-[0.15em] text-ink/45">LIBÉRATION DU POT</p>
-              <p className="mt-2 text-sm">Chaque vendredi, 17h00</p>
+              <label className="text-xs tracking-[0.15em] text-ink/45">LIBÉRATION DU POT</label>
+              <input
+                disabled
+                defaultValue="Chaque vendredi, 17h00"
+                className="mt-2 w-full border border-line bg-ivory px-3 py-2.5 text-sm"
+              />
             </div>
           </div>
+          <p className="mt-4 text-xs leading-relaxed text-ink/45">
+            Champs désactivés dans cette maquette — ils deviendront un vrai
+            formulaire lors du branchement au Module 4.
+          </p>
         </section>
 
         <section className="mt-14">

@@ -6,6 +6,7 @@ const links = [
   { label: "Épargne collective", href: "/maquette/epargne" },
   { label: "Paiement", href: "/maquette/paiement" },
   { label: "Administration", href: "/maquette/administration" },
+  { label: "Plateforme", href: "/maquette/plateforme" },
   { label: "Notifications", href: "/maquette/notifications" },
 ];
 

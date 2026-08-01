@@ -44,6 +44,13 @@ const ecrans = [
   },
   {
     numero: "06",
+    titre: "Plateforme",
+    description:
+      "Vue réservée à l'administrateur global : utilisateurs, groupes, volume traité, conformité et audit.",
+    href: "/maquette/plateforme",
+  },
+  {
+    numero: "07",
     titre: "Notifications",
     description:
       "Rappels de paiement, résultats de tirage au sort, confirmations de libération du pot.",
