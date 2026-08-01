@@ -1,7 +1,8 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
-const protectedPrefixes = ["/compte"];
+const protectedPrefixes = ["/compte", "/groupes"];
+const publicExceptions = ["/groupes/rejoindre"];
 
 export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({ request });
@@ -31,9 +32,13 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const isProtected = protectedPrefixes.some((prefix) =>
-    request.nextUrl.pathname.startsWith(prefix),
-  );
+  const isProtected =
+    protectedPrefixes.some((prefix) =>
+      request.nextUrl.pathname.startsWith(prefix),
+    ) &&
+    !publicExceptions.some((exception) =>
+      request.nextUrl.pathname.startsWith(exception),
+    );
 
   if (isProtected && !user) {
     const redirectUrl = new URL("/connexion", request.url);

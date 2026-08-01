@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { AppHeader } from "@/components/app/AppHeader";
 import { ProfilForm } from "./ProfilForm";
-import { DeconnexionButton } from "./DeconnexionButton";
 
 export const metadata: Metadata = {
   title: "Mon compte — Synergia",
@@ -27,14 +26,7 @@ export default async function ComptePage() {
 
   return (
     <div className="flex flex-1 flex-col">
-      <header className="border-b border-line">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 sm:px-10">
-          <Link href="/" className="font-display text-lg tracking-[0.2em]">
-            SYNERGIA
-          </Link>
-          <DeconnexionButton />
-        </div>
-      </header>
+      <AppHeader />
 
       <main className="mx-auto w-full max-w-2xl flex-1 px-6 py-16 sm:px-0">
         <p className="text-xs tracking-[0.3em] text-gold">MON COMPTE</p>
