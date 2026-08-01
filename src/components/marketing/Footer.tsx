@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function Footer() {
   return (
     <footer id="rejoindre" className="mt-auto">
@@ -7,10 +9,16 @@ export function Footer() {
           La plateforme se construit module après module.
         </h2>
         <p className="mt-6 max-w-xl text-sm leading-relaxed text-ink/65">
-          L&apos;inscription, la création de groupe et le premier cycle de
-          tontine seront ouverts dès que les fondations seront prêtes. Cette
-          page évolue à chaque étape.
+          L&apos;inscription et la création de profil sont déjà ouvertes. La
+          création de groupe et le premier cycle de tontine arrivent dans les
+          prochains modules.
         </p>
+        <Link
+          href="/connexion"
+          className="mt-8 inline-block border border-ink px-7 py-3 text-sm tracking-wide text-ink transition-colors hover:bg-ink hover:text-ivory"
+        >
+          Créer mon compte
+        </Link>
       </div>
 
       <div className="border-t border-line">

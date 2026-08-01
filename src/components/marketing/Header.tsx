@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const links = [
   { label: "La plateforme", href: "#produits" },
   { label: "Comment ça marche", href: "#cycle" },
@@ -9,12 +11,12 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-ivory/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 sm:px-10">
-        <a
-          href="#"
+        <Link
+          href="/"
           className="font-display text-lg tracking-[0.2em] text-ink"
         >
           SYNERGIA
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-10 md:flex">
           {links.map((link) => (
@@ -28,12 +30,12 @@ export function Header() {
           ))}
         </nav>
 
-        <a
-          href="#rejoindre"
+        <Link
+          href="/connexion"
           className="border border-ink px-5 py-2 text-sm tracking-wide text-ink transition-colors hover:bg-ink hover:text-ivory"
         >
-          Rejoindre la liste
-        </a>
+          Se connecter
+        </Link>
       </div>
     </header>
   );

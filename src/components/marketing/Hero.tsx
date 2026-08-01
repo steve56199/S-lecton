@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function Hero() {
   return (
     <section className="border-b border-line bg-ink text-ivory">
@@ -19,12 +21,12 @@ export function Hero() {
         </p>
 
         <div className="mt-12 flex flex-col gap-4 sm:flex-row">
-          <a
-            href="#rejoindre"
+          <Link
+            href="/connexion"
             className="border border-gold-soft bg-gold px-7 py-3 text-center text-sm tracking-wide text-ink transition-colors hover:bg-gold-soft"
           >
-            Rejoindre la liste d&apos;attente
-          </a>
+            Créer mon compte
+          </Link>
           <a
             href="#produits"
             className="border border-ivory/30 px-7 py-3 text-center text-sm tracking-wide text-ivory/85 transition-colors hover:border-ivory hover:text-ivory"
