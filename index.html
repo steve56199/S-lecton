@@ -1,136 +1,291 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>S-Lecton - Choose Your Path</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap">
+  <title>S-Lecton — Examens-Bibliothek</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'royal-blue': '#002366',
+            'deep-navy': '#0A1128',
+            'metallic-silver': '#C0C0C0',
+            'surface': '#f8f9fa',
+            'surface-bright': '#f8f9fa',
+            'surface-container-lowest': '#ffffff',
+            'surface-container-low': '#f3f4f5',
+            'surface-container': '#edeef0',
+            'surface-container-high': '#e7e8e9',
+            'surface-container-highest': '#e1e3e4',
+            'surface-gray': '#E5E7EB',
+            'on-surface': '#191c1d',
+            'on-surface-variant': '#444650',
+            'primary': '#00113a',
+            'on-primary': '#ffffff',
+            'primary-container': '#002366',
+            'primary-fixed': '#dbe1ff',
+            'primary-fixed-dim': '#b3c5ff',
+            'secondary': '#575d78',
+            'on-secondary': '#ffffff',
+            'secondary-container': '#d8defe',
+            'error': '#ba1a1a',
+            'error-container': '#ffdad6',
+            'outline': '#757682',
+            'outline-variant': '#c5c6d2',
+            'background': '#f8f9fa',
+            'on-background': '#191c1d'
+          },
+          borderRadius: { 'sm': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', '2xl': '1rem', 'full': '9999px' },
+          spacing: { 'xs': '4px', 'sm': '8px', 'md': '16px', 'lg': '24px', 'xl': '32px', '2xl': '48px', '3xl': '64px', 'gutter': '20px', 'margin-mobile': '16px', 'margin-desktop': '48px' },
+          fontFamily: { manrope: ['Manrope', 'sans-serif'] },
+          fontSize: {
+            'display-lg': ['48px', { lineHeight: '56px', letterSpacing: '-0.02em', fontWeight: '800' }],
+            'headline-lg': ['32px', { lineHeight: '40px', letterSpacing: '-0.01em', fontWeight: '700' }],
+            'headline-md': ['24px', { lineHeight: '32px', fontWeight: '600' }],
+            'headline-sm': ['20px', { lineHeight: '28px', fontWeight: '600' }],
+            'body-lg': ['18px', { lineHeight: '28px', fontWeight: '400' }],
+            'body-md': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+            'body-sm': ['14px', { lineHeight: '20px', fontWeight: '400' }],
+            'label-lg': ['14px', { lineHeight: '16px', letterSpacing: '0.02em', fontWeight: '600' }],
+            'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.05em', fontWeight: '500' }]
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap');
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Manrope', sans-serif; background: linear-gradient(135deg, #f8f9fb 0%, #e7e8ea 100%); min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+    body { font-family: 'Manrope', sans-serif; }
+    ::-webkit-scrollbar { display: none; }
+    .spin { animation: spin 1s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
   </style>
 </head>
-<body>
-  <div class="max-w-4xl w-full px-6">
-    <div class="text-center mb-16">
-      <div class="flex justify-center mb-6">
-        <span class="material-symbols-outlined text-8xl text-primary" style="color: #006768;">school</span>
+<body class="bg-background font-manrope text-on-background">
+  <header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(10,17,40,0.05)] border-b border-surface-gray">
+    <div class="h-16 max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop flex items-center justify-between">
+      <div class="flex items-center gap-md">
+        <span class="material-symbols-outlined text-royal-blue">school</span>
+        <span class="text-headline-sm font-headline-sm text-deep-navy tracking-tight">S-Lecton Telc B2</span>
       </div>
-      <h1 class="text-5xl font-bold mb-4" style="color: #191c1e;">S-Lecton</h1>
-      <p class="text-xl" style="color: #3d4949;">Academic Precision Design System & telc B2 Exam Simulator</p>
+      <nav class="hidden md:flex items-center gap-xl h-full">
+        <a class="text-label-lg font-label-lg text-royal-blue border-b-2 border-royal-blue pt-1 flex items-center h-full" href="./index.html">Exam Library</a>
+        <a class="text-label-lg font-label-lg text-on-surface-variant hover:text-royal-blue transition-colors flex items-center h-full" href="./branding.html">Design System</a>
+      </nav>
     </div>
+  </header>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <!-- Design System Card -->
-      <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition transform hover:scale-105">
-        <div class="bg-gradient-to-r from-primary to-primary-container p-8 text-white" style="background: linear-gradient(135deg, #006768 0%, #008284 100%);">
-          <span class="material-symbols-outlined text-5xl mb-4 block">palette</span>
-          <h2 class="text-3xl font-bold">Design System</h2>
+  <main class="w-full pt-16 bg-background min-h-screen">
+    <div class="flex flex-col w-full relative">
+      <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-royal-blue/5 rounded-full blur-[120px] pointer-events-none -z-10 -translate-y-1/2 translate-x-1/4"></div>
+      <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[100px] pointer-events-none -z-10 translate-y-1/3 -translate-x-1/4"></div>
+
+      <section class="max-w-7xl mx-auto w-full px-margin-mobile md:px-margin-desktop py-xl md:py-3xl flex flex-col gap-xl z-10">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-lg">
+          <div class="flex flex-col gap-sm max-w-2xl">
+            <span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-widest flex items-center gap-2">
+              <span class="w-8 h-[1px] bg-primary-fixed-dim"></span>
+              S-Lecton Telc B2
+            </span>
+            <h1 class="text-display-lg font-display-lg text-deep-navy">Examens-Bibliothek</h1>
+            <p class="text-body-lg font-body-lg text-on-surface-variant">Wählen Sie ein Modelltest aus der Bibliothek. Der Timer (150 Minuten) startet automatisch, sobald Sie eine Prüfung öffnen — kein Konto nötig.</p>
+          </div>
+          <div id="exam-count-badge" class="flex items-center gap-sm bg-surface-container-lowest px-md py-sm rounded-full shadow-sm border border-metallic-silver/30 whitespace-nowrap">
+            <span class="material-symbols-outlined text-royal-blue">library_books</span>
+            <span class="text-label-lg font-label-lg text-deep-navy"><span class="font-bold text-royal-blue" id="exam-count">0</span> Prüfungen verfügbar</span>
+          </div>
         </div>
-        <div class="p-8">
-          <p class="mb-6" style="color: #3d4949;">Explore the complete Academic Precision branding system with color palette, typography, components, and interactive showcase.</p>
-          <ul class="space-y-2 mb-8" style="color: #3d4949;">
-            <li class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-lg" style="color: #006768;">check_circle</span>
-              Complete color palette
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-lg" style="color: #006768;">check_circle</span>
-              Typography scales
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-lg" style="color: #006768;">check_circle</span>
-              Pre-built components
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-lg" style="color: #006768;">check_circle</span>
-              Interactive demo
-            </li>
-          </ul>
-          <a href="./branding.html" class="inline-block w-full text-center px-6 py-3 rounded-lg font-semibold text-white transition" style="background-color: #006768;">
-            View Branding System
-          </a>
+
+        <div class="flex flex-col lg:flex-row gap-lg items-stretch z-20">
+          <div class="relative flex-grow shadow-sm">
+            <span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+            <input id="search-input" class="w-full h-14 pl-12 pr-4 bg-surface-container-lowest text-deep-navy font-body-md text-body-md rounded-xl border border-surface-gray focus:outline-none focus:border-royal-blue focus:ring-2 focus:ring-primary-fixed transition-all shadow-sm" placeholder="Suche nach Modelltest (z.B. 001)..." type="text">
+          </div>
         </div>
+
+        <div id="exam-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg z-10 mt-md">
+          <!-- Exam cards rendered here -->
+        </div>
+
+        <div id="empty-state" class="hidden mt-xl flex flex-col items-center justify-center gap-md py-xl border-t border-surface-gray/50 z-10 text-center">
+          <span class="material-symbols-outlined text-4xl text-metallic-silver">search_off</span>
+          <span class="text-label-md font-label-md text-on-surface-variant tracking-wider uppercase">Keine Prüfung gefunden</span>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="w-full bg-deep-navy py-xl border-t border-primary-fixed-dim/10">
+    <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-lg">
+      <div class="flex items-center gap-md">
+        <span class="material-symbols-outlined text-metallic-silver">school</span>
+        <span class="text-label-md font-label-md text-metallic-silver">© 2026 S-Lecton Simulation Systems.</span>
       </div>
-
-      <!-- Exam Simulator Card -->
-      <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition transform hover:scale-105">
-        <div class="bg-gradient-to-r from-secondary to-secondary-container p-8 text-white" style="background: linear-gradient(135deg, #446277 0%, #49667b 100%);">
-          <span class="material-symbols-outlined text-5xl mb-4 block">schedule</span>
-          <h2 class="text-3xl font-bold">Exam Simulator</h2>
-        </div>
-        <div class="p-8">
-          <p class="mb-6" style="color: #3d4949;">Take a realistic telc B2 exam with a 150-minute global timer, free navigation, and automatic scoring.</p>
-          <ul class="space-y-2 mb-8" style="color: #3d4949;">
-            <li class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-lg" style="color: #446277;">check_circle</span>
-              Global 150-minute timer
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-lg" style="color: #446277;">check_circle</span>
-              Free section navigation
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-lg" style="color: #446277;">check_circle</span>
-              Auto-scoring (225 points)
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-lg" style="color: #446277;">check_circle</span>
-              Detailed feedback
-            </li>
-          </ul>
-          <a href="./exam-simulator.html" class="inline-block w-full text-center px-6 py-3 rounded-lg font-semibold text-white transition" style="background-color: #446277;">
-            Start Exam
-          </a>
-        </div>
+      <div class="flex gap-lg">
+        <a class="text-label-md font-label-md text-metallic-silver hover:text-surface-bright" href="./branding.html">Design System</a>
+        <a class="text-label-md font-label-md text-metallic-silver hover:text-surface-bright" href="./README.md" target="_blank">Documentation</a>
       </div>
     </div>
+  </footer>
 
-    <!-- Features Section -->
-    <div class="mt-16 bg-white rounded-xl shadow-lg p-8">
-      <h2 class="text-3xl font-bold mb-8" style="color: #191c1e;">Features</h2>
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <div class="text-center">
-          <span class="material-symbols-outlined text-4xl mb-4 block" style="color: #006768;">shield</span>
-          <h3 class="font-semibold mb-2" style="color: #191c1e;">Inviolable Timer</h3>
-          <p style="color: #3d4949; font-size: 0.875rem;">Based on absolute time, cannot be manipulated</p>
-        </div>
-        <div class="text-center">
-          <span class="material-symbols-outlined text-4xl mb-4 block" style="color: #006768;">public</span>
-          <h3 class="font-semibold mb-2" style="color: #191c1e;">No Account Required</h3>
-          <p style="color: #3d4949; font-size: 0.875rem;">Start immediately, no signup needed</p>
-        </div>
-        <div class="text-center">
-          <span class="material-symbols-outlined text-4xl mb-4 block" style="color: #006768;">assessment</span>
-          <h3 class="font-semibold mb-2" style="color: #191c1e;">Auto-Scoring</h3>
-          <p style="color: #3d4949; font-size: 0.875rem;">Instant results with detailed breakdown</p>
-        </div>
-        <div class="text-center">
-          <span class="material-symbols-outlined text-4xl mb-4 block" style="color: #006768;">straighten</span>
-          <h3 class="font-semibold mb-2" style="color: #191c1e;">Realistic Experience</h3>
-          <p style="color: #3d4949; font-size: 0.875rem;">Reproduces actual telc B2 constraints</p>
-        </div>
-      </div>
-    </div>
+  <script>
+    // ============================================
+    // Exam Library — data-driven cards
+    // ============================================
+    // Card state (Startbereit / Fortsetzen / Abgeschlossen) reflects REAL session
+    // data stored in this browser's localStorage by exam-simulator.html — nothing
+    // here is fabricated, since there is no account/backend to track it otherwise.
 
-    <!-- Documentation Section -->
-    <div class="mt-8 text-center">
-      <p style="color: #3d4949; margin-bottom: 1rem;">📚 Want to learn more?</p>
-      <div class="space-x-4 flex justify-center flex-wrap gap-2">
-        <a href="./README.md" target="_blank" class="inline-block px-6 py-2 rounded-lg border-2" style="border-color: #006768; color: #006768;">Read README</a>
-        <a href="./ARCHITECTURE.md" target="_blank" class="inline-block px-6 py-2 rounded-lg border-2" style="border-color: #446277; color: #446277;">Architecture</a>
-        <a href="./EXAM-SIMULATOR.md" target="_blank" class="inline-block px-6 py-2 rounded-lg border-2" style="border-color: #5b5c5c; color: #5b5c5c;">Exam Guide</a>
-        <a href="./DESIGN.md" target="_blank" class="inline-block px-6 py-2 rounded-lg border-2" style="border-color: #ba1a1a; color: #ba1a1a;">Design System</a>
-      </div>
-    </div>
+    let allExams = [];
 
-    <!-- Footer -->
-    <div class="mt-16 text-center" style="color: #3d4949; padding-top: 2rem; border-top: 1px solid #bdc9c9;">
-      <p>S-Lecton v1.0.0 — Academic Precision Design System & telc B2 Simulator</p>
-      <p style="font-size: 0.875rem; margin-top: 0.5rem;">Engineered for realistic exam preparation</p>
-    </div>
-  </div>
+    function findLatestSessionForExam(examId) {
+      let latest = null;
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (!key || !key.startsWith('exam_session_')) continue;
+        try {
+          const record = JSON.parse(localStorage.getItem(key));
+          if (record?.session?.examId !== examId) continue;
+          if (!latest || new Date(record.session.startedAt) > new Date(latest.session.startedAt)) {
+            latest = record;
+          }
+        } catch (e) { /* ignore corrupted entries */ }
+      }
+      return latest;
+    }
+
+    function countQuestions(exam) {
+      let total = 0;
+      exam.sections.forEach(s => s.parts.forEach(p => total += p.questions.length));
+      return total;
+    }
+
+    function getCardState(exam) {
+      const record = findLatestSessionForExam(exam.id);
+      if (!record) return { state: 'fresh' };
+
+      const { session, answers } = record;
+      const answeredCount = Object.keys(answers || {}).filter(k => !k.endsWith('__topic')).length;
+      const totalCount = countQuestions(exam);
+      const isExpired = new Date(session.expiresAt) <= new Date();
+
+      if (session.status === 'finished' || session.status === 'expired' || isExpired) {
+        return { state: 'done' };
+      }
+      if (session.status === 'active') {
+        const pct = totalCount ? Math.round((answeredCount / totalCount) * 100) : 0;
+        return { state: 'progress', pct };
+      }
+      return { state: 'fresh' };
+    }
+
+    function formatDuration(seconds) {
+      const h = Math.floor(seconds / 3600);
+      const m = Math.round((seconds % 3600) / 60);
+      return `${h}h ${m}min`;
+    }
+
+    function renderCard(exam) {
+      const totalPoints = exam.totalPoints || 225;
+      const card = getCardState(exam);
+
+      let statusHtml, actionHtml;
+      if (card.state === 'done') {
+        statusHtml = `
+          <div class="flex items-center gap-2 bg-surface-container/50 px-3 py-2 rounded-lg">
+            <span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
+            <span class="text-label-md font-label-md text-secondary">Abgeschlossen</span>
+          </div>`;
+        actionHtml = `
+          <a href="./exam-simulator.html?exam=${exam.id}&view=results" class="w-full h-12 bg-surface-container-lowest text-deep-navy text-label-lg font-label-lg rounded-lg shadow-sm border border-metallic-silver hover:bg-surface-bright transition-colors flex items-center justify-center gap-2">
+            Ergebnisse ansehen
+            <span class="material-symbols-outlined text-[18px]">analytics</span>
+          </a>`;
+      } else if (card.state === 'progress') {
+        statusHtml = `
+          <div class="flex items-center gap-2 bg-surface-container/50 px-3 py-2 rounded-lg">
+            <div class="w-2 h-2 rounded-full bg-royal-blue animate-pulse"></div>
+            <span class="text-label-md font-label-md text-royal-blue">In Bearbeitung (${card.pct}%)</span>
+          </div>`;
+        actionHtml = `
+          <a href="./exam-simulator.html?exam=${exam.id}" class="w-full h-12 bg-surface-container-lowest text-deep-navy text-label-lg font-label-lg rounded-lg shadow-sm border border-metallic-silver hover:bg-surface-bright transition-colors flex items-center justify-center gap-2">
+            Fortsetzen
+            <span class="material-symbols-outlined text-[18px]">play_arrow</span>
+          </a>`;
+      } else {
+        statusHtml = `
+          <div class="flex items-center gap-2 bg-surface-container/50 px-3 py-2 rounded-lg">
+            <div class="w-2 h-2 rounded-full bg-[#1B4332] animate-pulse"></div>
+            <span class="text-label-md font-label-md text-[#1B4332]">Startbereit</span>
+          </div>`;
+        actionHtml = `
+          <a href="./exam-simulator.html?exam=${exam.id}" class="group/btn w-full h-12 bg-royal-blue text-on-primary text-label-lg font-label-lg rounded-lg shadow-md hover:bg-primary transition-colors flex items-center justify-center gap-2">
+            Prüfung starten
+            <span class="material-symbols-outlined text-[18px] group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+          </a>`;
+      }
+
+      return `
+        <div class="group bg-surface-container-lowest rounded-xl p-lg flex flex-col gap-lg shadow-sm hover:shadow-xl transition-all duration-300 relative border border-surface-gray hover:border-metallic-silver overflow-hidden" data-title="${exam.title.toLowerCase()}">
+          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-royal-blue to-primary-fixed opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div class="flex flex-col gap-xs">
+            <span class="text-label-md font-label-md text-royal-blue bg-primary-fixed/20 px-2 py-1 rounded-md w-fit">B2 Standard</span>
+            <h3 class="text-headline-md font-headline-md text-deep-navy mt-1 group-hover:text-royal-blue transition-colors">${exam.title.replace('Modelltest B2 — ', '')}</h3>
+            <p class="text-body-sm font-body-sm text-on-surface-variant mt-1 line-clamp-2">${exam.description || ''}</p>
+          </div>
+          <div class="grid grid-cols-2 gap-sm pt-md border-t border-surface-gray/50">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-on-surface-variant text-[18px]">schedule</span>
+              <span class="text-body-sm font-body-sm text-on-surface-variant">${formatDuration(exam.duration)}</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-on-surface-variant text-[18px]">sports_score</span>
+              <span class="text-body-sm font-body-sm text-on-surface-variant">${totalPoints} Pkt.</span>
+            </div>
+          </div>
+          <div class="mt-auto pt-sm flex flex-col gap-md">
+            ${statusHtml}
+            ${actionHtml}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderGrid(filterText) {
+      const grid = document.getElementById('exam-grid');
+      const emptyState = document.getElementById('empty-state');
+      const filtered = filterText
+        ? allExams.filter(e => e.title.toLowerCase().includes(filterText.toLowerCase()))
+        : allExams;
+
+      grid.innerHTML = filtered.map(renderCard).join('');
+      emptyState.classList.toggle('hidden', filtered.length > 0);
+    }
+
+    async function init() {
+      try {
+        const response = await fetch('./data/exams.json');
+        const data = await response.json();
+        allExams = data.exams;
+      } catch (e) {
+        console.error('Failed to load exams:', e);
+        allExams = [];
+      }
+
+      document.getElementById('exam-count').textContent = allExams.length;
+      renderGrid('');
+
+      document.getElementById('search-input').addEventListener('input', (e) => {
+        renderGrid(e.target.value.trim());
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
 </body>
 </html>

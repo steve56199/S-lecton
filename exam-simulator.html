@@ -191,6 +191,34 @@
         this.saveSession();
       }
 
+      // Find the most recent stored session for a given exam (used by the Exam Library
+      // page and by resumeSession() to continue where the user left off).
+      findLatestSessionForExam(examId) {
+        let latest = null;
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          if (!key || !key.startsWith('exam_session_')) continue;
+          try {
+            const record = JSON.parse(localStorage.getItem(key));
+            if (record?.session?.examId !== examId) continue;
+            if (!latest || new Date(record.session.startedAt) > new Date(latest.session.startedAt)) {
+              latest = record;
+            }
+          } catch (e) { /* ignore corrupted entries */ }
+        }
+        return latest;
+      }
+
+      // Resume a previously stored session (from findLatestSessionForExam) instead of
+      // starting a fresh one. Returns false if the session can no longer be resumed.
+      resumeSession(record) {
+        this.currentExam = this.exams.find(e => e.id === record.session.examId);
+        if (!this.currentExam) return false;
+        this.currentSession = record.session;
+        this.answers = record.answers || {};
+        return true;
+      }
+
       generateSessionId() {
         return 'session_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
       }
@@ -779,24 +807,64 @@
 
       async init() {
         await this.exam.loadExams();
+
+        // Coming from the Exam Library (index.html) with ?exam=<id> — jump straight
+        // into the exam (or its saved results) instead of showing the picker again.
+        const params = new URLSearchParams(window.location.search);
+        const examId = params.get('exam');
+        const wantResults = params.get('view') === 'results';
+
+        if (examId && this.exam.exams.some(e => e.id === examId)) {
+          if (wantResults) {
+            const record = this.exam.findLatestSessionForExam(examId);
+            if (record && this.exam.resumeSession(record)) {
+              this.showResultsDirect();
+              return;
+            }
+          }
+
+          const existing = this.exam.findLatestSessionForExam(examId);
+          const canResume = existing && existing.session.status === 'active' &&
+            new Date(existing.session.expiresAt) > new Date();
+
+          if (canResume && this.exam.resumeSession(existing)) {
+            this.enterExamUI();
+          } else {
+            this.startExam(examId);
+          }
+          return;
+        }
+
         this.renderer.renderLandingPage();
       }
 
       startExam(examId) {
         this.exam.startExam(examId);
+        this.enterExamUI();
+      }
 
-        // Hide landing, show exam
+      // Shared by a fresh start and a resumed session: shows the exam UI and
+      // starts (or continues) the countdown automatically — no extra click needed.
+      enterExamUI() {
         document.getElementById('landing-page').classList.add('hidden');
         document.getElementById('exam-page').classList.remove('hidden');
 
-        // Render interface
         this.renderer.renderExamInterface();
-
-        // Start timer
         this.timer.start();
 
-        // Setup event listeners
         document.getElementById('finish-exam-btn').addEventListener('click', () => this.finishExam());
+      }
+
+      // Read-only view of a past/expired session's results, reached via
+      // exam-simulator.html?exam=<id>&view=results — recomputed live from the
+      // saved answers rather than a separately persisted score.
+      showResultsDirect() {
+        document.getElementById('landing-page').classList.add('hidden');
+        document.getElementById('exam-page').classList.add('hidden');
+        document.getElementById('results-page').classList.remove('hidden');
+
+        const results = this.scoring.scoreExam();
+        this.renderResults(results);
       }
 
       selectSection(sectionId) {
@@ -834,6 +902,13 @@
 
       showResults() {
         this.timer.stop();
+
+        // Mark the session finished so the Exam Library shows "Abgeschlossen"
+        // instead of "Fortsetzen" on the next visit.
+        if (this.exam.currentSession && this.exam.currentSession.status === 'active') {
+          this.exam.currentSession.status = 'finished';
+          this.exam.saveSession();
+        }
 
         // Calculate scores
         const results = this.scoring.scoreExam();
