@@ -1,0 +1,26 @@
+{
+  "name": "s-lecton",
+  "version": "1.0.0",
+  "description": "S-Lecton - telc B2 Realistic Exam Simulator with Academic Precision Design",
+  "type": "module",
+  "scripts": {
+    "dev": "python -m http.server 3000",
+    "build": "echo 'Static site - no build step required'",
+    "start": "echo 'Open index.html or exam-simulator.html in browser'"
+  },
+  "keywords": [
+    "telc",
+    "exam-simulator",
+    "b2-german",
+    "design-system",
+    "branding"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/steve56199/S-lecton.git"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+

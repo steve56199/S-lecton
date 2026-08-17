@@ -1,0 +1,14 @@
+.git
+.gitignore
+README.md
+DESIGN.md
+ARCHITECTURE.md
+EXAM-SIMULATOR.md
+database-schema.sql
+.env
+.env.local
+node_modules
+.next
+out
+coverage
+*.log

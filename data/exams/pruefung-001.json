@@ -1,0 +1,1290 @@
+{
+  "id": "pruefung-001",
+  "title": "Modelltest B2 — Prüfung 001",
+  "description": "Vollständiger telc-B2-Modelltest (Original-Übungsmaterial) mit realem Zeitlimit von 150 Minuten",
+  "duration": 9000,
+  "totalPoints": 225,
+  "sections": [
+    {
+      "id": "lesen",
+      "name": "Leseverstehen",
+      "maxPoints": 75,
+      "order": 1,
+      "parts": [
+        {
+          "id": "lesen-1",
+          "title": "Teil 1",
+          "description": "Lesen Sie die fünf Kurztexte. Wählen Sie für jeden Text die passende Überschrift aus der Liste rechts. Es gibt mehr Überschriften als Texte — drei Überschriften passen zu keinem Text.",
+          "pointsPerQuestion": 3,
+          "layout": "matching-reference",
+          "referenceListTitle": "Überschriften A–H",
+          "referenceList": [
+            {
+              "code": "A",
+              "text": "Neue Regeln für den Onlinehandel"
+            },
+            {
+              "code": "B",
+              "text": "Mobiles Arbeiten: Zwischen Freiheit und Isolation"
+            },
+            {
+              "code": "C",
+              "text": "Gesunde Ernährung im Berufsalltag"
+            },
+            {
+              "code": "D",
+              "text": "Ohne Verpackung einkaufen liegt im Trend"
+            },
+            {
+              "code": "E",
+              "text": "Auf zwei Rädern durch die Stadt"
+            },
+            {
+              "code": "F",
+              "text": "Lebenslanges Lernen wird immer wichtiger"
+            },
+            {
+              "code": "G",
+              "text": "Klimawandel bedroht die Landwirtschaft"
+            },
+            {
+              "code": "H",
+              "text": "Eine Pause vom Bildschirm"
+            }
+          ],
+          "questions": [
+            {
+              "id": "q1",
+              "type": "matching",
+              "points": 3,
+              "text": "Seit der Pandemie arbeiten in Deutschland deutlich mehr Menschen von zu Hause aus als früher. Viele Unternehmen bieten inzwischen feste Regelungen für mobiles Arbeiten an. Studien zeigen, dass sich dadurch die Zufriedenheit vieler Beschäftigter erhöht hat, gleichzeitig klagen manche über fehlenden Austausch mit Kolleginnen und Kollegen.",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G",
+                "H"
+              ],
+              "correctAnswer": "B",
+              "explanation": "Der Text beschreibt Vor- und Nachteile des Homeoffice (Freiheit vs. fehlender Austausch/Isolation) — das passt genau zu Überschrift B."
+            },
+            {
+              "id": "q2",
+              "type": "matching",
+              "points": 3,
+              "text": "Immer mehr Supermärkte in deutschen Großstädten bieten unverpackte Lebensmittel an. Kundinnen und Kunden bringen eigene Behälter mit und füllen Reis, Nudeln oder Waschmittel selbst ab. Das spart Verpackungsmüll, erfordert aber etwas Umgewöhnung und meist auch einen kleinen Umweg zum nächsten Unverpackt-Laden.",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G",
+                "H"
+              ],
+              "correctAnswer": "D",
+              "explanation": "Es geht um Einkaufen ohne Verpackung (Unverpackt-Läden) — Überschrift D trifft den Kern des Textes."
+            },
+            {
+              "id": "q3",
+              "type": "matching",
+              "points": 3,
+              "text": "Städte wie Kopenhagen gelten seit Jahren als Vorbild für fahrradfreundliche Infrastruktur. Auch deutsche Kommunen bauen zunehmend breite Radwege und richten autofreie Zonen in der Innenstadt ein. Kritiker bemängeln jedoch, dass der Umbau oft zu langsam vorangeht und wichtige Verbindungen fehlen.",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G",
+                "H"
+              ],
+              "correctAnswer": "E",
+              "explanation": "Der Text handelt von Radwegen und fahrradfreundlichen Städten — 'Auf zwei Rädern durch die Stadt' (E) fasst das zusammen."
+            },
+            {
+              "id": "q4",
+              "type": "matching",
+              "points": 3,
+              "text": "Volkshochschulen verzeichnen seit einigen Jahren steigende Anmeldezahlen bei Erwachsenen, die sich beruflich neu orientieren möchten. Kurse in digitalen Kompetenzen oder Fremdsprachen sind besonders gefragt. Wer sich weiterbildet, verbessert damit oft seine Chancen auf dem Arbeitsmarkt erheblich.",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G",
+                "H"
+              ],
+              "correctAnswer": "F",
+              "explanation": "Weiterbildung von Erwachsenen an Volkshochschulen entspricht dem 'lebenslangen Lernen' aus Überschrift F."
+            },
+            {
+              "id": "q5",
+              "type": "matching",
+              "points": 3,
+              "text": "Nach einem Tag voller Bildschirmzeit sehnen sich viele Menschen nach bewusster Auszeit vom Smartphone. Digital-Detox-Wochenenden ohne Internetzugang werden zunehmend als Erholungsangebot beworben. Teilnehmende berichten, dass sie sich nach wenigen Tagen ohne ständige Erreichbarkeit deutlich entspannter fühlen.",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G",
+                "H"
+              ],
+              "correctAnswer": "H",
+              "explanation": "Digital-Detox bedeutet eine bewusste Pause vom Bildschirm — das entspricht direkt Überschrift H."
+            }
+          ]
+        },
+        {
+          "id": "lesen-2",
+          "title": "Teil 2",
+          "description": "Lesen Sie den folgenden Artikel und beantworten Sie die zehn Fragen dazu. Wählen Sie jeweils die richtige Antwort (a, b oder c).",
+          "pointsPerQuestion": 3,
+          "layout": "shared-passage",
+          "sharedPassage": {
+            "title": "Die Vier-Tage-Woche: Zukunftsmodell oder Utopie?",
+            "paragraphs": [
+              "Die Vier-Tage-Woche wird in Deutschland und vielen anderen Ländern seit einigen Jahren intensiv diskutiert. Die Grundidee ist einfach: Beschäftigte arbeiten an vier statt an fünf Tagen pro Woche, erhalten aber weiterhin ihr volles Gehalt. Befürworter versprechen sich davon mehr Lebensqualität, weniger Stress und eine bessere Vereinbarkeit von Beruf und Familie.",
+              "Mehrere Pilotprojekte in Großbritannien, Island und Deutschland liefern erste Ergebnisse. In einer britischen Studie mit über 60 Unternehmen berichteten die meisten Firmen nach sechs Monaten von gleichbleibender oder sogar gestiegener Produktivität. Die Zahl der Krankheitstage sank spürbar, und viele Mitarbeitende gaben an, sich weniger erschöpft zu fühlen. Auf Grundlage dieser positiven Erfahrungen entschieden sich rund neunzig Prozent der teilnehmenden Unternehmen, das Modell dauerhaft beizubehalten.",
+              "Trotz dieser ermutigenden Zahlen bleibt die Vier-Tage-Woche umstritten. Kritiker weisen darauf hin, dass sich die Ergebnisse nicht ohne Weiteres auf alle Branchen übertragen lassen. Während sich Verwaltungs- und Bürotätigkeiten oft gut verdichten lassen, sei dies in der Pflege, im Handwerk oder im Einzelhandel deutlich schwieriger. Dort seien Kunden und Patienten schließlich an allen Werktagen auf Unterstützung angewiesen. Auch Wirtschaftsverbände äußern Bedenken: Bei gleichbleibendem Lohn und reduzierter Arbeitszeit könnten die Lohnkosten pro Stunde steigen, was insbesondere kleinere Betriebe belasten würde.",
+              "Befürworter entgegnen, dass sich viele Aufgaben durch bessere Organisation, den Abbau überflüssiger Besprechungen und den gezielten Einsatz digitaler Werkzeuge effizienter erledigen ließen. Wenn Mitarbeitende ausgeruhter und motivierter arbeiten, könne die Produktivität pro Stunde durchaus steigen und den Verlust eines Arbeitstages ausgleichen. Zudem berichten Unternehmen, die das Modell bereits eingeführt haben, von einem klaren Vorteil bei der Suche nach neuem Personal: In Zeiten von Fachkräftemangel wird die Vier-Tage-Woche zunehmend zu einem wichtigen Argument im Wettbewerb um qualifizierte Bewerberinnen und Bewerber.",
+              "Auch die Politik hat das Thema inzwischen aufgegriffen. In Deutschland fördert das Bundesarbeitsministerium ein Pilotprojekt, an dem sich mehrere mittelständische Unternehmen freiwillig beteiligen. Die Ergebnisse sollen Aufschluss darüber geben, unter welchen Bedingungen eine verkürzte Arbeitswoche langfristig funktionieren kann. Expertinnen und Experten sind sich einig, dass es keine pauschale Lösung für alle Branchen geben wird. Vielmehr werde es in Zukunft vermutlich eine größere Vielfalt an Arbeitszeitmodellen geben, aus denen Unternehmen und Beschäftigte je nach Bedarf wählen können.",
+              "Ob sich die Vier-Tage-Woche als Standardmodell durchsetzt, bleibt daher offen. Klar ist jedoch, dass die Debatte über flexiblere und gesündere Arbeitszeitmodelle nicht mehr verschwinden wird – zu groß ist der gesellschaftliche Wunsch nach einer besseren Balance zwischen Arbeit und Privatleben."
+            ]
+          },
+          "questions": [
+            {
+              "id": "q6",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Was ist die Grundidee der Vier-Tage-Woche?",
+              "options": [
+                "Beschäftigte arbeiten weniger Stunden bei reduziertem Gehalt.",
+                "Beschäftigte arbeiten an vier Tagen bei vollem Gehalt.",
+                "Beschäftigte arbeiten flexibel, aber insgesamt mehr Stunden."
+              ],
+              "correctAnswer": "1",
+              "explanation": "Laut Absatz 1 erhalten Beschäftigte 'weiterhin ihr volles Gehalt', obwohl sie nur vier statt fünf Tage arbeiten."
+            },
+            {
+              "id": "q7",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Wie entwickelte sich die Produktivität in der britischen Studie?",
+              "options": [
+                "Sie sank deutlich.",
+                "Sie blieb gleich oder stieg sogar.",
+                "Sie wurde nicht untersucht."
+              ],
+              "correctAnswer": "1",
+              "explanation": "Im Text heißt es: 'berichteten die meisten Firmen ... von gleichbleibender oder sogar gestiegener Produktivität.'"
+            },
+            {
+              "id": "q8",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Wie viele der teilnehmenden Unternehmen behielten das Modell nach der Studie bei?",
+              "options": [
+                "etwa die Hälfte",
+                "etwa neunzig Prozent",
+                "fast alle Unternehmen brachen den Test ab"
+              ],
+              "correctAnswer": "1",
+              "explanation": "Der Text nennt explizit: 'rund neunzig Prozent der teilnehmenden Unternehmen' behielten das Modell bei."
+            },
+            {
+              "id": "q9",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Welches Argument bringen Kritiker gegen die Vier-Tage-Woche vor?",
+              "options": [
+                "Sie funktioniert in allen Branchen gleich gut.",
+                "Sie lässt sich nicht ohne Weiteres auf alle Branchen übertragen.",
+                "Sie wird von der Politik grundsätzlich abgelehnt."
+              ],
+              "correctAnswer": "1",
+              "explanation": "Absatz 3: 'Kritiker weisen darauf hin, dass sich die Ergebnisse nicht ohne Weiteres auf alle Branchen übertragen lassen.'"
+            },
+            {
+              "id": "q10",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Welche Branchen werden im Text als besonders schwierig für das Modell genannt?",
+              "options": [
+                "Verwaltung und Büro",
+                "Pflege, Handwerk und Einzelhandel",
+                "IT und Softwareentwicklung"
+              ],
+              "correctAnswer": "1",
+              "explanation": "Der Text nennt konkret: 'in der Pflege, im Handwerk oder im Einzelhandel deutlich schwieriger'."
+            },
+            {
+              "id": "q11",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Wovor warnen Wirtschaftsverbände laut Text?",
+              "options": [
+                "vor steigenden Lohnkosten pro Stunde",
+                "vor sinkender Kundenzufriedenheit",
+                "vor einem Rückgang der Bewerberzahlen"
+              ],
+              "correctAnswer": "0",
+              "explanation": "Absatz 3: 'könnten die Lohnkosten pro Stunde steigen, was insbesondere kleinere Betriebe belasten würde.'"
+            },
+            {
+              "id": "q12",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Womit begründen Befürworter mögliche Produktivitätssteigerungen?",
+              "options": [
+                "mit längeren Pausen für alle Mitarbeitenden",
+                "mit besserer Organisation und weniger überflüssigen Besprechungen",
+                "mit einer generellen Gehaltserhöhung"
+              ],
+              "correctAnswer": "1",
+              "explanation": "Absatz 4 nennt 'bessere Organisation, den Abbau überflüssiger Besprechungen und den gezielten Einsatz digitaler Werkzeuge'."
+            },
+            {
+              "id": "q13",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Welchen Vorteil sehen Unternehmen laut Text bei der Personalsuche?",
+              "options": [
+                "Die Vier-Tage-Woche macht sie attraktiver für Bewerbende.",
+                "Sie müssen keine neuen Mitarbeitenden mehr einstellen.",
+                "Bewerbende bevorzugen grundsätzlich höhere Gehälter."
+              ],
+              "correctAnswer": "0",
+              "explanation": "Absatz 4: Die Vier-Tage-Woche wird 'zu einem wichtigen Argument im Wettbewerb um qualifizierte Bewerberinnen und Bewerber'."
+            },
+            {
+              "id": "q14",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Was macht das Bundesarbeitsministerium laut Text?",
+              "options": [
+                "Es verbietet die Vier-Tage-Woche in bestimmten Branchen.",
+                "Es fördert ein Pilotprojekt mit mittelständischen Unternehmen.",
+                "Es schreibt die Vier-Tage-Woche für alle Betriebe verbindlich vor."
+              ],
+              "correctAnswer": "1",
+              "explanation": "Absatz 5: 'fördert das Bundesarbeitsministerium ein Pilotprojekt, an dem sich mehrere mittelständische Unternehmen freiwillig beteiligen.'"
+            },
+            {
+              "id": "q15",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Wie lautet das Fazit des Textes?",
+              "options": [
+                "Die Vier-Tage-Woche wird sich sicher überall durchsetzen.",
+                "Die Debatte über flexiblere Arbeitszeitmodelle wird weitergehen.",
+                "Das Thema wird in Zukunft an Bedeutung verlieren."
+              ],
+              "correctAnswer": "1",
+              "explanation": "Letzter Absatz: 'die Debatte ... wird nicht mehr verschwinden' — offen bleibt nur, ob sich das Modell als Standard durchsetzt."
+            }
+          ]
+        },
+        {
+          "id": "lesen-3",
+          "title": "Teil 3",
+          "description": "Zehn Personen suchen ein passendes Angebot. Lesen Sie die Situationen und ordnen Sie jeweils die passende Anzeige (a–j) zu. Achtung: Für eine Situation gibt es kein passendes Angebot — wählen Sie in diesem Fall 'X — trifft nicht zu'.",
+          "pointsPerQuestion": 3,
+          "layout": "matching-reference",
+          "referenceListTitle": "Anzeigen a–j",
+          "referenceList": [
+            {
+              "code": "a",
+              "text": "VHS Sprachkurs Spanisch A1, samstags 10–13 Uhr, Beginn Anfang März, keine Vorkenntnisse nötig, Lehrbuch im Kurspreis enthalten."
+            },
+            {
+              "code": "b",
+              "text": "Yoga am Abend – Kurs für Berufstätige, dienstags 19:30 Uhr, Anfänger und Fortgeschrittene willkommen, Anmeldung online."
+            },
+            {
+              "code": "c",
+              "text": "Umzugshelfer gesucht: Firma bietet flexible Nebenjobs am Wochenende, gute Bezahlung, körperliche Fitness erforderlich, kein Führerschein nötig."
+            },
+            {
+              "code": "d",
+              "text": "Nachhilfe Mathematik für Oberstufe, erfahrene Lehrkraft, Einzelunterricht online oder vor Ort, erste Probestunde kostenlos."
+            },
+            {
+              "code": "e",
+              "text": "Second-Hand-Kindermöbel-Basar am Samstag im Gemeindezentrum, Anlieferung ab 9 Uhr, Verkauf ab 11 Uhr, Eintritt frei."
+            },
+            {
+              "code": "f",
+              "text": "Fitnessstudio bietet dreimonatige Probemitgliedschaft zum halben Preis, inklusive Kursen wie Spinning und Zumba, Kündigung jederzeit möglich."
+            },
+            {
+              "code": "g",
+              "text": "Volkshochschule sucht ehrenamtliche Lesepaten für Grundschulkinder, wöchentlich eine Stunde, keine Vorkenntnisse notwendig, Einführung wird angeboten."
+            },
+            {
+              "code": "h",
+              "text": "Computerkurs für Senioren: Grundlagen von Internet und E-Mail, kleine Gruppen, geduldige Betreuung, dienstags und donnerstags vormittags."
+            },
+            {
+              "code": "i",
+              "text": "Wohnungsgenossenschaft vermietet möblierte Zwei-Zimmer-Wohnung ab sofort, zentrale Lage, Nichtraucherhaushalt, Haustiere nach Absprache möglich."
+            },
+            {
+              "code": "j",
+              "text": "Kochkurs 'Vegetarisch kochen leicht gemacht', vier Abende im Monat, alle Zutaten werden gestellt, Anmeldung begrenzt auf zwölf Personen."
+            },
+            {
+              "code": "X",
+              "text": "Trifft nicht zu — keines der Angebote passt."
+            }
+          ],
+          "questions": [
+            {
+              "id": "q16",
+              "type": "matching",
+              "points": 3,
+              "text": "Frau Berger möchte abends nach der Arbeit etwas für ihre Fitness tun und sucht ein Sportangebot, das speziell für Berufstätige gedacht ist.",
+              "options": [
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+                "g",
+                "h",
+                "i",
+                "j",
+                "X"
+              ],
+              "correctAnswer": "b",
+              "explanation": "Anzeige b richtet sich ausdrücklich an Berufstätige und findet abends (19:30 Uhr) statt."
+            },
+            {
+              "id": "q17",
+              "type": "matching",
+              "points": 3,
+              "text": "Herr Aydin ist Rentner und möchte lernen, wie er E-Mails schreiben und im Internet surfen kann. Er hat bisher kaum Erfahrung mit Computern.",
+              "options": [
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+                "g",
+                "h",
+                "i",
+                "j",
+                "X"
+              ],
+              "correctAnswer": "h",
+              "explanation": "Anzeige h ist ein Computerkurs für Senioren zu genau diesen Grundlagen."
+            },
+            {
+              "id": "q18",
+              "type": "matching",
+              "points": 3,
+              "text": "Die Familie Weber braucht dringend einen günstigen Kinderschreibtisch und ein Bett für ihre Tochter, möchte aber nicht viel Geld ausgeben.",
+              "options": [
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+                "g",
+                "h",
+                "i",
+                "j",
+                "X"
+              ],
+              "correctAnswer": "e",
+              "explanation": "Der Second-Hand-Kindermöbel-Basar (e) bietet genau solche günstigen Kindermöbel an."
+            },
+            {
+              "id": "q19",
+              "type": "matching",
+              "points": 3,
+              "text": "Lukas geht in die elfte Klasse und hat große Schwierigkeiten in Mathematik. Er sucht jemanden, der ihm regelmäßig hilft.",
+              "options": [
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+                "g",
+                "h",
+                "i",
+                "j",
+                "X"
+              ],
+              "correctAnswer": "d",
+              "explanation": "Anzeige d bietet Mathematik-Nachhilfe für die Oberstufe an."
+            },
+            {
+              "id": "q20",
+              "type": "matching",
+              "points": 3,
+              "text": "Herr Novak zieht am Wochenende in eine neue Stadt und braucht kurzfristig helfende Hände beim Tragen der Möbel.",
+              "options": [
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+                "g",
+                "h",
+                "i",
+                "j",
+                "X"
+              ],
+              "correctAnswer": "c",
+              "explanation": "Anzeige c bietet flexible Umzugshelfer am Wochenende an."
+            },
+            {
+              "id": "q21",
+              "type": "matching",
+              "points": 3,
+              "text": "Frau Sultani interessiert sich für vegetarische Ernährung und würde gerne neue Rezepte in geselliger Runde ausprobieren.",
+              "options": [
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+                "g",
+                "h",
+                "i",
+                "j",
+                "X"
+              ],
+              "correctAnswer": "j",
+              "explanation": "Der Kochkurs 'Vegetarisch kochen leicht gemacht' (j) passt genau zu diesem Wunsch."
+            },
+            {
+              "id": "q22",
+              "type": "matching",
+              "points": 3,
+              "text": "Herr Klein möchte sich ehrenamtlich engagieren und Kindern beim Lesenlernen helfen, hat aber noch keine pädagogische Erfahrung.",
+              "options": [
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+                "g",
+                "h",
+                "i",
+                "j",
+                "X"
+              ],
+              "correctAnswer": "g",
+              "explanation": "Anzeige g sucht ehrenamtliche Lesepaten und bietet eine Einführung ohne Vorkenntnisse an."
+            },
+            {
+              "id": "q23",
+              "type": "matching",
+              "points": 3,
+              "text": "Frau Ott sucht eine möblierte Wohnung in zentraler Lage, da sie ihre Katze mitbringen möchte und flexibel einziehen muss.",
+              "options": [
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+                "g",
+                "h",
+                "i",
+                "j",
+                "X"
+              ],
+              "correctAnswer": "i",
+              "explanation": "Anzeige i bietet eine möblierte Wohnung in zentraler Lage mit Haustieren nach Absprache."
+            },
+            {
+              "id": "q24",
+              "type": "matching",
+              "points": 3,
+              "text": "Herr Bauer möchte endlich Spanisch lernen, kann aber nur samstags Zeit finden, da er unter der Woche arbeitet.",
+              "options": [
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+                "g",
+                "h",
+                "i",
+                "j",
+                "X"
+              ],
+              "correctAnswer": "a",
+              "explanation": "Anzeige a ist ein Spanischkurs, der samstags 10–13 Uhr stattfindet."
+            },
+            {
+              "id": "q25",
+              "type": "matching",
+              "points": 3,
+              "text": "Frau Lehmann sucht einen Deutschkurs auf Niveau C1, den sie abends nach der Arbeit besuchen kann.",
+              "options": [
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+                "g",
+                "h",
+                "i",
+                "j",
+                "X"
+              ],
+              "correctAnswer": "X",
+              "explanation": "Kein Angebot in der Liste ist ein Deutschkurs — daher ist hier 'trifft nicht zu' die richtige Antwort."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sprachbausteine",
+      "name": "Sprachbausteine",
+      "maxPoints": 30,
+      "order": 2,
+      "parts": [
+        {
+          "id": "sprachbausteine-1",
+          "title": "Teil 1",
+          "description": "Lesen Sie den Text. Wählen Sie für jede Lücke (1–10) die richtige Lösung (a, b oder c).",
+          "pointsPerQuestion": 1.5,
+          "layout": "gap-text",
+          "sharedPassage": {
+            "title": "Nachhaltiger Konsum",
+            "html": "Nachhaltiger Konsum gewinnt <b>(1)</b> den vergangenen Jahren zunehmend an Bedeutung. Viele Verbraucherinnen und Verbraucher achten heute stärker darauf, <b>(2)</b> sie kaufen und welche Auswirkungen ihr Konsumverhalten auf die Umwelt hat. Besonders junge Menschen <b>(3)</b> sich zunehmend für Fragen der Nachhaltigkeit, was sich auch im Kaufverhalten zeigt.<br><br>Ein wichtiger Trend ist der sogenannte „bewusste Konsum“. Dabei geht es nicht <b>(4)</b> darum, möglichst wenig zu kaufen, sondern gezielt Produkte auszuwählen, <b>(5)</b> langlebig und fair produziert sind. Immer mehr Unternehmen reagieren <b>(6)</b> diesen Wunsch und bieten transparente Informationen über Herkunft und Produktionsbedingungen ihrer Waren an.<br><br>Auch der Second-Hand-Markt <b>(7)</b> in den letzten Jahren stark gewachsen. Online-Plattformen für gebrauchte Kleidung und Möbel erfreuen sich großer Beliebtheit, <b>(8)</b> sie eine kostengünstige und umweltfreundliche Alternative zum Neukauf darstellen. Kritiker weisen jedoch darauf hin, dass nachhaltiger Konsum allein nicht ausreicht, <b>(9)</b> die globalen Umweltprobleme zu lösen. Notwendig seien zusätzlich politische Maßnahmen und ein grundsätzliches Umdenken <b>(10)</b> der Wirtschaft."
+          },
+          "questions": [
+            {
+              "id": "q26",
+              "type": "fillInTheBlank",
+              "points": 1.5,
+              "gapNumber": 1,
+              "text": "Lücke (1)",
+              "options": [
+                "in",
+                "seit",
+                "während"
+              ],
+              "correctAnswer": "0",
+              "explanation": "„In den vergangenen Jahren“ ist die feste Zeitangabe; „seit“ bräuchte einen Startpunkt, „während“ passt semantisch nicht."
+            },
+            {
+              "id": "q27",
+              "type": "fillInTheBlank",
+              "points": 1.5,
+              "gapNumber": 2,
+              "text": "Lücke (2)",
+              "options": [
+                "was",
+                "dass",
+                "ob"
+              ],
+              "correctAnswer": "0",
+              "explanation": "Indirekte Frage nach dem Inhalt: „worauf sie achten: was sie kaufen“ — Fragewort „was“ ist korrekt."
+            },
+            {
+              "id": "q28",
+              "type": "fillInTheBlank",
+              "points": 1.5,
+              "gapNumber": 3,
+              "text": "Lücke (3)",
+              "options": [
+                "interessiert",
+                "interessieren",
+                "interessiere"
+              ],
+              "correctAnswer": "1",
+              "explanation": "Subjekt „junge Menschen“ ist Plural → „interessieren sich“."
+            },
+            {
+              "id": "q29",
+              "type": "fillInTheBlank",
+              "points": 1.5,
+              "gapNumber": 4,
+              "text": "Lücke (4)",
+              "options": [
+                "nur",
+                "kaum",
+                "sehr"
+              ],
+              "correctAnswer": "0",
+              "explanation": "Feste Wendung „nicht nur ... sondern“ verlangt „nur“."
+            },
+            {
+              "id": "q30",
+              "type": "fillInTheBlank",
+              "points": 1.5,
+              "gapNumber": 5,
+              "text": "Lücke (5)",
+              "options": [
+                "die",
+                "der",
+                "dessen"
+              ],
+              "correctAnswer": "0",
+              "explanation": "Relativpronomen bezieht sich auf „Produkte“ (Plural, Nominativ) → „die“."
+            },
+            {
+              "id": "q31",
+              "type": "fillInTheBlank",
+              "points": 1.5,
+              "gapNumber": 6,
+              "text": "Lücke (6)",
+              "options": [
+                "auf",
+                "für",
+                "mit"
+              ],
+              "correctAnswer": "0",
+              "explanation": "Feste Verbindung: „reagieren auf + Akkusativ“."
+            },
+            {
+              "id": "q32",
+              "type": "fillInTheBlank",
+              "points": 1.5,
+              "gapNumber": 7,
+              "text": "Lücke (7)",
+              "options": [
+                "ist",
+                "hat",
+                "war"
+              ],
+              "correctAnswer": "0",
+              "explanation": "„Wachsen“ bildet das Perfekt mit „sein“ → „ist ... gewachsen“."
+            },
+            {
+              "id": "q33",
+              "type": "fillInTheBlank",
+              "points": 1.5,
+              "gapNumber": 8,
+              "text": "Lücke (8)",
+              "options": [
+                "weil",
+                "obwohl",
+                "damit"
+              ],
+              "correctAnswer": "0",
+              "explanation": "Kausaler Zusammenhang (Grund für Beliebtheit) → „weil“."
+            },
+            {
+              "id": "q34",
+              "type": "fillInTheBlank",
+              "points": 1.5,
+              "gapNumber": 9,
+              "text": "Lücke (9)",
+              "options": [
+                "um",
+                "für",
+                "damit"
+              ],
+              "correctAnswer": "0",
+              "explanation": "Feste Infinitivkonstruktion „ausreichen, um ... zu lösen“."
+            },
+            {
+              "id": "q35",
+              "type": "fillInTheBlank",
+              "points": 1.5,
+              "gapNumber": 10,
+              "text": "Lücke (10)",
+              "options": [
+                "in",
+                "bei",
+                "an"
+              ],
+              "correctAnswer": "0",
+              "explanation": "„Umdenken in der Wirtschaft“ ist die passende Präposition."
+            }
+          ]
+        },
+        {
+          "id": "sprachbausteine-2",
+          "title": "Teil 2",
+          "description": "Lesen Sie den Text. Wählen Sie für jede Lücke (1–10) das passende Wort aus der Liste. Jedes Wort kann nur einmal verwendet werden. Es gibt mehr Wörter als Lücken.",
+          "pointsPerQuestion": 1.5,
+          "layout": "gap-text-wordbank",
+          "wordBank": [
+            "Da",
+            "Eine",
+            "deutlich",
+            "Ein",
+            "erheblich",
+            "Manche",
+            "Mit",
+            "außerdem",
+            "Trotz",
+            "Um",
+            "Obwohl",
+            "Dennoch",
+            "sogar",
+            "Weil",
+            "Bei"
+          ],
+          "sharedPassage": {
+            "title": "Stressbewältigung im Berufsleben",
+            "html": "Stress im Berufsleben ist längst keine Seltenheit mehr. <b>(1)</b> immer mehr Menschen über Termindruck und Überstunden klagen, suchen Unternehmen nach Wegen, ihre Beschäftigten zu entlasten. <b>(2)</b> beliebte Methode ist das sogenannte Zeitmanagement: Wer seine Aufgaben sinnvoll plant und Prioritäten setzt, fühlt sich <b>(3)</b> weniger überfordert.<br><br><b>(4)</b> wichtiger Faktor ist die Arbeitsumgebung. Ruhige Rückzugsorte und flexible Pausenregelungen tragen <b>(5)</b> dazu bei, dass sich Mitarbeitende erholen können. <b>(6)</b> Unternehmen bieten inzwischen sogar spezielle Entspannungsräume an.<br><br>Auch Bewegung spielt eine wichtige Rolle. <b>(7)</b> regelmäßiger sportlicher Aktivität lässt sich Stress nachweislich abbauen. Viele Firmen fördern <b>(8)</b> deshalb den Besuch von Fitnessstudios oder bieten betriebssportliche Angebote an.<br><br><b>(9)</b> allen Maßnahmen bleibt jedoch entscheidend, dass Beschäftigte selbst lernen, Grenzen zu setzen und Erholungsphasen bewusst einzuplanen. <b>(10)</b> langfristig gesund und leistungsfähig zu bleiben, ist ein ausgewogenes Verhältnis zwischen Arbeit und Freizeit unverzichtbar."
+          },
+          "questions": [
+            {
+              "id": "q36",
+              "type": "wordBank",
+              "points": 1.5,
+              "gapNumber": 1,
+              "text": "Lücke (1)",
+              "correctAnswer": "Da",
+              "explanation": "„Da“ leitet hier einen kausalen Nebensatz ein (= weil)."
+            },
+            {
+              "id": "q37",
+              "type": "wordBank",
+              "points": 1.5,
+              "gapNumber": 2,
+              "text": "Lücke (2)",
+              "correctAnswer": "Eine",
+              "explanation": "„Eine beliebte Methode“ — unbestimmter Artikel Nominativ Feminin."
+            },
+            {
+              "id": "q38",
+              "type": "wordBank",
+              "points": 1.5,
+              "gapNumber": 3,
+              "text": "Lücke (3)",
+              "correctAnswer": "deutlich",
+              "explanation": "Adverb zur Verstärkung: „fühlt sich deutlich weniger überfordert“."
+            },
+            {
+              "id": "q39",
+              "type": "wordBank",
+              "points": 1.5,
+              "gapNumber": 4,
+              "text": "Lücke (4)",
+              "correctAnswer": "Ein",
+              "explanation": "„Ein wichtiger Faktor“ — unbestimmter Artikel Nominativ Maskulin."
+            },
+            {
+              "id": "q40",
+              "type": "wordBank",
+              "points": 1.5,
+              "gapNumber": 5,
+              "text": "Lücke (5)",
+              "correctAnswer": "erheblich",
+              "explanation": "Adverb: „tragen erheblich dazu bei“ (= in großem Maß)."
+            },
+            {
+              "id": "q41",
+              "type": "wordBank",
+              "points": 1.5,
+              "gapNumber": 6,
+              "text": "Lücke (6)",
+              "correctAnswer": "Manche",
+              "explanation": "„Manche Unternehmen“ — nicht alle, sondern ein Teil."
+            },
+            {
+              "id": "q42",
+              "type": "wordBank",
+              "points": 1.5,
+              "gapNumber": 7,
+              "text": "Lücke (7)",
+              "correctAnswer": "Mit",
+              "explanation": "„Mit regelmäßiger sportlicher Aktivität lässt sich Stress abbauen“ — Mittel-Angabe."
+            },
+            {
+              "id": "q43",
+              "type": "wordBank",
+              "points": 1.5,
+              "gapNumber": 8,
+              "text": "Lücke (8)",
+              "correctAnswer": "außerdem",
+              "explanation": "Zusätzliches Argument wird angeschlossen: „außerdem“."
+            },
+            {
+              "id": "q44",
+              "type": "wordBank",
+              "points": 1.5,
+              "gapNumber": 9,
+              "text": "Lücke (9)",
+              "correctAnswer": "Trotz",
+              "explanation": "Konzessive Präposition: „Trotz allen Maßnahmen bleibt entscheidend...“."
+            },
+            {
+              "id": "q45",
+              "type": "wordBank",
+              "points": 1.5,
+              "gapNumber": 10,
+              "text": "Lücke (10)",
+              "correctAnswer": "Um",
+              "explanation": "Finalkonstruktion: „Um ... zu bleiben, ist ... unverzichtbar“."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hoeren",
+      "name": "Hörverstehen",
+      "maxPoints": 75,
+      "order": 3,
+      "parts": [
+        {
+          "id": "hoeren-1",
+          "title": "Teil 1",
+          "description": "Sie hören fünf kurze Durchsagen bzw. Gesprächsausschnitte. Beantworten Sie zu jedem Hörtext eine Frage. Audiodateien sind in dieser Vorschau noch nicht hinterlegt — nutzen Sie das Transkript zum Üben.",
+          "pointsPerQuestion": 3,
+          "layout": "audio-list",
+          "audioNote": "🎧 Audio-Wiedergabe folgt in einer späteren Version. Aktuell als Lesetranskript zum Üben verfügbar.",
+          "questions": [
+            {
+              "id": "q46",
+              "type": "multipleChoice",
+              "points": 3,
+              "transcript": "Achtung, eine Durchsage für alle Fahrgäste: Der ICE 573 nach München fährt heute witterungsbedingt nicht von Gleis 8, sondern von Gleis 12 ab. Wir bitten alle Reisenden, sich rechtzeitig zum neuen Gleis zu begeben. Wir entschuldigen uns für die Unannehmlichkeiten.",
+              "text": "Was hat sich geändert?",
+              "options": [
+                "Der Zug fällt aus.",
+                "Der Zug fährt von einem anderen Gleis ab.",
+                "Der Zug hat Verspätung."
+              ],
+              "correctAnswer": "1",
+              "explanation": "Die Durchsage sagt klar: der Zug fährt „nicht von Gleis 8, sondern von Gleis 12“ ab."
+            },
+            {
+              "id": "q47",
+              "type": "multipleChoice",
+              "points": 3,
+              "transcript": "Guten Tag, hier ist die Zahnarztpraxis Dr. Feldmann. Leider können wir Ihren Anruf gerade nicht entgegennehmen. Unsere Praxis ist heute wegen einer Fortbildung geschlossen. Bei akuten Notfällen wenden Sie sich bitte an den zahnärztlichen Notdienst unter der Nummer 116117. Ansonsten erreichen Sie uns morgen ab 8 Uhr wieder.",
+              "text": "Warum ist die Praxis heute geschlossen?",
+              "options": [
+                "wegen Urlaub",
+                "wegen einer Fortbildung",
+                "wegen eines Notfalls"
+              ],
+              "correctAnswer": "1",
+              "explanation": "Die Ansage nennt ausdrücklich „wegen einer Fortbildung“ als Grund."
+            },
+            {
+              "id": "q48",
+              "type": "multipleChoice",
+              "points": 3,
+              "transcript": "A: Hast du die Unterlagen für das Meeting morgen schon vorbereitet?\nB: Fast. Mir fehlen noch die aktuellen Verkaufszahlen, die bekomme ich erst heute Nachmittag von Herrn Krause.\nA: Kein Problem, das Meeting beginnt ja erst um 14 Uhr.",
+              "text": "Worauf wartet die Sprecherin noch?",
+              "options": [
+                "auf eine Unterschrift",
+                "auf aktuelle Verkaufszahlen",
+                "auf eine Raumbuchung"
+              ],
+              "correctAnswer": "1",
+              "explanation": "Sie sagt: „Mir fehlen noch die aktuellen Verkaufszahlen“."
+            },
+            {
+              "id": "q49",
+              "type": "multipleChoice",
+              "points": 3,
+              "transcript": "Liebe Kundinnen und Kunden, wir weisen Sie darauf hin, dass unser Geschäft heute aufgrund des Feiertags bereits um 18 Uhr schließt. Bitte beenden Sie Ihre Einkäufe rechtzeitig. Wir wünschen Ihnen noch einen angenehmen Aufenthalt.",
+              "text": "Was erfahren die Kundinnen und Kunden?",
+              "options": [
+                "Das Geschäft öffnet später.",
+                "Das Geschäft schließt heute früher.",
+                "Das Geschäft bleibt heute geschlossen."
+              ],
+              "correctAnswer": "1",
+              "explanation": "„schließt ... bereits um 18 Uhr“ bedeutet früher als sonst üblich."
+            },
+            {
+              "id": "q50",
+              "type": "multipleChoice",
+              "points": 3,
+              "transcript": "A: Guten Tag, ich wollte fragen, ob mein Paket schon angekommen ist.\nB: Einen Moment, ich schaue nach... Nein, laut System ist es noch unterwegs. Es sollte aber spätestens morgen bei Ihnen ankommen.",
+              "text": "Wann wird das Paket voraussichtlich ankommen?",
+              "options": [
+                "heute",
+                "morgen",
+                "in einer Woche"
+              ],
+              "correctAnswer": "1",
+              "explanation": "„Es sollte aber spätestens morgen bei Ihnen ankommen.“"
+            }
+          ]
+        },
+        {
+          "id": "hoeren-2",
+          "title": "Teil 2",
+          "description": "Sie hören ein Interview zum Thema nachhaltiges Reisen. Beantworten Sie die zehn Fragen dazu.",
+          "pointsPerQuestion": 3,
+          "layout": "shared-passage",
+          "audioNote": "🎧 Audio-Wiedergabe folgt in einer späteren Version. Aktuell als Lesetranskript zum Üben verfügbar.",
+          "sharedPassage": {
+            "title": "Interview: Nachhaltiges Reisen",
+            "paragraphs": [
+              "Moderator: Herzlich willkommen zu unserem Podcast. Heute spreche ich mit Frau Dr. Anna Berg, Expertin für nachhaltigen Tourismus. Frau Berg, was genau versteht man unter nachhaltigem Reisen?",
+              "Frau Berg: Nachhaltiges Reisen bedeutet, dass man beim Reisen möglichst wenig negative Auswirkungen auf Umwelt, lokale Wirtschaft und Kultur hinterlässt. Das betrifft zum Beispiel die Wahl des Verkehrsmittels, die Unterkunft, aber auch das Verhalten vor Ort.",
+              "Moderator: Welches Verkehrsmittel empfehlen Sie denn für umweltbewusste Reisende?",
+              "Frau Berg: Wo immer möglich, würde ich die Bahn empfehlen. Sie verursacht im Vergleich zum Flugzeug deutlich weniger CO2-Emissionen pro Person. Bei längeren Strecken ist das natürlich nicht immer praktikabel, aber innerhalb Europas ist die Bahn inzwischen eine echte Alternative geworden, gerade durch neue Nachtzugverbindungen.",
+              "Moderator: Und wie sieht es mit der Unterkunft aus?",
+              "Frau Berg: Hier lohnt sich ein Blick auf Zertifikate wie das europäische Umweltzeichen. Solche Hotels achten zum Beispiel auf Wasser- und Energieverbrauch, verzichten auf Einwegplastik und beziehen häufig regionale Lebensmittel. Auch kleinere, familiengeführte Unterkünfte sind oft nachhaltiger als große internationale Ketten, weil das Geld direkt in der Region bleibt.",
+              "Moderator: Viele denken bei nachhaltigem Reisen zuerst an den ökologischen Aspekt. Sie sprachen aber auch die lokale Wirtschaft an.",
+              "Frau Berg: Genau, das wird oft unterschätzt. Wenn Reisende in lokalen Restaurants essen, auf Märkten einkaufen und Führungen von einheimischen Anbietern buchen, profitiert die Bevölkerung vor Ort direkt. Das ist besonders in Regionen wichtig, die stark vom Tourismus abhängig sind.",
+              "Moderator: Gibt es auch Verhaltensregeln, die Reisende beachten sollten?",
+              "Frau Berg: Ja, unbedingt. Respekt gegenüber der lokalen Kultur ist entscheidend. Das beginnt bei angemessener Kleidung an religiösen Stätten und reicht bis zum bewussten Umgang mit Wasser in Regionen, in denen Wasser knapp ist. Auch der berühmte Rat „Nimm nichts mit außer Fotos, hinterlasse nichts außer Fußspuren“ bringt es gut auf den Punkt.",
+              "Moderator: Ist nachhaltiges Reisen automatisch teurer?",
+              "Frau Berg: Nicht unbedingt. Zwar können zertifizierte Öko-Hotels manchmal etwas teurer sein, aber gleichzeitig spart man oft, wenn man auf lokale statt internationale Angebote setzt. Wichtig ist vor allem eine bewusste Planung: weniger, dafür längere Reisen zu machen, ist oft sowohl günstiger als auch nachhaltiger als viele kurze Flugreisen.",
+              "Moderator: Was würden Sie unseren Hörerinnen und Hörern als wichtigsten Tipp mitgeben?",
+              "Frau Berg: Fangen Sie klein an. Man muss nicht sofort alles perfekt machen. Schon die bewusste Entscheidung für den Zug statt das Flugzeug bei einer Reise oder die Unterstützung eines lokalen Anbieters ist ein wichtiger Schritt in die richtige Richtung.",
+              "Moderator: Frau Berg, vielen Dank für das interessante Gespräch."
+            ]
+          },
+          "questions": [
+            {
+              "id": "q51",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Was versteht Frau Berg unter nachhaltigem Reisen?",
+              "options": [
+                "Reisen, die möglichst günstig sind",
+                "Reisen mit möglichst geringen negativen Auswirkungen auf Umwelt, Wirtschaft und Kultur",
+                "Reisen, bei denen man nur mit dem Flugzeug unterwegs ist"
+              ],
+              "correctAnswer": "1",
+              "explanation": "Sie definiert es genau so: „möglichst wenig negative Auswirkungen auf Umwelt, lokale Wirtschaft und Kultur“."
+            },
+            {
+              "id": "q52",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Welches Verkehrsmittel empfiehlt Frau Berg für Europa?",
+              "options": [
+                "das Flugzeug",
+                "die Bahn",
+                "das Auto"
+              ],
+              "correctAnswer": "1",
+              "explanation": "„Wo immer möglich, würde ich die Bahn empfehlen.“"
+            },
+            {
+              "id": "q53",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Warum ist die Bahn laut Frau Berg umweltfreundlicher?",
+              "options": [
+                "Sie ist billiger als das Flugzeug.",
+                "Sie verursacht weniger CO2-Emissionen pro Person.",
+                "Sie ist schneller als das Flugzeug."
+              ],
+              "correctAnswer": "1",
+              "explanation": "„Sie verursacht im Vergleich zum Flugzeug deutlich weniger CO2-Emissionen pro Person.“"
+            },
+            {
+              "id": "q54",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Worauf achten Hotels mit europäischem Umweltzeichen laut Frau Berg?",
+              "options": [
+                "nur auf den Preis",
+                "auf Wasser- und Energieverbrauch sowie regionale Lebensmittel",
+                "auf die Anzahl der Sterne"
+              ],
+              "correctAnswer": "1",
+              "explanation": "Sie nennt „Wasser- und Energieverbrauch“, Verzicht auf Einwegplastik und „regionale Lebensmittel“."
+            },
+            {
+              "id": "q55",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Warum sind kleinere, familiengeführte Unterkünfte oft nachhaltiger?",
+              "options": [
+                "Sie sind meist günstiger.",
+                "Das Geld bleibt direkt in der Region.",
+                "Sie bieten mehr Komfort."
+              ],
+              "correctAnswer": "1",
+              "explanation": "„weil das Geld direkt in der Region bleibt“."
+            },
+            {
+              "id": "q56",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Wie können Reisende die lokale Wirtschaft unterstützen?",
+              "options": [
+                "indem sie in großen Ketten übernachten",
+                "indem sie in lokalen Restaurants essen und auf Märkten einkaufen",
+                "indem sie möglichst wenig Geld ausgeben"
+              ],
+              "correctAnswer": "1",
+              "explanation": "„Wenn Reisende in lokalen Restaurants essen, auf Märkten einkaufen und Führungen von einheimischen Anbietern buchen...“"
+            },
+            {
+              "id": "q57",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Welche Verhaltensregel nennt Frau Berg als Beispiel?",
+              "options": [
+                "angemessene Kleidung an religiösen Stätten",
+                "immer Trinkgeld zu geben",
+                "ausschließlich in Hotels zu übernachten"
+              ],
+              "correctAnswer": "0",
+              "explanation": "„Das beginnt bei angemessener Kleidung an religiösen Stätten...“"
+            },
+            {
+              "id": "q58",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Ist nachhaltiges Reisen laut Frau Berg automatisch teurer?",
+              "options": [
+                "Ja, immer.",
+                "Nein, nicht unbedingt.",
+                "Nur bei Flugreisen."
+              ],
+              "correctAnswer": "1",
+              "explanation": "„Nicht unbedingt“, sagt sie ausdrücklich am Anfang ihrer Antwort."
+            },
+            {
+              "id": "q59",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Was empfiehlt Frau Berg bezüglich der Reisehäufigkeit?",
+              "options": [
+                "viele kurze Reisen statt weniger langer",
+                "weniger, dafür längere Reisen",
+                "gar nicht mehr zu verreisen"
+              ],
+              "correctAnswer": "1",
+              "explanation": "„weniger, dafür längere Reisen zu machen, ist oft ... günstiger als auch nachhaltiger“."
+            },
+            {
+              "id": "q60",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Was ist Frau Bergs wichtigster Tipp am Ende?",
+              "options": [
+                "sofort alles perfekt zu machen",
+                "klein anzufangen und bewusste Entscheidungen zu treffen",
+                "nur noch im eigenen Land zu reisen"
+              ],
+              "correctAnswer": "1",
+              "explanation": "„Fangen Sie klein an. Man muss nicht sofort alles perfekt machen.“"
+            }
+          ]
+        },
+        {
+          "id": "hoeren-3",
+          "title": "Teil 3",
+          "description": "Fünf Personen sprechen über ihr ehrenamtliches Engagement. Entscheiden Sie bei jeder Aussage, ob sie laut den Hörtexten richtig oder falsch ist.",
+          "pointsPerQuestion": 3,
+          "layout": "shared-passage",
+          "audioNote": "🎧 Audio-Wiedergabe folgt in einer späteren Version. Aktuell als Lesetranskript zum Üben verfügbar.",
+          "sharedPassage": {
+            "title": "Fünf Stimmen zum Thema Ehrenamt",
+            "paragraphs": [
+              "Sprecherin 1 (Julia, 24): Ich engagiere mich seit zwei Jahren bei der Tafel. Anfangs habe ich nur einmal im Monat geholfen, mittlerweile bin ich jede Woche dabei. Es macht mir Freude zu sehen, dass meine Arbeit direkt jemandem hilft.",
+              "Sprecher 2 (Thomas, 45): Bei uns im Sportverein fehlen ständig Trainer für die Jugendmannschaften. Ich habe vor einem Jahr angefangen, die U12 zu trainieren, obwohl ich selbst früher nie Fußball gespielt habe. Man wächst mit der Aufgabe.",
+              "Sprecherin 3 (Ayşe, 33): Ich lese einmal pro Woche Kindern in der Bücherei vor. Das mache ich schon seit drei Jahren und finde es erstaunlich, wie sehr sich die Konzentrationsfähigkeit mancher Kinder in dieser Zeit verbessert hat.",
+              "Sprecher 4 (Klaus, 68): Als Rentner habe ich endlich Zeit für ehrenamtliche Arbeit gefunden. Ich fahre einmal wöchentlich ältere Menschen zu Arztterminen, die selbst nicht mehr mobil sind. Früher hatte ich dafür wegen meines Berufs keine Zeit.",
+              "Sprecherin 5 (Mia, 19): Ich bin erst seit drei Monaten dabei und helfe bei der Nachhilfe für Grundschulkinder aus Familien, die sich keine private Nachhilfe leisten können. Am Anfang war ich unsicher, ob ich das schaffe, aber es macht großen Spaß."
+            ]
+          },
+          "questions": [
+            {
+              "id": "q61",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Julia hilft von Anfang an jede Woche bei der Tafel.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ],
+              "correctAnswer": "1",
+              "explanation": "Anfangs half sie „nur einmal im Monat“, erst mittlerweile ist sie jede Woche dabei."
+            },
+            {
+              "id": "q62",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Thomas hatte schon vor seinem Engagement Erfahrung als Fußballspieler.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ],
+              "correctAnswer": "1",
+              "explanation": "Er sagt: „obwohl ich selbst früher nie Fußball gespielt habe“."
+            },
+            {
+              "id": "q63",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Ayşe liest seit drei Jahren regelmäßig Kindern vor.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ],
+              "correctAnswer": "0",
+              "explanation": "„Das mache ich schon seit drei Jahren.“"
+            },
+            {
+              "id": "q64",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Klaus konnte sich schon während seines Berufslebens ehrenamtlich engagieren.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ],
+              "correctAnswer": "1",
+              "explanation": "„Früher hatte ich dafür wegen meines Berufs keine Zeit“ — erst als Rentner fand er Zeit."
+            },
+            {
+              "id": "q65",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Klaus bringt ältere Menschen zu Arztterminen.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ],
+              "correctAnswer": "0",
+              "explanation": "„Ich fahre einmal wöchentlich ältere Menschen zu Arztterminen.“"
+            },
+            {
+              "id": "q66",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Mia engagiert sich bereits seit mehreren Jahren.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ],
+              "correctAnswer": "1",
+              "explanation": "„Ich bin erst seit drei Monaten dabei.“"
+            },
+            {
+              "id": "q67",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Mia hilft bei der Nachhilfe für Kinder aus finanziell schwächeren Familien.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ],
+              "correctAnswer": "0",
+              "explanation": "„Familien, die sich keine private Nachhilfe leisten können.“"
+            },
+            {
+              "id": "q68",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Thomas trainiert eine Erwachsenenmannschaft im Sportverein.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ],
+              "correctAnswer": "1",
+              "explanation": "Er trainiert „die U12“, also eine Jugendmannschaft, keine Erwachsenenmannschaft."
+            },
+            {
+              "id": "q69",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Julia sieht direkt, dass ihre Arbeit anderen Menschen hilft.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ],
+              "correctAnswer": "0",
+              "explanation": "„Es macht mir Freude zu sehen, dass meine Arbeit direkt jemandem hilft.“"
+            },
+            {
+              "id": "q70",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "Mia war sich von Anfang an sicher, dass sie die Aufgabe schafft.",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ],
+              "correctAnswer": "1",
+              "explanation": "„Am Anfang war ich unsicher, ob ich das schaffe.“"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "schreiben",
+      "name": "Schriftlicher Ausdruck",
+      "maxPoints": 45,
+      "order": 4,
+      "parts": [
+        {
+          "id": "schreiben-1",
+          "title": "Aufgabe",
+          "description": "Wählen Sie eines der beiden Themen und schreiben Sie einen zusammenhängenden Text (150–200 Wörter). Achten Sie auf eine passende Anrede, eine klare Gliederung und einen passenden Schluss.",
+          "questions": [
+            {
+              "id": "q71",
+              "type": "writing",
+              "points": 45,
+              "topics": [
+                {
+                  "id": "topic-a",
+                  "label": "Thema A — Beschwerdebrief",
+                  "prompt": "Sie haben vor zwei Wochen einen Laptop online bestellt. Das Gerät ist beschädigt angekommen und lässt sich nicht einschalten. Schreiben Sie eine E-Mail an den Kundendienst. Gehen Sie auf folgende Punkte ein: Beschreiben Sie das Problem genau. Erklären Sie, welche Lösung Sie sich wünschen (Reparatur, Umtausch oder Rückerstattung). Setzen Sie dem Kundendienst eine angemessene Frist für die Antwort.",
+                  "sampleAnswer": "Sehr geehrte Damen und Herren,\n\nam 3. August habe ich bei Ihnen einen Laptop des Modells XPS 15 bestellt (Bestellnummer 48213). Das Gerät kam am vergangenen Montag bei mir an, leider jedoch in beschädigtem Zustand: Das Gehäuse weist einen deutlichen Riss auf, und der Laptop lässt sich trotz mehrerer Versuche nicht einschalten.\n\nDa ich das Gerät dringend für meine Arbeit benötige, ist dieser Zustand für mich sehr ärgerlich. Ich bitte Sie daher um eine schnelle Lösung des Problems. Am liebsten wäre mir ein Umtausch gegen ein einwandfreies Gerät. Sollte dies nicht kurzfristig möglich sein, bitte ich stattdessen um vollständige Rückerstattung des Kaufpreises.\n\nIch bitte Sie, mir innerhalb der nächsten zehn Tage mitzuteilen, wie Sie weiter vorgehen möchten. Die entsprechenden Fotos des beschädigten Geräts habe ich dieser E-Mail beigefügt.\n\nFür eine rasche Rückmeldung wäre ich Ihnen sehr dankbar.\n\nMit freundlichen Grüßen\nSandra Klein"
+                },
+                {
+                  "id": "topic-b",
+                  "label": "Thema B — Antrag auf Gleitzeit",
+                  "prompt": "Sie möchten in Ihrem Unternehmen von festen Arbeitszeiten auf ein Gleitzeitmodell wechseln. Schreiben Sie eine E-Mail an Ihre Vorgesetzte / Ihren Vorgesetzten. Gehen Sie auf folgende Punkte ein: Erklären Sie, warum Sie diese Änderung wünschen. Beschreiben Sie, wie Sie sich das neue Modell konkret vorstellen. Bieten Sie an, die Details in einem persönlichen Gespräch zu klären.",
+                  "sampleAnswer": "Sehr geehrte Frau Hoffmann,\n\nseit einigen Monaten fällt es mir aufgrund der Betreuungszeiten meines Kindes zunehmend schwer, pünktlich um 8 Uhr im Büro zu sein. Ich möchte Sie daher bitten, meinen Wechsel von der festen Arbeitszeit zu einem Gleitzeitmodell zu prüfen.\n\nKonkret stelle ich mir vor, meine Kernarbeitszeit weiterhin zuverlässig zwischen 10 und 15 Uhr einzuhalten, den Arbeitsbeginn jedoch flexibel zwischen 7:30 und 9:30 Uhr zu wählen. Meine vertraglich vereinbarte Wochenstundenzahl würde sich dadurch nicht ändern; ich würde lediglich die Arbeitszeit an manchen Tagen etwas später beginnen und entsprechend später beenden.\n\nIch bin überzeugt, dass sich diese Änderung problemlos mit den Anforderungen meiner Tätigkeit vereinbaren lässt, da die meisten Absprachen mit Kolleginnen und Kollegen ohnehin im späteren Vormittag stattfinden.\n\nGerne bespreche ich die Details persönlich mit Ihnen und finde eine für alle Seiten passende Lösung. Über einen kurzen Gesprächstermin in den nächsten Tagen würde ich mich sehr freuen.\n\nMit freundlichen Grüßen\nMarkus Fischer"
+                }
+              ],
+              "criteria": {
+                "aufgabenbewältigung": {
+                  "description": "Werden alle im Thema geforderten Punkte vollständig und passend behandelt?",
+                  "maxPoints": 15
+                },
+                "kommunikativeGestaltung": {
+                  "description": "Struktur, Kohärenz und Verwendung von Konnektoren (Textaufbau, roter Faden)",
+                  "maxPoints": 10
+                },
+                "korrektheit": {
+                  "description": "Grammatik, Syntax und Orthografie",
+                  "maxPoints": 10
+                },
+                "wortschatz": {
+                  "description": "Vielfalt und Angemessenheit des Wortschatzes für den Kontext",
+                  "maxPoints": 10
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "status": "published",
+  "suggestedTheme": "Vier-Tage-Woche, nachhaltiger Konsum, Stressbewältigung, Ehrenamt, nachhaltiges Reisen (Mischthemen)"
+}

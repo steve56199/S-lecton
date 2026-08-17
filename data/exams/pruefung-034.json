@@ -1,0 +1,1309 @@
+{
+  "id": "pruefung-034",
+  "title": "Modelltest B2 — Prüfung 034",
+  "description": "[ZU ERSTELLEN] Vollständiger telc-B2-Modelltest (Original-Übungsmaterial), Themenvorschlag: Digitalisierung des Alltags.",
+  "duration": 9000,
+  "totalPoints": 225,
+  "status": "draft",
+  "suggestedTheme": "Digitalisierung des Alltags",
+  "sourceHints": {
+    "hinweis": "Allgemeine, kostenlose Quellen für authentisches B2-Hörmaterial. Details siehe HOEREN-QUELLEN.md im Projekt-Root. Kein Audio wird hier redistribuiert — nur Transkript-Vorlagen im telc-Format.",
+    "hoeren-1": {
+      "teil": "Teil 1 — kurze Durchsagen/Gespräche",
+      "empfehlung": "Kurze Alltagsszenen: Easy German Straßeninterviews (Ausschnitte) oder Slow German-Episoden als Vorlage für Tempo/Wortschatz.",
+      "quellen": [
+        "Easy German (YouTube)",
+        "Slow German (slowgerman.com)"
+      ]
+    },
+    "hoeren-2": {
+      "teil": "Teil 2 — längeres Interview/Vortrag",
+      "empfehlung": "DW 'Top-Thema mit Vokabeln' oder Deutschlandfunk-Feature zum gewählten Thema als inhaltliche Vorlage für ein Interview-Transkript.",
+      "quellen": [
+        "DW Deutsch lernen – Top-Thema mit Vokabeln (Podcast)",
+        "Deutschlandfunk / ARD Sounds Feature-Beiträge"
+      ]
+    },
+    "hoeren-3": {
+      "teil": "Teil 3 — mehrere Sprecher/Meinungen",
+      "empfehlung": "Easy German Straßenumfragen ('Was denken die Deutschen über ...') eignen sich gut als Vorlage für mehrere kurze Sprecherstatements.",
+      "quellen": [
+        "Easy German Straßenumfragen (YouTube)",
+        "DW 'Langsam gesprochene Nachrichten' für Tempo-Referenz"
+      ]
+    }
+  },
+  "sections": [
+    {
+      "id": "lesen",
+      "name": "Leseverstehen",
+      "maxPoints": 75,
+      "order": 1,
+      "parts": [
+        {
+          "id": "lesen-1",
+          "title": "Teil 1",
+          "description": "Lesen Sie die fünf Kurztexte. Wählen Sie für jeden Text die passende Überschrift aus der Liste rechts. Es gibt mehr Überschriften als Texte.",
+          "pointsPerQuestion": 3,
+          "layout": "matching-reference",
+          "referenceListTitle": "Überschriften A–H",
+          "referenceList": [
+            {
+              "code": "A",
+              "text": "[ZU ERSTELLEN] Überschrift A"
+            },
+            {
+              "code": "B",
+              "text": "[ZU ERSTELLEN] Überschrift B"
+            },
+            {
+              "code": "C",
+              "text": "[ZU ERSTELLEN] Überschrift C"
+            },
+            {
+              "code": "D",
+              "text": "[ZU ERSTELLEN] Überschrift D"
+            },
+            {
+              "code": "E",
+              "text": "[ZU ERSTELLEN] Überschrift E"
+            },
+            {
+              "code": "F",
+              "text": "[ZU ERSTELLEN] Überschrift F"
+            },
+            {
+              "code": "G",
+              "text": "[ZU ERSTELLEN] Überschrift G"
+            },
+            {
+              "code": "H",
+              "text": "[ZU ERSTELLEN] Überschrift H"
+            }
+          ],
+          "questions": [
+            {
+              "id": "l1q1",
+              "type": "matching",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Kurztext 1 (ca. 40-60 Wörter)",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G",
+                "H"
+              ],
+              "correctAnswer": "A",
+              "explanation": "[ZU ERSTELLEN] Begründung, warum diese Überschrift passt"
+            },
+            {
+              "id": "l1q2",
+              "type": "matching",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Kurztext 2 (ca. 40-60 Wörter)",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G",
+                "H"
+              ],
+              "correctAnswer": "B",
+              "explanation": "[ZU ERSTELLEN] Begründung, warum diese Überschrift passt"
+            },
+            {
+              "id": "l1q3",
+              "type": "matching",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Kurztext 3 (ca. 40-60 Wörter)",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G",
+                "H"
+              ],
+              "correctAnswer": "C",
+              "explanation": "[ZU ERSTELLEN] Begründung, warum diese Überschrift passt"
+            },
+            {
+              "id": "l1q4",
+              "type": "matching",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Kurztext 4 (ca. 40-60 Wörter)",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G",
+                "H"
+              ],
+              "correctAnswer": "D",
+              "explanation": "[ZU ERSTELLEN] Begründung, warum diese Überschrift passt"
+            },
+            {
+              "id": "l1q5",
+              "type": "matching",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Kurztext 5 (ca. 40-60 Wörter)",
+              "options": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F",
+                "G",
+                "H"
+              ],
+              "correctAnswer": "E",
+              "explanation": "[ZU ERSTELLEN] Begründung, warum diese Überschrift passt"
+            }
+          ]
+        },
+        {
+          "id": "lesen-2",
+          "title": "Teil 2",
+          "description": "Lesen Sie den folgenden Artikel und beantworten Sie die zehn Fragen dazu.",
+          "pointsPerQuestion": 3,
+          "layout": "shared-passage",
+          "sharedPassage": {
+            "title": "[ZU ERSTELLEN] Artikeltitel zum Thema: Digitalisierung des Alltags",
+            "paragraphs": [
+              "[ZU ERSTELLEN] Absatz 1 (~80-100 Wörter, ca. 480 Wörter insgesamt)",
+              "[ZU ERSTELLEN] Absatz 2 (~80-100 Wörter, ca. 480 Wörter insgesamt)",
+              "[ZU ERSTELLEN] Absatz 3 (~80-100 Wörter, ca. 480 Wörter insgesamt)",
+              "[ZU ERSTELLEN] Absatz 4 (~80-100 Wörter, ca. 480 Wörter insgesamt)",
+              "[ZU ERSTELLEN] Absatz 5 (~80-100 Wörter, ca. 480 Wörter insgesamt)"
+            ]
+          },
+          "questions": [
+            {
+              "id": "l2q1",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Verständnisfrage 1 zum Text",
+              "options": [
+                "[ZU ERSTELLEN] Option A",
+                "[ZU ERSTELLEN] Option B",
+                "[ZU ERSTELLEN] Option C"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Textstelle, die die richtige Antwort belegt"
+            },
+            {
+              "id": "l2q2",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Verständnisfrage 2 zum Text",
+              "options": [
+                "[ZU ERSTELLEN] Option A",
+                "[ZU ERSTELLEN] Option B",
+                "[ZU ERSTELLEN] Option C"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Textstelle, die die richtige Antwort belegt"
+            },
+            {
+              "id": "l2q3",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Verständnisfrage 3 zum Text",
+              "options": [
+                "[ZU ERSTELLEN] Option A",
+                "[ZU ERSTELLEN] Option B",
+                "[ZU ERSTELLEN] Option C"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Textstelle, die die richtige Antwort belegt"
+            },
+            {
+              "id": "l2q4",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Verständnisfrage 4 zum Text",
+              "options": [
+                "[ZU ERSTELLEN] Option A",
+                "[ZU ERSTELLEN] Option B",
+                "[ZU ERSTELLEN] Option C"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Textstelle, die die richtige Antwort belegt"
+            },
+            {
+              "id": "l2q5",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Verständnisfrage 5 zum Text",
+              "options": [
+                "[ZU ERSTELLEN] Option A",
+                "[ZU ERSTELLEN] Option B",
+                "[ZU ERSTELLEN] Option C"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Textstelle, die die richtige Antwort belegt"
+            },
+            {
+              "id": "l2q6",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Verständnisfrage 6 zum Text",
+              "options": [
+                "[ZU ERSTELLEN] Option A",
+                "[ZU ERSTELLEN] Option B",
+                "[ZU ERSTELLEN] Option C"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Textstelle, die die richtige Antwort belegt"
+            },
+            {
+              "id": "l2q7",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Verständnisfrage 7 zum Text",
+              "options": [
+                "[ZU ERSTELLEN] Option A",
+                "[ZU ERSTELLEN] Option B",
+                "[ZU ERSTELLEN] Option C"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Textstelle, die die richtige Antwort belegt"
+            },
+            {
+              "id": "l2q8",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Verständnisfrage 8 zum Text",
+              "options": [
+                "[ZU ERSTELLEN] Option A",
+                "[ZU ERSTELLEN] Option B",
+                "[ZU ERSTELLEN] Option C"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Textstelle, die die richtige Antwort belegt"
+            },
+            {
+              "id": "l2q9",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Verständnisfrage 9 zum Text",
+              "options": [
+                "[ZU ERSTELLEN] Option A",
+                "[ZU ERSTELLEN] Option B",
+                "[ZU ERSTELLEN] Option C"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Textstelle, die die richtige Antwort belegt"
+            },
+            {
+              "id": "l2q10",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Verständnisfrage 10 zum Text",
+              "options": [
+                "[ZU ERSTELLEN] Option A",
+                "[ZU ERSTELLEN] Option B",
+                "[ZU ERSTELLEN] Option C"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Textstelle, die die richtige Antwort belegt"
+            }
+          ]
+        },
+        {
+          "id": "lesen-3",
+          "title": "Teil 3",
+          "description": "Zehn Personen suchen ein passendes Angebot. Ordnen Sie jeweils die passende Anzeige (a–j) zu, oder 'X — trifft nicht zu'.",
+          "pointsPerQuestion": 3,
+          "layout": "matching-reference",
+          "referenceListTitle": "Anzeigen a–j",
+          "referenceList": [
+            {
+              "code": "a",
+              "text": "[ZU ERSTELLEN] Anzeige a"
+            },
+            {
+              "code": "b",
+              "text": "[ZU ERSTELLEN] Anzeige b"
+            },
+            {
+              "code": "c",
+              "text": "[ZU ERSTELLEN] Anzeige c"
+            },
+            {
+              "code": "d",
+              "text": "[ZU ERSTELLEN] Anzeige d"
+            },
+            {
+              "code": "e",
+              "text": "[ZU ERSTELLEN] Anzeige e"
+            },
+            {
+              "code": "f",
+              "text": "[ZU ERSTELLEN] Anzeige f"
+            },
+            {
+              "code": "g",
+              "text": "[ZU ERSTELLEN] Anzeige g"
+            },
+            {
+              "code": "h",
+              "text": "[ZU ERSTELLEN] Anzeige h"
+            },
+            {
+              "code": "i",
+              "text": "[ZU ERSTELLEN] Anzeige i"
+            },
+            {
+              "code": "j",
+              "text": "[ZU ERSTELLEN] Anzeige j"
+            },
+            {
+              "code": "X",
+              "text": "Trifft nicht zu — keines der Angebote passt."
+            }
+          ],
+          "questions": [
+            {
+              "id": "l3q1",
+              "type": "matching",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Situation 1: Person sucht ...",
+              "options": [
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+                "g",
+                "h",
+                "i",
+                "j",
+                "X"
+              ],
+              "correctAnswer": "a",
+              "explanation": "[ZU ERSTELLEN] Begründung der Zuordnung"
+            },
+            {
+              "id": "l3q2",
+              "type": "matching",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Situation 2: Person sucht ...",
+              "options": [
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+                "g",
+                "h",
+                "i",
+                "j",
+                "X"
+              ],
+              "correctAnswer": "b",
+              "explanation": "[ZU ERSTELLEN] Begründung der Zuordnung"
+            },
+            {
+              "id": "l3q3",
+              "type": "matching",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Situation 3: Person sucht ...",
+              "options": [
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+                "g",
+                "h",
+                "i",
+                "j",
+                "X"
+              ],
+              "correctAnswer": "c",
+              "explanation": "[ZU ERSTELLEN] Begründung der Zuordnung"
+            },
+            {
+              "id": "l3q4",
+              "type": "matching",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Situation 4: Person sucht ...",
+              "options": [
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+                "g",
+                "h",
+                "i",
+                "j",
+                "X"
+              ],
+              "correctAnswer": "d",
+              "explanation": "[ZU ERSTELLEN] Begründung der Zuordnung"
+            },
+            {
+              "id": "l3q5",
+              "type": "matching",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Situation 5: Person sucht ...",
+              "options": [
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+                "g",
+                "h",
+                "i",
+                "j",
+                "X"
+              ],
+              "correctAnswer": "e",
+              "explanation": "[ZU ERSTELLEN] Begründung der Zuordnung"
+            },
+            {
+              "id": "l3q6",
+              "type": "matching",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Situation 6: Person sucht ...",
+              "options": [
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+                "g",
+                "h",
+                "i",
+                "j",
+                "X"
+              ],
+              "correctAnswer": "f",
+              "explanation": "[ZU ERSTELLEN] Begründung der Zuordnung"
+            },
+            {
+              "id": "l3q7",
+              "type": "matching",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Situation 7: Person sucht ...",
+              "options": [
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+                "g",
+                "h",
+                "i",
+                "j",
+                "X"
+              ],
+              "correctAnswer": "g",
+              "explanation": "[ZU ERSTELLEN] Begründung der Zuordnung"
+            },
+            {
+              "id": "l3q8",
+              "type": "matching",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Situation 8: Person sucht ...",
+              "options": [
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+                "g",
+                "h",
+                "i",
+                "j",
+                "X"
+              ],
+              "correctAnswer": "h",
+              "explanation": "[ZU ERSTELLEN] Begründung der Zuordnung"
+            },
+            {
+              "id": "l3q9",
+              "type": "matching",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Situation 9: Person sucht ...",
+              "options": [
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+                "g",
+                "h",
+                "i",
+                "j",
+                "X"
+              ],
+              "correctAnswer": "i",
+              "explanation": "[ZU ERSTELLEN] Begründung der Zuordnung"
+            },
+            {
+              "id": "l3q10",
+              "type": "matching",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Situation 10: Person sucht ...",
+              "options": [
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+                "g",
+                "h",
+                "i",
+                "j",
+                "X"
+              ],
+              "correctAnswer": "X",
+              "explanation": "[ZU ERSTELLEN] Begründung der Zuordnung"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sprachbausteine",
+      "name": "Sprachbausteine",
+      "maxPoints": 30,
+      "order": 2,
+      "parts": [
+        {
+          "id": "sprachbausteine-1",
+          "title": "Teil 1",
+          "description": "Lesen Sie den Text. Wählen Sie für jede Lücke (1-10) die richtige Lösung (a, b oder c).",
+          "pointsPerQuestion": 1.5,
+          "layout": "gap-text",
+          "sharedPassage": {
+            "title": "[ZU ERSTELLEN] Lückentext zum Thema: Digitalisierung des Alltags",
+            "html": "[ZU ERSTELLEN] Fließtext (~150-200 Wörter) mit 10 nummerierten Lücken. Platzhalter: <b>(1)</b> ... <b>(2)</b> ... <b>(3)</b> ... <b>(4)</b> ... <b>(5)</b> ... <b>(6)</b> ... <b>(7)</b> ... <b>(8)</b> ... <b>(9)</b> ... <b>(10)</b> ..."
+          },
+          "questions": [
+            {
+              "id": "sb1q1",
+              "type": "fillInTheBlank",
+              "points": 1.5,
+              "gapNumber": 1,
+              "text": "Lücke (1)",
+              "options": [
+                "[ZU ERSTELLEN] a",
+                "[ZU ERSTELLEN] b",
+                "[ZU ERSTELLEN] c"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Grammatikregel (Präposition/Konjunktion/Pronomen/Verbform)"
+            },
+            {
+              "id": "sb1q2",
+              "type": "fillInTheBlank",
+              "points": 1.5,
+              "gapNumber": 2,
+              "text": "Lücke (2)",
+              "options": [
+                "[ZU ERSTELLEN] a",
+                "[ZU ERSTELLEN] b",
+                "[ZU ERSTELLEN] c"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Grammatikregel (Präposition/Konjunktion/Pronomen/Verbform)"
+            },
+            {
+              "id": "sb1q3",
+              "type": "fillInTheBlank",
+              "points": 1.5,
+              "gapNumber": 3,
+              "text": "Lücke (3)",
+              "options": [
+                "[ZU ERSTELLEN] a",
+                "[ZU ERSTELLEN] b",
+                "[ZU ERSTELLEN] c"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Grammatikregel (Präposition/Konjunktion/Pronomen/Verbform)"
+            },
+            {
+              "id": "sb1q4",
+              "type": "fillInTheBlank",
+              "points": 1.5,
+              "gapNumber": 4,
+              "text": "Lücke (4)",
+              "options": [
+                "[ZU ERSTELLEN] a",
+                "[ZU ERSTELLEN] b",
+                "[ZU ERSTELLEN] c"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Grammatikregel (Präposition/Konjunktion/Pronomen/Verbform)"
+            },
+            {
+              "id": "sb1q5",
+              "type": "fillInTheBlank",
+              "points": 1.5,
+              "gapNumber": 5,
+              "text": "Lücke (5)",
+              "options": [
+                "[ZU ERSTELLEN] a",
+                "[ZU ERSTELLEN] b",
+                "[ZU ERSTELLEN] c"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Grammatikregel (Präposition/Konjunktion/Pronomen/Verbform)"
+            },
+            {
+              "id": "sb1q6",
+              "type": "fillInTheBlank",
+              "points": 1.5,
+              "gapNumber": 6,
+              "text": "Lücke (6)",
+              "options": [
+                "[ZU ERSTELLEN] a",
+                "[ZU ERSTELLEN] b",
+                "[ZU ERSTELLEN] c"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Grammatikregel (Präposition/Konjunktion/Pronomen/Verbform)"
+            },
+            {
+              "id": "sb1q7",
+              "type": "fillInTheBlank",
+              "points": 1.5,
+              "gapNumber": 7,
+              "text": "Lücke (7)",
+              "options": [
+                "[ZU ERSTELLEN] a",
+                "[ZU ERSTELLEN] b",
+                "[ZU ERSTELLEN] c"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Grammatikregel (Präposition/Konjunktion/Pronomen/Verbform)"
+            },
+            {
+              "id": "sb1q8",
+              "type": "fillInTheBlank",
+              "points": 1.5,
+              "gapNumber": 8,
+              "text": "Lücke (8)",
+              "options": [
+                "[ZU ERSTELLEN] a",
+                "[ZU ERSTELLEN] b",
+                "[ZU ERSTELLEN] c"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Grammatikregel (Präposition/Konjunktion/Pronomen/Verbform)"
+            },
+            {
+              "id": "sb1q9",
+              "type": "fillInTheBlank",
+              "points": 1.5,
+              "gapNumber": 9,
+              "text": "Lücke (9)",
+              "options": [
+                "[ZU ERSTELLEN] a",
+                "[ZU ERSTELLEN] b",
+                "[ZU ERSTELLEN] c"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Grammatikregel (Präposition/Konjunktion/Pronomen/Verbform)"
+            },
+            {
+              "id": "sb1q10",
+              "type": "fillInTheBlank",
+              "points": 1.5,
+              "gapNumber": 10,
+              "text": "Lücke (10)",
+              "options": [
+                "[ZU ERSTELLEN] a",
+                "[ZU ERSTELLEN] b",
+                "[ZU ERSTELLEN] c"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Grammatikregel (Präposition/Konjunktion/Pronomen/Verbform)"
+            }
+          ]
+        },
+        {
+          "id": "sprachbausteine-2",
+          "title": "Teil 2",
+          "description": "Lesen Sie den Text. Wählen Sie für jede Lücke (1-10) das passende Wort aus der 15-Wörter-Liste (5 sind Distraktoren).",
+          "pointsPerQuestion": 1.5,
+          "layout": "gap-text-wordbank",
+          "wordBank": [
+            "[ZU ERSTELLEN] Wort1",
+            "[ZU ERSTELLEN] Wort2",
+            "[ZU ERSTELLEN] Wort3",
+            "[ZU ERSTELLEN] Wort4",
+            "[ZU ERSTELLEN] Wort5",
+            "[ZU ERSTELLEN] Wort6",
+            "[ZU ERSTELLEN] Wort7",
+            "[ZU ERSTELLEN] Wort8",
+            "[ZU ERSTELLEN] Wort9",
+            "[ZU ERSTELLEN] Wort10",
+            "[ZU ERSTELLEN] Wort11",
+            "[ZU ERSTELLEN] Wort12",
+            "[ZU ERSTELLEN] Wort13",
+            "[ZU ERSTELLEN] Wort14",
+            "[ZU ERSTELLEN] Wort15"
+          ],
+          "sharedPassage": {
+            "title": "[ZU ERSTELLEN] Lückentext zum Thema: Digitalisierung des Alltags",
+            "html": "[ZU ERSTELLEN] Fließtext (~150-200 Wörter) mit 10 nummerierten Lücken."
+          },
+          "questions": [
+            {
+              "id": "sb2q1",
+              "type": "wordBank",
+              "points": 1.5,
+              "gapNumber": 1,
+              "text": "Lücke (1)",
+              "correctAnswer": "[ZU ERSTELLEN] Wort1",
+              "explanation": "[ZU ERSTELLEN] Warum dieses Wort grammatisch/inhaltlich passt"
+            },
+            {
+              "id": "sb2q2",
+              "type": "wordBank",
+              "points": 1.5,
+              "gapNumber": 2,
+              "text": "Lücke (2)",
+              "correctAnswer": "[ZU ERSTELLEN] Wort2",
+              "explanation": "[ZU ERSTELLEN] Warum dieses Wort grammatisch/inhaltlich passt"
+            },
+            {
+              "id": "sb2q3",
+              "type": "wordBank",
+              "points": 1.5,
+              "gapNumber": 3,
+              "text": "Lücke (3)",
+              "correctAnswer": "[ZU ERSTELLEN] Wort3",
+              "explanation": "[ZU ERSTELLEN] Warum dieses Wort grammatisch/inhaltlich passt"
+            },
+            {
+              "id": "sb2q4",
+              "type": "wordBank",
+              "points": 1.5,
+              "gapNumber": 4,
+              "text": "Lücke (4)",
+              "correctAnswer": "[ZU ERSTELLEN] Wort4",
+              "explanation": "[ZU ERSTELLEN] Warum dieses Wort grammatisch/inhaltlich passt"
+            },
+            {
+              "id": "sb2q5",
+              "type": "wordBank",
+              "points": 1.5,
+              "gapNumber": 5,
+              "text": "Lücke (5)",
+              "correctAnswer": "[ZU ERSTELLEN] Wort5",
+              "explanation": "[ZU ERSTELLEN] Warum dieses Wort grammatisch/inhaltlich passt"
+            },
+            {
+              "id": "sb2q6",
+              "type": "wordBank",
+              "points": 1.5,
+              "gapNumber": 6,
+              "text": "Lücke (6)",
+              "correctAnswer": "[ZU ERSTELLEN] Wort6",
+              "explanation": "[ZU ERSTELLEN] Warum dieses Wort grammatisch/inhaltlich passt"
+            },
+            {
+              "id": "sb2q7",
+              "type": "wordBank",
+              "points": 1.5,
+              "gapNumber": 7,
+              "text": "Lücke (7)",
+              "correctAnswer": "[ZU ERSTELLEN] Wort7",
+              "explanation": "[ZU ERSTELLEN] Warum dieses Wort grammatisch/inhaltlich passt"
+            },
+            {
+              "id": "sb2q8",
+              "type": "wordBank",
+              "points": 1.5,
+              "gapNumber": 8,
+              "text": "Lücke (8)",
+              "correctAnswer": "[ZU ERSTELLEN] Wort8",
+              "explanation": "[ZU ERSTELLEN] Warum dieses Wort grammatisch/inhaltlich passt"
+            },
+            {
+              "id": "sb2q9",
+              "type": "wordBank",
+              "points": 1.5,
+              "gapNumber": 9,
+              "text": "Lücke (9)",
+              "correctAnswer": "[ZU ERSTELLEN] Wort9",
+              "explanation": "[ZU ERSTELLEN] Warum dieses Wort grammatisch/inhaltlich passt"
+            },
+            {
+              "id": "sb2q10",
+              "type": "wordBank",
+              "points": 1.5,
+              "gapNumber": 10,
+              "text": "Lücke (10)",
+              "correctAnswer": "[ZU ERSTELLEN] Wort10",
+              "explanation": "[ZU ERSTELLEN] Warum dieses Wort grammatisch/inhaltlich passt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hoeren",
+      "name": "Hörverstehen",
+      "maxPoints": 75,
+      "order": 3,
+      "parts": [
+        {
+          "id": "hoeren-1",
+          "title": "Teil 1",
+          "description": "Sie hören fünf kurze Durchsagen bzw. Gesprächsausschnitte. Beantworten Sie zu jedem Hörtext eine Frage.",
+          "pointsPerQuestion": 3,
+          "layout": "audio-list",
+          "audioNote": "🎧 Audio-Wiedergabe folgt in einer späteren Version. Aktuell als Lesetranskript zum Üben verfügbar.",
+          "questions": [
+            {
+              "id": "h1q1",
+              "type": "multipleChoice",
+              "points": 3,
+              "transcript": "[ZU ERSTELLEN] Kurzes Transkript (Durchsage/Anrufbeantworter/kurzer Dialog, 40-60 Wörter)",
+              "text": "[ZU ERSTELLEN] Frage 1 zum Hörtext",
+              "options": [
+                "[ZU ERSTELLEN] Option A",
+                "[ZU ERSTELLEN] Option B",
+                "[ZU ERSTELLEN] Option C"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Textstelle im Transkript, die die Antwort belegt"
+            },
+            {
+              "id": "h1q2",
+              "type": "multipleChoice",
+              "points": 3,
+              "transcript": "[ZU ERSTELLEN] Kurzes Transkript (Durchsage/Anrufbeantworter/kurzer Dialog, 40-60 Wörter)",
+              "text": "[ZU ERSTELLEN] Frage 2 zum Hörtext",
+              "options": [
+                "[ZU ERSTELLEN] Option A",
+                "[ZU ERSTELLEN] Option B",
+                "[ZU ERSTELLEN] Option C"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Textstelle im Transkript, die die Antwort belegt"
+            },
+            {
+              "id": "h1q3",
+              "type": "multipleChoice",
+              "points": 3,
+              "transcript": "[ZU ERSTELLEN] Kurzes Transkript (Durchsage/Anrufbeantworter/kurzer Dialog, 40-60 Wörter)",
+              "text": "[ZU ERSTELLEN] Frage 3 zum Hörtext",
+              "options": [
+                "[ZU ERSTELLEN] Option A",
+                "[ZU ERSTELLEN] Option B",
+                "[ZU ERSTELLEN] Option C"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Textstelle im Transkript, die die Antwort belegt"
+            },
+            {
+              "id": "h1q4",
+              "type": "multipleChoice",
+              "points": 3,
+              "transcript": "[ZU ERSTELLEN] Kurzes Transkript (Durchsage/Anrufbeantworter/kurzer Dialog, 40-60 Wörter)",
+              "text": "[ZU ERSTELLEN] Frage 4 zum Hörtext",
+              "options": [
+                "[ZU ERSTELLEN] Option A",
+                "[ZU ERSTELLEN] Option B",
+                "[ZU ERSTELLEN] Option C"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Textstelle im Transkript, die die Antwort belegt"
+            },
+            {
+              "id": "h1q5",
+              "type": "multipleChoice",
+              "points": 3,
+              "transcript": "[ZU ERSTELLEN] Kurzes Transkript (Durchsage/Anrufbeantworter/kurzer Dialog, 40-60 Wörter)",
+              "text": "[ZU ERSTELLEN] Frage 5 zum Hörtext",
+              "options": [
+                "[ZU ERSTELLEN] Option A",
+                "[ZU ERSTELLEN] Option B",
+                "[ZU ERSTELLEN] Option C"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Textstelle im Transkript, die die Antwort belegt"
+            }
+          ]
+        },
+        {
+          "id": "hoeren-2",
+          "title": "Teil 2",
+          "description": "Sie hören ein Interview. Beantworten Sie die zehn Fragen dazu.",
+          "pointsPerQuestion": 3,
+          "layout": "shared-passage",
+          "audioNote": "🎧 Audio-Wiedergabe folgt in einer späteren Version. Aktuell als Lesetranskript zum Üben verfügbar.",
+          "sharedPassage": {
+            "title": "[ZU ERSTELLEN] Interview-Transkript zum Thema: Digitalisierung des Alltags",
+            "paragraphs": [
+              "[ZU ERSTELLEN] Gesprächsbeitrag 1 (Moderator/Gast im Wechsel)",
+              "[ZU ERSTELLEN] Gesprächsbeitrag 2 (Moderator/Gast im Wechsel)",
+              "[ZU ERSTELLEN] Gesprächsbeitrag 3 (Moderator/Gast im Wechsel)",
+              "[ZU ERSTELLEN] Gesprächsbeitrag 4 (Moderator/Gast im Wechsel)",
+              "[ZU ERSTELLEN] Gesprächsbeitrag 5 (Moderator/Gast im Wechsel)",
+              "[ZU ERSTELLEN] Gesprächsbeitrag 6 (Moderator/Gast im Wechsel)",
+              "[ZU ERSTELLEN] Gesprächsbeitrag 7 (Moderator/Gast im Wechsel)",
+              "[ZU ERSTELLEN] Gesprächsbeitrag 8 (Moderator/Gast im Wechsel)"
+            ]
+          },
+          "questions": [
+            {
+              "id": "h2q1",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Frage 1 zum Interview",
+              "options": [
+                "[ZU ERSTELLEN] Option A",
+                "[ZU ERSTELLEN] Option B",
+                "[ZU ERSTELLEN] Option C"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Textstelle im Transkript, die die Antwort belegt"
+            },
+            {
+              "id": "h2q2",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Frage 2 zum Interview",
+              "options": [
+                "[ZU ERSTELLEN] Option A",
+                "[ZU ERSTELLEN] Option B",
+                "[ZU ERSTELLEN] Option C"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Textstelle im Transkript, die die Antwort belegt"
+            },
+            {
+              "id": "h2q3",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Frage 3 zum Interview",
+              "options": [
+                "[ZU ERSTELLEN] Option A",
+                "[ZU ERSTELLEN] Option B",
+                "[ZU ERSTELLEN] Option C"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Textstelle im Transkript, die die Antwort belegt"
+            },
+            {
+              "id": "h2q4",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Frage 4 zum Interview",
+              "options": [
+                "[ZU ERSTELLEN] Option A",
+                "[ZU ERSTELLEN] Option B",
+                "[ZU ERSTELLEN] Option C"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Textstelle im Transkript, die die Antwort belegt"
+            },
+            {
+              "id": "h2q5",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Frage 5 zum Interview",
+              "options": [
+                "[ZU ERSTELLEN] Option A",
+                "[ZU ERSTELLEN] Option B",
+                "[ZU ERSTELLEN] Option C"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Textstelle im Transkript, die die Antwort belegt"
+            },
+            {
+              "id": "h2q6",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Frage 6 zum Interview",
+              "options": [
+                "[ZU ERSTELLEN] Option A",
+                "[ZU ERSTELLEN] Option B",
+                "[ZU ERSTELLEN] Option C"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Textstelle im Transkript, die die Antwort belegt"
+            },
+            {
+              "id": "h2q7",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Frage 7 zum Interview",
+              "options": [
+                "[ZU ERSTELLEN] Option A",
+                "[ZU ERSTELLEN] Option B",
+                "[ZU ERSTELLEN] Option C"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Textstelle im Transkript, die die Antwort belegt"
+            },
+            {
+              "id": "h2q8",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Frage 8 zum Interview",
+              "options": [
+                "[ZU ERSTELLEN] Option A",
+                "[ZU ERSTELLEN] Option B",
+                "[ZU ERSTELLEN] Option C"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Textstelle im Transkript, die die Antwort belegt"
+            },
+            {
+              "id": "h2q9",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Frage 9 zum Interview",
+              "options": [
+                "[ZU ERSTELLEN] Option A",
+                "[ZU ERSTELLEN] Option B",
+                "[ZU ERSTELLEN] Option C"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Textstelle im Transkript, die die Antwort belegt"
+            },
+            {
+              "id": "h2q10",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Frage 10 zum Interview",
+              "options": [
+                "[ZU ERSTELLEN] Option A",
+                "[ZU ERSTELLEN] Option B",
+                "[ZU ERSTELLEN] Option C"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Textstelle im Transkript, die die Antwort belegt"
+            }
+          ]
+        },
+        {
+          "id": "hoeren-3",
+          "title": "Teil 3",
+          "description": "Fünf Personen äußern sich zum Thema. Entscheiden Sie bei jeder Aussage: richtig oder falsch.",
+          "pointsPerQuestion": 3,
+          "layout": "shared-passage",
+          "audioNote": "🎧 Audio-Wiedergabe folgt in einer späteren Version. Aktuell als Lesetranskript zum Üben verfügbar.",
+          "sharedPassage": {
+            "title": "[ZU ERSTELLEN] Fünf Stimmen zum Thema: Digitalisierung des Alltags",
+            "paragraphs": [
+              "[ZU ERSTELLEN] Sprecher 1 (Name, Alter): Kurzes Statement",
+              "[ZU ERSTELLEN] Sprecher 2 (Name, Alter): Kurzes Statement",
+              "[ZU ERSTELLEN] Sprecher 3 (Name, Alter): Kurzes Statement",
+              "[ZU ERSTELLEN] Sprecher 4 (Name, Alter): Kurzes Statement",
+              "[ZU ERSTELLEN] Sprecher 5 (Name, Alter): Kurzes Statement"
+            ]
+          },
+          "questions": [
+            {
+              "id": "h3q1",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Richtig/Falsch-Aussage 1 zu einem der Sprecher",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Zitat des Sprechers, das die Antwort belegt"
+            },
+            {
+              "id": "h3q2",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Richtig/Falsch-Aussage 2 zu einem der Sprecher",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Zitat des Sprechers, das die Antwort belegt"
+            },
+            {
+              "id": "h3q3",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Richtig/Falsch-Aussage 3 zu einem der Sprecher",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Zitat des Sprechers, das die Antwort belegt"
+            },
+            {
+              "id": "h3q4",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Richtig/Falsch-Aussage 4 zu einem der Sprecher",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Zitat des Sprechers, das die Antwort belegt"
+            },
+            {
+              "id": "h3q5",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Richtig/Falsch-Aussage 5 zu einem der Sprecher",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Zitat des Sprechers, das die Antwort belegt"
+            },
+            {
+              "id": "h3q6",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Richtig/Falsch-Aussage 6 zu einem der Sprecher",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Zitat des Sprechers, das die Antwort belegt"
+            },
+            {
+              "id": "h3q7",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Richtig/Falsch-Aussage 7 zu einem der Sprecher",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Zitat des Sprechers, das die Antwort belegt"
+            },
+            {
+              "id": "h3q8",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Richtig/Falsch-Aussage 8 zu einem der Sprecher",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Zitat des Sprechers, das die Antwort belegt"
+            },
+            {
+              "id": "h3q9",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Richtig/Falsch-Aussage 9 zu einem der Sprecher",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Zitat des Sprechers, das die Antwort belegt"
+            },
+            {
+              "id": "h3q10",
+              "type": "multipleChoice",
+              "points": 3,
+              "text": "[ZU ERSTELLEN] Richtig/Falsch-Aussage 10 zu einem der Sprecher",
+              "options": [
+                "Richtig",
+                "Falsch"
+              ],
+              "correctAnswer": "0",
+              "explanation": "[ZU ERSTELLEN] Zitat des Sprechers, das die Antwort belegt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "schreiben",
+      "name": "Schriftlicher Ausdruck",
+      "maxPoints": 45,
+      "order": 4,
+      "parts": [
+        {
+          "id": "schreiben-1",
+          "title": "Aufgabe",
+          "description": "Wählen Sie eines der beiden Themen und schreiben Sie einen zusammenhängenden Text (150-200 Wörter).",
+          "questions": [
+            {
+              "id": "sq1",
+              "type": "writing",
+              "points": 45,
+              "topics": [
+                {
+                  "id": "topic-a",
+                  "label": "[ZU ERSTELLEN] Thema A — Titel",
+                  "prompt": "[ZU ERSTELLEN] Schreibaufgabe A, thematisch passend zu: Digitalisierung des Alltags",
+                  "sampleAnswer": "[ZU ERSTELLEN] Vollständige Musterlösung (150-200 Wörter)"
+                },
+                {
+                  "id": "topic-b",
+                  "label": "[ZU ERSTELLEN] Thema B — Titel",
+                  "prompt": "[ZU ERSTELLEN] Schreibaufgabe B (alternative Textsorte, z.B. formelle E-Mail)",
+                  "sampleAnswer": "[ZU ERSTELLEN] Vollständige Musterlösung (150-200 Wörter)"
+                }
+              ],
+              "criteria": {
+                "aufgabenbewältigung": {
+                  "description": "Werden alle geforderten Punkte behandelt?",
+                  "maxPoints": 15
+                },
+                "kommunikativeGestaltung": {
+                  "description": "Struktur, Kohärenz, Konnektoren",
+                  "maxPoints": 10
+                },
+                "korrektheit": {
+                  "description": "Grammatik, Syntax, Orthografie",
+                  "maxPoints": 10
+                },
+                "wortschatz": {
+                  "description": "Vielfalt und Angemessenheit des Wortschatzes",
+                  "maxPoints": 10
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

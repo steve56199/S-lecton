@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>telc B2 Simulator - Prüfung starten</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'surface': '#f8f9fb',
+            'surface-container-lowest': '#ffffff',
+            'surface-container-low': '#f3f4f6',
+            'surface-container': '#edeef0',
+            'surface-container-high': '#e7e8ea',
+            'surface-container-highest': '#e1e2e4',
+            'on-surface': '#191c1e',
+            'on-surface-variant': '#3d4949',
+            'primary': '#006768',
+            'on-primary': '#ffffff',
+            'primary-container': '#008284',
+            'secondary': '#446277',
+            'on-secondary': '#ffffff',
+            'secondary-container': '#c5e4fd',
+            'on-secondary-container': '#49667b',
+            'outline': '#6d7979',
+            'outline-variant': '#bdc9c9',
+            'error': '#ba1a1a',
+            'on-error': '#ffffff',
+            'background': '#f8f9fb',
+            'on-background': '#191c1e'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Manrope', sans-serif; background-color: #f8f9fb; color: #191c1e; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f3f4f6; }
+    ::-webkit-scrollbar-thumb { background: #bdc9c9; border-radius: 4px; }
+
+    .timer-critical { animation: pulse-red 1.5s infinite; }
+    @keyframes pulse-red {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    .exam-locked {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body class="bg-surface">
+  <!-- Landing Page -->
+  <div id="landing-page" class="fixed inset-0 bg-gradient-to-b from-surface to-surface-container-low flex flex-col items-center justify-center p-6">
+    <a href="./index.html" class="fixed top-6 left-6 flex items-center gap-2 text-sm font-semibold text-on-surface-variant hover:text-primary transition">
+      <span class="material-symbols-outlined text-lg">arrow_back</span> Home
+    </a>
+    <div class="max-w-2xl w-full text-center">
+      <div class="flex justify-center mb-6">
+        <span class="material-symbols-outlined text-6xl text-primary">school</span>
+      </div>
+      <h1 class="text-4xl font-bold text-on-surface mb-3">telc B2 Simulator</h1>
+      <p class="text-lg text-on-surface-variant mb-8">Realistic exam simulation with 150-minute timer and complete navigation freedom</p>
+
+      <div id="exams-list" class="space-y-4 mb-8">
+        <!-- Exam options will be loaded here -->
+      </div>
+
+      <div class="bg-white p-6 rounded-lg shadow-sm border border-outline-variant/20">
+        <p class="text-on-surface-variant text-sm">
+          ✓ No account required<br/>
+          ✓ Free practice<br/>
+          ✓ Automatic scoring<br/>
+          ✓ Detailed feedback
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exam Interface -->
+  <div id="exam-page" class="hidden fixed inset-0 bg-surface flex flex-col">
+    <!-- Header with Timer -->
+    <header class="fixed top-0 w-full z-50 bg-surface-container-highest shadow-sm border-b border-outline-variant/20">
+      <div class="max-w-full px-6 py-4 flex items-center justify-between h-20">
+        <a href="./index.html" class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-primary">school</span>
+          <h1 class="text-lg font-bold text-primary hidden md:block">telc B2 Exam</h1>
+        </a>
+
+        <!-- Global Timer (ABSOLUTE TIME) -->
+        <div id="timer-display" class="flex items-center gap-3 px-4 py-2 bg-surface-container rounded-lg border border-outline-variant">
+          <span class="material-symbols-outlined text-secondary text-xl">schedule</span>
+          <span id="timer-text" class="font-bold text-secondary timer-display text-2xl tracking-widest">02:30:00</span>
+        </div>
+
+        <button id="finish-exam-btn" class="px-6 py-2 bg-primary text-on-primary rounded-lg font-semibold hover:bg-primary-container transition shadow-sm">
+          Finish Exam
+        </button>
+      </div>
+
+      <!-- Section Navigation Tabs -->
+      <nav id="section-nav" class="h-14 px-6 bg-surface-container-low flex items-center gap-2 border-t border-outline-variant/30 overflow-x-auto">
+        <!-- Section tabs will be populated here -->
+      </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="pt-32 pb-8 px-6 flex-1 overflow-auto">
+      <div class="max-w-6xl mx-auto">
+        <!-- Sidebar Navigation -->
+        <div class="flex gap-6">
+          <aside class="w-64 hidden lg:block">
+            <div id="sidebar-nav" class="space-y-4">
+              <!-- Sidebar sections will be populated -->
+            </div>
+          </aside>
+
+          <!-- Question Content -->
+          <main id="exam-content" class="flex-1">
+            <!-- Questions will be rendered here -->
+          </main>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results Page -->
+  <div id="results-page" class="hidden fixed inset-0 bg-surface overflow-auto pt-8 pb-8">
+    <div class="max-w-4xl mx-auto">
+      <!-- Results will be rendered here -->
+    </div>
+  </div>
+
+  <script>
+    // ============================================
+    // EXAM STATE MANAGEMENT
+    // ============================================
+    class ExamManager {
+      constructor() {
+        this.exams = [];
+        this.currentExam = null;
+        this.currentSession = null;
+        this.answers = {};
+        this.examsData = null;
+      }
+
+      async loadExams() {
+        try {
+          const manifestRes = await fetch('./data/exams/manifest.json');
+          const manifest = await manifestRes.json();
+          // Load every exam (published AND draft) so a draft can still be opened
+          // directly by id while it's being authored — only the Exam Library
+          // (index.html) filters drafts out of what it displays.
+          this.exams = await Promise.all(
+            manifest.exams.map(id => fetch(`./data/exams/${id}.json`).then(r => r.json()))
+          );
+        } catch (error) {
+          console.error('Failed to load exams:', error);
+          this.exams = [];
+        }
+      }
+
+      startExam(examId) {
+        this.currentExam = this.exams.find(e => e.id === examId);
+
+        // Create session with absolute time
+        const now = new Date();
+        const expiresAt = new Date(now.getTime() + this.currentExam.duration * 1000);
+
+        this.currentSession = {
+          id: this.generateSessionId(),
+          examId: examId,
+          startedAt: now.toISOString(),
+          expiresAt: expiresAt.toISOString(),
+          status: 'active'
+        };
+
+        this.answers = {};
+        this.saveSession();
+      }
+
+      // Find the most recent stored session for a given exam (used by the Exam Library
+      // page and by resumeSession() to continue where the user left off).
+      findLatestSessionForExam(examId) {
+        let latest = null;
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          if (!key || !key.startsWith('exam_session_')) continue;
+          try {
+            const record = JSON.parse(localStorage.getItem(key));
+            if (record?.session?.examId !== examId) continue;
+            if (!latest || new Date(record.session.startedAt) > new Date(latest.session.startedAt)) {
+              latest = record;
+            }
+          } catch (e) { /* ignore corrupted entries */ }
+        }
+        return latest;
+      }
+
+      // Resume a previously stored session (from findLatestSessionForExam) instead of
+      // starting a fresh one. Returns false if the session can no longer be resumed.
+      resumeSession(record) {
+        this.currentExam = this.exams.find(e => e.id === record.session.examId);
+        if (!this.currentExam) return false;
+        this.currentSession = record.session;
+        this.answers = record.answers || {};
+        return true;
+      }
+
+      generateSessionId() {
+        return 'session_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now();
+      }
+
+      saveSession() {
+        localStorage.setItem(`exam_session_${this.currentSession.id}`, JSON.stringify({
+          session: this.currentSession,
+          answers: this.answers
+        }));
+      }
+
+      getTimeRemaining() {
+        if (!this.currentSession) return 0;
+        const now = new Date();
+        const expiresAt = new Date(this.currentSession.expiresAt);
+        const remaining = Math.max(0, expiresAt - now);
+        return Math.floor(remaining / 1000);
+      }
+
+      isExamExpired() {
+        return this.getTimeRemaining() === 0;
+      }
+
+      recordAnswer(questionId, answer) {
+        this.answers[questionId] = {
+          answer: answer,
+          answeredAt: new Date().toISOString()
+        };
+        this.saveSession();
+      }
+
+      getAnswer(questionId) {
+        return this.answers[questionId]?.answer || null;
+      }
+    }
+
+    // ============================================
+    // UI RENDERER
+    // ============================================
+    class UIRenderer {
+      constructor(examManager) {
+        this.exam = examManager;
+      }
+
+      formatTime(seconds) {
+        const hours = Math.floor(seconds / 3600);
+        const minutes = Math.floor((seconds % 3600) / 60);
+        const secs = seconds % 60;
+        return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+      }
+
+      renderLandingPage() {
+        const landingPage = document.getElementById('landing-page');
+        const examsList = document.getElementById('exams-list');
+        const published = this.exam.exams.filter(e => e.status === 'published');
+
+        examsList.innerHTML = published.map(exam => `
+          <button onclick="app.startExam('${exam.id}')"
+                  class="w-full p-6 bg-white rounded-lg shadow-sm border border-outline-variant/20 hover:shadow-md transition text-left">
+            <h3 class="font-bold text-lg text-on-surface mb-2">${exam.title}</h3>
+            <p class="text-on-surface-variant mb-4">${exam.description}</p>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-on-surface-variant">⏱️ ${exam.duration / 60} minutes</span>
+              <span class="px-4 py-2 bg-primary text-on-primary rounded-lg font-semibold">Start</span>
+            </div>
+          </button>
+        `).join('');
+      }
+
+      renderExamInterface() {
+        const examPage = document.getElementById('exam-page');
+        const examContent = document.getElementById('exam-content');
+        const sectionNav = document.getElementById('section-nav');
+        const sidebarNav = document.getElementById('sidebar-nav');
+
+        // Render section tabs
+        sectionNav.innerHTML = this.exam.currentExam.sections.map((section, idx) => `
+          <button onclick="app.selectSection('${section.id}')"
+                  id="tab-${section.id}"
+                  class="px-6 py-3 text-label-md font-semibold text-on-surface-variant hover:text-primary transition whitespace-nowrap border-b-2 border-transparent">${section.name}</button>
+        `).join('');
+
+        // Select first section
+        this.selectSection(this.exam.currentExam.sections[0].id);
+      }
+
+      selectSection(sectionId) {
+        const section = this.exam.currentExam.sections.find(s => s.id === sectionId);
+        const sectionNav = document.getElementById('section-nav');
+        const examContent = document.getElementById('exam-content');
+
+        // Update tab styles
+        sectionNav.querySelectorAll('button').forEach(btn => {
+          const btnSection = btn.id.replace('tab-', '');
+          if (btnSection === sectionId) {
+            btn.classList.add('border-primary', 'text-primary', 'font-bold');
+            btn.classList.remove('border-transparent', 'text-on-surface-variant');
+          } else {
+            btn.classList.remove('border-primary', 'text-primary', 'font-bold');
+            btn.classList.add('border-transparent', 'text-on-surface-variant');
+          }
+        });
+
+        // Render content
+        this.renderSectionContent(section, examContent);
+      }
+
+      renderSectionContent(section, container) {
+        let html = `<h2 class="text-3xl font-bold text-on-surface mb-8">${section.name}</h2>`;
+
+        if (section.parts && section.parts.length > 0) {
+          section.parts.forEach(part => {
+            const answered = part.questions.filter(q => this.exam.getAnswer(q.id)).length;
+            html += `
+              <div class="mb-12">
+                <div class="flex items-center justify-between mb-2 gap-4 flex-wrap">
+                  <h3 class="text-2xl font-semibold text-on-surface">${part.title}</h3>
+                  <span class="text-xs font-semibold px-3 py-1 rounded-full bg-surface-container-low text-on-surface-variant">${answered} / ${part.questions.length} beantwortet</span>
+                </div>
+                <p class="text-on-surface-variant mb-6">${part.description}</p>
+                ${part.audioNote ? `<div class="mb-6 px-4 py-3 rounded-lg bg-secondary-container text-on-secondary-container text-sm flex items-center gap-2"><span class="material-symbols-outlined text-lg">info</span>${part.audioNote}</div>` : ''}
+                ${this.renderPartBody(part)}
+              </div>
+            `;
+          });
+        }
+
+        container.innerHTML = html;
+      }
+
+      renderPartBody(part) {
+        if (part.layout === 'matching-reference') return this.renderMatchingPart(part);
+        if (part.layout === 'shared-passage') return this.renderSharedPassagePart(part);
+        if (part.layout === 'gap-text' || part.layout === 'gap-text-wordbank') return this.renderGapTextPart(part);
+        if (part.layout === 'audio-list') return this.renderAudioListPart(part);
+        return `<div class="space-y-6">${part.questions.map(q => this.renderQuestion(q)).join('')}</div>`;
+      }
+
+      // Leseverstehen Teil 1 & 3: statement cards (left) + sticky reference list (right)
+      renderMatchingPart(part) {
+        return `
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+            <div class="space-y-4">
+              ${part.questions.map((q, idx) => this.renderMatchingQuestion(q, idx + 1)).join('')}
+            </div>
+            <div class="lg:sticky lg:top-40 bg-surface-container rounded-xl border border-outline-variant/50 overflow-hidden">
+              <div class="bg-surface-container-high px-6 py-4 border-b border-outline-variant/50">
+                <h4 class="font-semibold text-on-surface">${part.referenceListTitle || 'Referenz'}</h4>
+              </div>
+              <div class="p-4 space-y-3 max-h-[600px] overflow-y-auto">
+                ${part.referenceList.map(ref => `
+                  <div class="bg-white p-3 rounded-lg border border-outline-variant/30 flex items-start gap-3">
+                    <span class="w-8 h-8 shrink-0 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-bold text-sm">${ref.code}</span>
+                    <p class="text-sm text-on-surface pt-1">${ref.text}</p>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      renderMatchingQuestion(question, num) {
+        const currentAnswer = this.exam.getAnswer(question.id);
+        return `
+          <div class="bg-white p-5 rounded-lg shadow-sm border border-outline-variant/20 ${currentAnswer ? 'border-l-4 border-l-primary' : ''}">
+            <div class="flex items-start gap-3 mb-4">
+              <span class="text-on-surface-variant/50 font-bold text-lg leading-none">${num}</span>
+              <p class="text-on-surface text-sm">${question.text}</p>
+            </div>
+            <select onchange="app.recordAnswer('${question.id}', this.value)"
+                    class="w-full sm:w-40 px-3 py-2 bg-surface-container-low border border-outline-variant rounded-lg text-on-surface font-semibold text-center focus:border-primary focus:ring-2 focus:ring-primary/20">
+              <option value="">–</option>
+              ${question.options.map(opt => `
+                <option value="${opt}" ${currentAnswer === opt ? 'selected' : ''}>${opt}</option>
+              `).join('')}
+            </select>
+          </div>
+        `;
+      }
+
+      // Leseverstehen Teil 2 & Hörverstehen Teil 2/3: one shared reading passage + MC questions below
+      renderSharedPassagePart(part) {
+        const sp = part.sharedPassage;
+        const bodyHtml = sp.paragraphs
+          ? sp.paragraphs.map(p => `<p class="mb-4 last:mb-0">${p}</p>`).join('')
+          : (sp.html || '');
+        return `
+          <div class="mb-8 bg-surface-container rounded-xl border border-outline-variant/50 overflow-hidden">
+            <div class="bg-surface-container-high px-8 py-4 border-b border-outline-variant/50">
+              <h4 class="font-semibold text-on-surface">${sp.title}</h4>
+            </div>
+            <div class="p-8 max-h-[420px] overflow-y-auto text-body-lg leading-relaxed text-on-surface bg-white">
+              ${bodyHtml}
+            </div>
+          </div>
+          <div class="space-y-5">
+            ${part.questions.map((q, idx) => this.renderQuestion(q, idx + 1)).join('')}
+          </div>
+        `;
+      }
+
+      // Sprachbausteine: passage with numbered gaps + list of dropdowns below
+      renderGapTextPart(part) {
+        const sp = part.sharedPassage;
+        const wordBankHtml = part.wordBank ? `
+          <div class="mb-6 p-4 bg-surface-container-low rounded-lg border border-outline-variant/30">
+            <p class="text-xs font-semibold text-on-surface-variant uppercase tracking-wide mb-3">Wortliste (jedes Wort nur einmal verwendbar)</p>
+            <div id="wordbank-${part.id}" class="flex flex-wrap gap-2">
+              ${part.wordBank.map(w => `<span class="wordbank-chip px-3 py-1 bg-white border border-outline-variant rounded-full text-sm text-on-surface" data-word="${w}">${w}</span>`).join('')}
+            </div>
+          </div>
+        ` : '';
+
+        return `
+          <div class="mb-8 bg-white rounded-xl border border-outline-variant/50 overflow-hidden">
+            <div class="bg-surface-container-high px-8 py-4 border-b border-outline-variant/50">
+              <h4 class="font-semibold text-on-surface">${sp.title}</h4>
+            </div>
+            <div class="p-8 text-body-lg leading-relaxed text-on-surface">
+              ${sp.html}
+            </div>
+          </div>
+          ${wordBankHtml}
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            ${part.questions.map(q => this.renderGapQuestion(q, part)).join('')}
+          </div>
+        `;
+      }
+
+      renderGapQuestion(question, part) {
+        const currentAnswer = this.exam.getAnswer(question.id);
+        if (question.type === 'wordBank') {
+          const options = part.wordBank || [];
+          return `
+            <div class="bg-white p-4 rounded-lg shadow-sm border border-outline-variant/20 flex items-center gap-4">
+              <span class="w-9 h-9 shrink-0 rounded-full bg-surface-container-highest text-secondary flex items-center justify-center font-bold text-sm">${question.gapNumber}</span>
+              <select onchange="app.recordAnswer('${question.id}', this.value)"
+                      class="flex-1 px-3 py-2 bg-surface-container-low border border-outline-variant rounded-lg text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20">
+                <option value="">Wort wählen...</option>
+                ${options.map(w => `<option value="${w}" ${currentAnswer === w ? 'selected' : ''}>${w}</option>`).join('')}
+              </select>
+            </div>
+          `;
+        }
+        // fillInTheBlank with 3 MC options
+        return `
+          <div class="bg-white p-4 rounded-lg shadow-sm border border-outline-variant/20 flex items-center gap-4">
+            <span class="w-9 h-9 shrink-0 rounded-full bg-surface-container-highest text-secondary flex items-center justify-center font-bold text-sm">${question.gapNumber}</span>
+            <select onchange="app.recordAnswer('${question.id}', this.value)"
+                    class="flex-1 px-3 py-2 bg-surface-container-low border border-outline-variant rounded-lg text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20">
+              <option value="">Wählen...</option>
+              ${question.options.map((opt, idx) => `<option value="${idx}" ${currentAnswer === String(idx) ? 'selected' : ''}>${opt}</option>`).join('')}
+            </select>
+          </div>
+        `;
+      }
+
+      // Hörverstehen Teil 1: each item has its own short transcript
+      renderAudioListPart(part) {
+        return `<div class="space-y-6">${part.questions.map((q, idx) => this.renderQuestion(q, idx + 1)).join('')}</div>`;
+      }
+
+      renderQuestion(question, num) {
+        const currentAnswer = this.exam.getAnswer(question.id);
+
+        switch(question.type) {
+          case 'matching':
+            return this.renderMatchingQuestion(question, num || '');
+          case 'multipleChoice':
+            return this.renderMultipleChoice(question, currentAnswer, num);
+          case 'fillInTheBlank':
+          case 'wordBank':
+            return this.renderGapQuestion(question, {});
+          case 'writing':
+            return this.renderWritingQuestion(question, currentAnswer);
+          default:
+            return '';
+        }
+      }
+
+      renderMultipleChoice(question, currentAnswer, num) {
+        const transcriptHtml = question.transcript ? `
+          <details class="mb-4 group">
+            <summary class="cursor-pointer text-sm font-semibold text-primary flex items-center gap-2 select-none">
+              <span class="material-symbols-outlined text-lg">headphones</span>
+              Transkript anzeigen
+            </summary>
+            <div class="mt-3 p-4 bg-surface-container-low rounded-lg text-on-surface-variant text-sm whitespace-pre-line italic">${question.transcript}</div>
+          </details>
+        ` : '';
+        return `
+          <div class="bg-white p-6 rounded-lg shadow-sm border border-outline-variant/20 ${currentAnswer !== null && currentAnswer !== undefined ? 'border-l-4 border-l-primary' : ''}">
+            ${transcriptHtml}
+            <p class="font-semibold text-on-surface mb-4">${num ? `${num}. ` : ''}${question.text}</p>
+            <div class="space-y-2">
+              ${question.options.map((opt, idx) => `
+                <label class="flex items-center gap-3 p-3 rounded-lg cursor-pointer hover:bg-surface-container-low transition border border-transparent has-[:checked]:border-primary has-[:checked]:bg-surface-container-low">
+                  <input type="radio" name="q_${question.id}" value="${idx}"
+                         onchange="app.recordAnswer('${question.id}', '${idx}')"
+                         ${currentAnswer === String(idx) ? 'checked' : ''}
+                         class="w-4 h-4 accent-[#006768]">
+                  <span class="text-on-surface text-sm">${opt}</span>
+                </label>
+              `).join('')}
+            </div>
+            <p class="text-xs text-on-surface-variant mt-3">✓ ${question.points} Punkte</p>
+          </div>
+        `;
+      }
+
+      renderWritingQuestion(question, currentAnswer) {
+        const topicKey = `${question.id}__topic`;
+        const currentTopic = this.exam.getAnswer(topicKey) || (question.topics ? question.topics[0].id : null);
+        const activeTopic = question.topics ? question.topics.find(t => t.id === currentTopic) : null;
+
+        const topicSwitcher = question.topics ? `
+          <div class="flex flex-wrap gap-3 mb-6">
+            ${question.topics.map(t => `
+              <button type="button" onclick="app.selectWritingTopic('${question.id}', '${t.id}')"
+                      class="px-4 py-2 rounded-lg text-sm font-semibold border-2 transition ${t.id === currentTopic ? 'bg-primary text-on-primary border-primary' : 'bg-white text-on-surface-variant border-outline-variant hover:border-primary'}">
+                ${t.label}
+              </button>
+            `).join('')}
+          </div>
+        ` : '';
+
+        return `
+          <div class="bg-white p-6 rounded-lg shadow-sm border border-outline-variant/20">
+            ${topicSwitcher}
+            <div class="mb-4 p-4 bg-surface-container-low rounded-lg">
+              <p class="text-on-surface" id="writing-prompt-${question.id}">${activeTopic ? activeTopic.prompt : question.prompt}</p>
+            </div>
+            <textarea id="writing-textarea-${question.id}" oninput="app.updateWordCount('${question.id}')" onchange="app.recordAnswer('${question.id}', this.value)"
+                      placeholder="Schreiben Sie hier Ihren Text... (150–200 Wörter)"
+                      class="w-full px-4 py-3 bg-surface-container-low border border-outline-variant rounded-lg text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20 min-h-64">${currentAnswer || ''}</textarea>
+            <div class="flex justify-between items-center mt-3">
+              <p class="text-xs text-on-surface-variant">✓ ${question.points} Punkte</p>
+              <p id="word-count-${question.id}" class="text-xs text-on-surface-variant font-semibold">${(currentAnswer || '').trim() ? (currentAnswer.trim().split(/\s+/).length) : 0} Wörter</p>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    // ============================================
+    // TIMER LOGIC
+    // ============================================
+    class ExamTimer {
+      constructor(examManager, renderer) {
+        this.exam = examManager;
+        this.renderer = renderer;
+        this.intervalId = null;
+      }
+
+      start() {
+        this.update();
+        this.intervalId = setInterval(() => this.update(), 1000);
+      }
+
+      update() {
+        const remaining = this.exam.getTimeRemaining();
+        const timerDisplay = document.getElementById('timer-text');
+        const timerContainer = document.getElementById('timer-display');
+
+        if (timerDisplay) {
+          timerDisplay.textContent = this.renderer.formatTime(remaining);
+
+          // Critical state: last 5 minutes
+          if (remaining <= 300) {
+            timerDisplay.classList.add('timer-critical');
+            timerContainer.classList.add('bg-error-container', 'border-error');
+          }
+
+          // Time expired
+          if (remaining === 0) {
+            this.handleExpired();
+          }
+        }
+      }
+
+      handleExpired() {
+        clearInterval(this.intervalId);
+        this.exam.currentSession.status = 'expired';
+        this.exam.saveSession();
+
+        // Lock exam
+        const examPage = document.getElementById('exam-page');
+        examPage.classList.add('exam-locked');
+
+        // Show result
+        setTimeout(() => {
+          app.showResults();
+        }, 1000);
+      }
+
+      stop() {
+        clearInterval(this.intervalId);
+      }
+    }
+
+    // ============================================
+    // AUTOMATIC SCORING SYSTEM
+    // ============================================
+    class ScoringEngine {
+      constructor(exam) {
+        this.exam = exam;
+      }
+
+      scoreExam() {
+        let results = {
+          sessionId: this.exam.currentSession.id,
+          startedAt: this.exam.currentSession.startedAt,
+          completedAt: new Date().toISOString(),
+          sections: {},
+          totalScore: 0,
+          totalMaxPoints: 0
+        };
+
+        this.exam.currentExam.sections.forEach(section => {
+          let sectionScore = 0;
+          let sectionMaxPoints = section.maxPoints;
+          let sectionDetails = [];
+
+          if (section.parts) {
+            section.parts.forEach(part => {
+              part.questions.forEach(question => {
+                const answer = this.exam.getAnswer(question.id);
+                const score = this.scoreQuestion(question, answer);
+                const isWriting = question.type === 'writing';
+
+                sectionDetails.push({
+                  questionId: question.id,
+                  partTitle: part.title,
+                  question: isWriting ? null : (question.text || ''),
+                  userAnswer: answer,
+                  correctAnswer: isWriting ? null : question.correctAnswer,
+                  correctAnswerLabel: this.formatCorrectAnswerLabel(question),
+                  userAnswerLabel: this.formatUserAnswerLabel(question, answer),
+                  explanation: question.explanation || null,
+                  score: score,
+                  maxPoints: question.points,
+                  isCorrect: isWriting ? null : (score === question.points),
+                  isWriting: isWriting,
+                  topics: question.topics || null,
+                  selectedTopicId: isWriting ? (this.exam.getAnswer(question.id + '__topic') || (question.topics ? question.topics[0].id : null)) : null
+                });
+
+                sectionScore += score;
+              });
+            });
+          }
+
+          results.sections[section.id] = {
+            name: section.name,
+            score: sectionScore,
+            maxPoints: sectionMaxPoints,
+            percentage: Math.round((sectionScore / sectionMaxPoints) * 100),
+            details: sectionDetails
+          };
+
+          results.totalScore += sectionScore;
+          results.totalMaxPoints += sectionMaxPoints;
+        });
+
+        results.totalPercentage = Math.round((results.totalScore / results.totalMaxPoints) * 100);
+        return results;
+      }
+
+      scoreQuestion(question, answer) {
+        if (!answer) return 0;
+
+        // Auto-scoring for objective questions
+        if (question.type === 'writing') {
+          return this.scoreWriting(question, answer);
+        }
+
+        return answer === String(question.correctAnswer) ? question.points : 0;
+      }
+
+      formatCorrectAnswerLabel(question) {
+        if (question.type === 'writing') return null;
+        if (question.type === 'wordBank') return question.correctAnswer;
+        if (question.type === 'matching') return question.correctAnswer;
+        if ((question.type === 'multipleChoice' || question.type === 'fillInTheBlank') && question.options) {
+          const idx = parseInt(question.correctAnswer, 10);
+          return question.options[idx] !== undefined ? question.options[idx] : question.correctAnswer;
+        }
+        return question.correctAnswer;
+      }
+
+      formatUserAnswerLabel(question, answer) {
+        if (!answer) return '—';
+        if (question.type === 'wordBank' || question.type === 'matching') return answer;
+        if ((question.type === 'multipleChoice' || question.type === 'fillInTheBlank') && question.options) {
+          const idx = parseInt(answer, 10);
+          return question.options[idx] !== undefined ? question.options[idx] : answer;
+        }
+        return answer;
+      }
+
+      scoreWriting(question, text) {
+        // Simplified AI-based writing evaluation
+        if (!text || text.length < 50) return 0;
+
+        let score = 0;
+
+        // Length score (max 5 points)
+        const wordCount = text.split(/\s+/).length;
+        if (wordCount >= 150) score += 5;
+        else if (wordCount >= 100) score += 3;
+        else if (wordCount >= 50) score += 1;
+
+        // Grammar score (max 10 points)
+        score += this.evaluateGrammar(text);
+
+        // Vocabulary score (max 10 points)
+        score += this.evaluateVocabulary(text);
+
+        // Coherence score (max 10 points)
+        score += this.evaluateCoherence(text);
+
+        // Task completion (max 15 points)
+        score += this.evaluateTaskCompletion(text, question.prompt);
+
+        return Math.min(45, score);
+      }
+
+      evaluateGrammar(text) {
+        // Simplified grammar checks
+        let score = 8;
+        const errors = this.findGrammarErrors(text);
+        score -= errors.length * 2;
+        return Math.max(0, score);
+      }
+
+      evaluateVocabulary(text) {
+        // Basic vocabulary complexity score
+        const words = text.split(/\s+/);
+        const uniqueWords = new Set(words).size;
+        const diversityRatio = uniqueWords / words.length;
+        return Math.round(diversityRatio * 10);
+      }
+
+      evaluateCoherence(text) {
+        // Check for connecting words
+        const connectors = ['daher', 'darum', 'deshalb', 'ebenso', 'ebenfalls', 'allerdings', 'zwar'];
+        let score = 6;
+        connectors.forEach(connector => {
+          if (text.toLowerCase().includes(connector)) score += 0.5;
+        });
+        return Math.min(10, score);
+      }
+
+      evaluateTaskCompletion(text, prompt) {
+        // Check if response addresses key elements
+        let score = 10;
+        const hasGreeting = /sehr/i.test(text);
+        const hasClosing = /mit|freund/i.test(text);
+        const hasContent = text.length > 100;
+
+        if (!hasGreeting) score -= 3;
+        if (!hasClosing) score -= 2;
+        if (!hasContent) score -= 5;
+
+        return Math.max(0, score);
+      }
+
+      findGrammarErrors(text) {
+        // Simplified grammar error detection
+        const errors = [];
+        // This would be more sophisticated in production
+        return errors;
+      }
+    }
+
+    // ============================================
+    // MAIN APP CONTROLLER
+    // ============================================
+    class App {
+      constructor() {
+        this.exam = new ExamManager();
+        this.renderer = new UIRenderer(this.exam);
+        this.timer = new ExamTimer(this.exam, this.renderer);
+        this.scoring = new ScoringEngine(this.exam);
+      }
+
+      async init() {
+        await this.exam.loadExams();
+
+        // Coming from the Exam Library (index.html) with ?exam=<id> — jump straight
+        // into the exam (or its saved results) instead of showing the picker again.
+        const params = new URLSearchParams(window.location.search);
+        const examId = params.get('exam');
+        const wantResults = params.get('view') === 'results';
+
+        if (examId && this.exam.exams.some(e => e.id === examId)) {
+          if (wantResults) {
+            const record = this.exam.findLatestSessionForExam(examId);
+            if (record && this.exam.resumeSession(record)) {
+              this.showResultsDirect();
+              return;
+            }
+          }
+
+          const existing = this.exam.findLatestSessionForExam(examId);
+          const canResume = existing && existing.session.status === 'active' &&
+            new Date(existing.session.expiresAt) > new Date();
+
+          if (canResume && this.exam.resumeSession(existing)) {
+            this.enterExamUI();
+          } else {
+            this.startExam(examId);
+          }
+          return;
+        }
+
+        this.renderer.renderLandingPage();
+      }
+
+      startExam(examId) {
+        this.exam.startExam(examId);
+        this.enterExamUI();
+      }
+
+      // Shared by a fresh start and a resumed session: shows the exam UI and
+      // starts (or continues) the countdown automatically — no extra click needed.
+      enterExamUI() {
+        document.getElementById('landing-page').classList.add('hidden');
+        document.getElementById('exam-page').classList.remove('hidden');
+
+        this.renderer.renderExamInterface();
+        this.timer.start();
+
+        document.getElementById('finish-exam-btn').addEventListener('click', () => this.finishExam());
+      }
+
+      // Read-only view of a past/expired session's results, reached via
+      // exam-simulator.html?exam=<id>&view=results — recomputed live from the
+      // saved answers rather than a separately persisted score.
+      showResultsDirect() {
+        document.getElementById('landing-page').classList.add('hidden');
+        document.getElementById('exam-page').classList.add('hidden');
+        document.getElementById('results-page').classList.remove('hidden');
+
+        const results = this.scoring.scoreExam();
+        this.renderResults(results);
+      }
+
+      selectSection(sectionId) {
+        this.renderer.selectSection(sectionId);
+      }
+
+      recordAnswer(questionId, answer) {
+        this.exam.recordAnswer(questionId, answer);
+      }
+
+      selectWritingTopic(questionId, topicId) {
+        this.exam.recordAnswer(questionId + '__topic', topicId);
+        // Re-render current section so the prompt and topic buttons update
+        const section = this.exam.currentExam.sections.find(s =>
+          s.parts.some(p => p.questions.some(q => q.id === questionId))
+        );
+        if (section) this.renderer.selectSection(section.id);
+      }
+
+      updateWordCount(questionId) {
+        const textarea = document.getElementById(`writing-textarea-${questionId}`);
+        const counter = document.getElementById(`word-count-${questionId}`);
+        if (!textarea || !counter) return;
+        const text = textarea.value.trim();
+        const count = text ? text.split(/\s+/).length : 0;
+        counter.textContent = `${count} Wörter`;
+      }
+
+      finishExam() {
+        if (confirm('Are you sure you want to finish the exam? You cannot continue after this.')) {
+          this.timer.stop();
+          this.showResults();
+        }
+      }
+
+      showResults() {
+        this.timer.stop();
+
+        // Mark the session finished so the Exam Library shows "Abgeschlossen"
+        // instead of "Fortsetzen" on the next visit.
+        if (this.exam.currentSession && this.exam.currentSession.status === 'active') {
+          this.exam.currentSession.status = 'finished';
+          this.exam.saveSession();
+        }
+
+        // Calculate scores
+        const results = this.scoring.scoreExam();
+
+        // Hide exam, show results
+        document.getElementById('exam-page').classList.add('hidden');
+        document.getElementById('results-page').classList.remove('hidden');
+
+        // Render results
+        this.renderResults(results);
+      }
+
+      renderResults(results) {
+        const resultsPage = document.getElementById('results-page');
+
+        const sectionEntries = Object.entries(results.sections);
+        const strongest = sectionEntries.reduce((a, b) => a[1].percentage >= b[1].percentage ? a : b);
+        const weakest = sectionEntries.reduce((a, b) => a[1].percentage <= b[1].percentage ? a : b);
+
+        let html = `
+          <div class="px-6">
+            <div class="text-center mb-12">
+              <h1 class="text-4xl font-bold text-on-surface mb-2">Prüfung abgeschlossen</h1>
+              <p class="text-on-surface-variant">Korrektur abgeschlossen — hier ist Ihr Ergebnis</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-sm border border-outline-variant/20 p-8 mb-8">
+              <div class="text-center mb-8">
+                <p class="text-on-surface-variant mb-2">Gesamtscore</p>
+                <h2 class="text-5xl font-bold text-primary mb-2">${results.totalScore} / ${results.totalMaxPoints}</h2>
+                <p class="text-xl text-on-surface-variant">${results.totalPercentage}%</p>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                ${sectionEntries.map(([key, section]) => `
+                  <div class="p-6 bg-surface-container-low rounded-lg">
+                    <h3 class="font-semibold text-on-surface mb-3">${section.name}</h3>
+                    <p class="text-2xl font-bold text-primary mb-2">${section.score} / ${section.maxPoints}</p>
+                    <div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+                      <div class="h-full bg-primary" style="width: ${section.percentage}%"></div>
+                    </div>
+                    <p class="text-xs text-on-surface-variant mt-2">${section.percentage}%</p>
+                  </div>
+                `).join('')}
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="p-4 rounded-lg bg-green-50 border border-green-200 flex items-center gap-3">
+                  <span class="material-symbols-outlined text-green-700">trending_up</span>
+                  <div>
+                    <p class="text-xs text-green-700 font-semibold uppercase tracking-wide">Stärkste Leistung</p>
+                    <p class="text-on-surface font-semibold">${strongest[1].name} (${strongest[1].percentage}%)</p>
+                  </div>
+                </div>
+                <div class="p-4 rounded-lg bg-amber-50 border border-amber-200 flex items-center gap-3">
+                  <span class="material-symbols-outlined text-amber-700">flag</span>
+                  <div>
+                    <p class="text-xs text-amber-700 font-semibold uppercase tracking-wide">Größtes Verbesserungspotenzial</p>
+                    <p class="text-on-surface font-semibold">${weakest[1].name} (${weakest[1].percentage}%)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            ${sectionEntries.map(([key, section]) => this.renderSectionReview(section)).join('')}
+
+            <div class="text-center mt-8 mb-4">
+              <button onclick="location.reload()" class="px-8 py-3 bg-primary text-on-primary rounded-lg font-semibold hover:bg-primary-container transition">
+                Neue Prüfung starten
+              </button>
+            </div>
+          </div>
+        `;
+
+        resultsPage.innerHTML = html;
+      }
+
+      renderSectionReview(section) {
+        const writingDetail = section.details.find(d => d.isWriting);
+        const wrongAnswers = section.details.filter(d => !d.isWriting && !d.isCorrect);
+
+        let html = `
+          <div class="max-w-4xl mx-auto mb-8">
+            <h3 class="text-xl font-bold text-on-surface mb-4">${section.name} — Details</h3>
+        `;
+
+        if (writingDetail) {
+          const topic = writingDetail.topics ? writingDetail.topics.find(t => t.id === writingDetail.selectedTopicId) : null;
+          html += `
+            <div class="bg-white rounded-lg shadow-sm border border-outline-variant/20 p-6 mb-4">
+              <div class="flex items-center justify-between mb-4">
+                <p class="font-semibold text-on-surface">Schriftlicher Ausdruck${topic ? ' — ' + topic.label : ''}</p>
+                <span class="px-3 py-1 rounded-full bg-primary text-on-primary text-sm font-semibold">${writingDetail.score.toFixed(1)} / ${writingDetail.maxPoints} Punkte</span>
+              </div>
+              ${writingDetail.userAnswer ? `
+                <div class="mb-4">
+                  <p class="text-xs font-semibold text-on-surface-variant uppercase tracking-wide mb-2">Ihr Text</p>
+                  <div class="p-4 bg-surface-container-low rounded-lg text-sm text-on-surface whitespace-pre-line">${writingDetail.userAnswer}</div>
+                </div>
+              ` : `<p class="text-sm text-on-surface-variant italic mb-4">Kein Text abgegeben.</p>`}
+              ${topic ? `
+                <details class="group">
+                  <summary class="cursor-pointer text-sm font-semibold text-primary flex items-center gap-2 select-none">
+                    <span class="material-symbols-outlined text-lg">auto_stories</span>
+                    Musterlösung zum Vergleich anzeigen
+                  </summary>
+                  <div class="mt-3 p-4 bg-surface-container-low rounded-lg text-sm text-on-surface-variant whitespace-pre-line">${topic.sampleAnswer}</div>
+                </details>
+              ` : ''}
+            </div>
+          `;
+        }
+
+        if (wrongAnswers.length > 0) {
+          html += `
+            <div class="bg-white rounded-lg shadow-sm border border-outline-variant/20 overflow-hidden">
+              <div class="px-6 py-3 bg-red-50 border-b border-outline-variant/20">
+                <p class="text-sm font-semibold text-red-700">❌ ${wrongAnswers.length} falsch beantwortete Frage${wrongAnswers.length > 1 ? 'n' : ''}</p>
+              </div>
+              <div class="divide-y divide-outline-variant/20">
+                ${wrongAnswers.map(d => `
+                  <div class="p-5">
+                    ${d.question ? `<p class="text-sm text-on-surface mb-3">${d.question}</p>` : ''}
+                    <div class="flex flex-wrap gap-4 text-sm mb-2">
+                      <span class="text-red-600">Ihre Antwort: <strong>${d.userAnswerLabel}</strong></span>
+                      <span class="text-green-700">Richtige Antwort: <strong>${d.correctAnswerLabel}</strong></span>
+                    </div>
+                    ${d.explanation ? `
+                      <div class="mt-2 p-3 bg-secondary-container/40 rounded-lg text-sm text-on-secondary-container flex items-start gap-2">
+                        <span class="material-symbols-outlined text-base mt-0.5">lightbulb</span>
+                        <span><strong>Warum?</strong> ${d.explanation}</span>
+                      </div>
+                    ` : ''}
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          `;
+        } else if (!writingDetail) {
+          html += `
+            <div class="bg-green-50 border border-green-200 rounded-lg p-5 text-green-700 text-sm font-semibold flex items-center gap-2">
+              <span class="material-symbols-outlined">check_circle</span>
+              Alle Fragen in diesem Abschnitt richtig beantwortet!
+            </div>
+          `;
+        }
+
+        html += `</div>`;
+        return html;
+      }
+    }
+
+    // Initialize app
+    const app = new App();
+    document.addEventListener('DOMContentLoaded', () => app.init());
+  </script>
+</body>
+</html>
