@@ -1,0 +1,20 @@
+{
+  "name": "s-lecton-web",
+  "version": "1.0.0",
+  "description": "S-Lecton Web Platform - Academic Precision Design System",
+  "scripts": {
+    "dev": "python -m http.server 3000",
+    "build": "echo 'Static site - no build step required'"
+  },
+  "keywords": [
+    "design-system",
+    "branding",
+    "web-platform"
+  ],
+  "dependencies": {
+    "manrope": "^1.0.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.0"
+  }
+}
