@@ -16,13 +16,18 @@ S-Lecton implements an **Academic Precision** design language featuring:
 
 ```
 s-lecton/
+├── index.html                # Home page — links to the branding showcase and the exam simulator
+├── branding.html             # Component showcase and interactive design demo
+├── exam-simulator.html       # telc B2 exam simulator application
+├── data/exams.json           # Exam content (questions, passages, transcripts)
 ├── DESIGN.md                 # Complete design system documentation
 ├── tailwind.config.js        # Tailwind CSS configuration
-├── styles.css               # Global styles and utilities
-├── index.html               # Component showcase and demo page
-├── package.json             # Project dependencies
-└── README.md                # This file
+├── styles.css                # Global styles and utilities
+├── package.json               # Project dependencies
+└── README.md                  # This file
 ```
+
+Open `index.html` first — it links to both `branding.html` (design system showcase) and `exam-simulator.html` (the exam application).
 
 ## Color Palette
 
