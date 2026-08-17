@@ -299,13 +299,16 @@
 
         if (section.parts && section.parts.length > 0) {
           section.parts.forEach(part => {
+            const answered = part.questions.filter(q => this.exam.getAnswer(q.id)).length;
             html += `
               <div class="mb-12">
-                <h3 class="text-2xl font-semibold text-on-surface mb-6">${part.title}</h3>
-                <p class="text-on-surface-variant mb-8">${part.description}</p>
-                <div class="space-y-6">
-                  ${part.questions.map(q => this.renderQuestion(q)).join('')}
+                <div class="flex items-center justify-between mb-2 gap-4 flex-wrap">
+                  <h3 class="text-2xl font-semibold text-on-surface">${part.title}</h3>
+                  <span class="text-xs font-semibold px-3 py-1 rounded-full bg-surface-container-low text-on-surface-variant">${answered} / ${part.questions.length} beantwortet</span>
                 </div>
+                <p class="text-on-surface-variant mb-6">${part.description}</p>
+                ${part.audioNote ? `<div class="mb-6 px-4 py-3 rounded-lg bg-secondary-container text-on-secondary-container text-sm flex items-center gap-2"><span class="material-symbols-outlined text-lg">info</span>${part.audioNote}</div>` : ''}
+                ${this.renderPartBody(part)}
               </div>
             `;
           });
@@ -314,16 +317,150 @@
         container.innerHTML = html;
       }
 
-      renderQuestion(question) {
+      renderPartBody(part) {
+        if (part.layout === 'matching-reference') return this.renderMatchingPart(part);
+        if (part.layout === 'shared-passage') return this.renderSharedPassagePart(part);
+        if (part.layout === 'gap-text' || part.layout === 'gap-text-wordbank') return this.renderGapTextPart(part);
+        if (part.layout === 'audio-list') return this.renderAudioListPart(part);
+        return `<div class="space-y-6">${part.questions.map(q => this.renderQuestion(q)).join('')}</div>`;
+      }
+
+      // Leseverstehen Teil 1 & 3: statement cards (left) + sticky reference list (right)
+      renderMatchingPart(part) {
+        return `
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+            <div class="space-y-4">
+              ${part.questions.map((q, idx) => this.renderMatchingQuestion(q, idx + 1)).join('')}
+            </div>
+            <div class="lg:sticky lg:top-40 bg-surface-container rounded-xl border border-outline-variant/50 overflow-hidden">
+              <div class="bg-surface-container-high px-6 py-4 border-b border-outline-variant/50">
+                <h4 class="font-semibold text-on-surface">${part.referenceListTitle || 'Referenz'}</h4>
+              </div>
+              <div class="p-4 space-y-3 max-h-[600px] overflow-y-auto">
+                ${part.referenceList.map(ref => `
+                  <div class="bg-white p-3 rounded-lg border border-outline-variant/30 flex items-start gap-3">
+                    <span class="w-8 h-8 shrink-0 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-bold text-sm">${ref.code}</span>
+                    <p class="text-sm text-on-surface pt-1">${ref.text}</p>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      renderMatchingQuestion(question, num) {
+        const currentAnswer = this.exam.getAnswer(question.id);
+        return `
+          <div class="bg-white p-5 rounded-lg shadow-sm border border-outline-variant/20 ${currentAnswer ? 'border-l-4 border-l-primary' : ''}">
+            <div class="flex items-start gap-3 mb-4">
+              <span class="text-on-surface-variant/50 font-bold text-lg leading-none">${num}</span>
+              <p class="text-on-surface text-sm">${question.text}</p>
+            </div>
+            <select onchange="app.recordAnswer('${question.id}', this.value)"
+                    class="w-full sm:w-40 px-3 py-2 bg-surface-container-low border border-outline-variant rounded-lg text-on-surface font-semibold text-center focus:border-primary focus:ring-2 focus:ring-primary/20">
+              <option value="">–</option>
+              ${question.options.map(opt => `
+                <option value="${opt}" ${currentAnswer === opt ? 'selected' : ''}>${opt}</option>
+              `).join('')}
+            </select>
+          </div>
+        `;
+      }
+
+      // Leseverstehen Teil 2 & Hörverstehen Teil 2/3: one shared reading passage + MC questions below
+      renderSharedPassagePart(part) {
+        const sp = part.sharedPassage;
+        const bodyHtml = sp.paragraphs
+          ? sp.paragraphs.map(p => `<p class="mb-4 last:mb-0">${p}</p>`).join('')
+          : (sp.html || '');
+        return `
+          <div class="mb-8 bg-surface-container rounded-xl border border-outline-variant/50 overflow-hidden">
+            <div class="bg-surface-container-high px-8 py-4 border-b border-outline-variant/50">
+              <h4 class="font-semibold text-on-surface">${sp.title}</h4>
+            </div>
+            <div class="p-8 max-h-[420px] overflow-y-auto text-body-lg leading-relaxed text-on-surface bg-white">
+              ${bodyHtml}
+            </div>
+          </div>
+          <div class="space-y-5">
+            ${part.questions.map((q, idx) => this.renderQuestion(q, idx + 1)).join('')}
+          </div>
+        `;
+      }
+
+      // Sprachbausteine: passage with numbered gaps + list of dropdowns below
+      renderGapTextPart(part) {
+        const sp = part.sharedPassage;
+        const wordBankHtml = part.wordBank ? `
+          <div class="mb-6 p-4 bg-surface-container-low rounded-lg border border-outline-variant/30">
+            <p class="text-xs font-semibold text-on-surface-variant uppercase tracking-wide mb-3">Wortliste (jedes Wort nur einmal verwendbar)</p>
+            <div id="wordbank-${part.id}" class="flex flex-wrap gap-2">
+              ${part.wordBank.map(w => `<span class="wordbank-chip px-3 py-1 bg-white border border-outline-variant rounded-full text-sm text-on-surface" data-word="${w}">${w}</span>`).join('')}
+            </div>
+          </div>
+        ` : '';
+
+        return `
+          <div class="mb-8 bg-white rounded-xl border border-outline-variant/50 overflow-hidden">
+            <div class="bg-surface-container-high px-8 py-4 border-b border-outline-variant/50">
+              <h4 class="font-semibold text-on-surface">${sp.title}</h4>
+            </div>
+            <div class="p-8 text-body-lg leading-relaxed text-on-surface">
+              ${sp.html}
+            </div>
+          </div>
+          ${wordBankHtml}
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            ${part.questions.map(q => this.renderGapQuestion(q, part)).join('')}
+          </div>
+        `;
+      }
+
+      renderGapQuestion(question, part) {
+        const currentAnswer = this.exam.getAnswer(question.id);
+        if (question.type === 'wordBank') {
+          const options = part.wordBank || [];
+          return `
+            <div class="bg-white p-4 rounded-lg shadow-sm border border-outline-variant/20 flex items-center gap-4">
+              <span class="w-9 h-9 shrink-0 rounded-full bg-surface-container-highest text-secondary flex items-center justify-center font-bold text-sm">${question.gapNumber}</span>
+              <select onchange="app.recordAnswer('${question.id}', this.value)"
+                      class="flex-1 px-3 py-2 bg-surface-container-low border border-outline-variant rounded-lg text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20">
+                <option value="">Wort wählen...</option>
+                ${options.map(w => `<option value="${w}" ${currentAnswer === w ? 'selected' : ''}>${w}</option>`).join('')}
+              </select>
+            </div>
+          `;
+        }
+        // fillInTheBlank with 3 MC options
+        return `
+          <div class="bg-white p-4 rounded-lg shadow-sm border border-outline-variant/20 flex items-center gap-4">
+            <span class="w-9 h-9 shrink-0 rounded-full bg-surface-container-highest text-secondary flex items-center justify-center font-bold text-sm">${question.gapNumber}</span>
+            <select onchange="app.recordAnswer('${question.id}', this.value)"
+                    class="flex-1 px-3 py-2 bg-surface-container-low border border-outline-variant rounded-lg text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20">
+              <option value="">Wählen...</option>
+              ${question.options.map((opt, idx) => `<option value="${idx}" ${currentAnswer === String(idx) ? 'selected' : ''}>${opt}</option>`).join('')}
+            </select>
+          </div>
+        `;
+      }
+
+      // Hörverstehen Teil 1: each item has its own short transcript
+      renderAudioListPart(part) {
+        return `<div class="space-y-6">${part.questions.map((q, idx) => this.renderQuestion(q, idx + 1)).join('')}</div>`;
+      }
+
+      renderQuestion(question, num) {
         const currentAnswer = this.exam.getAnswer(question.id);
 
         switch(question.type) {
           case 'matching':
-            return this.renderMatchingQuestion(question, currentAnswer);
+            return this.renderMatchingQuestion(question, num || '');
           case 'multipleChoice':
-            return this.renderMultipleChoice(question, currentAnswer);
+            return this.renderMultipleChoice(question, currentAnswer, num);
           case 'fillInTheBlank':
-            return this.renderFillInBlank(question, currentAnswer);
+          case 'wordBank':
+            return this.renderGapQuestion(question, {});
           case 'writing':
             return this.renderWritingQuestion(question, currentAnswer);
           default:
@@ -331,68 +468,64 @@
         }
       }
 
-      renderMatchingQuestion(question, currentAnswer) {
+      renderMultipleChoice(question, currentAnswer, num) {
+        const transcriptHtml = question.transcript ? `
+          <details class="mb-4 group">
+            <summary class="cursor-pointer text-sm font-semibold text-primary flex items-center gap-2 select-none">
+              <span class="material-symbols-outlined text-lg">headphones</span>
+              Transkript anzeigen
+            </summary>
+            <div class="mt-3 p-4 bg-surface-container-low rounded-lg text-on-surface-variant text-sm whitespace-pre-line italic">${question.transcript}</div>
+          </details>
+        ` : '';
         return `
-          <div class="bg-white p-6 rounded-lg shadow-sm border border-outline-variant/20">
-            <p class="font-semibold text-on-surface mb-4">${question.text}</p>
-            <div class="mb-4 p-4 bg-surface-container-low rounded">
-              <p class="text-on-surface-variant italic">"${question.passage}"</p>
-            </div>
-            <select onchange="app.recordAnswer('${question.id}', this.value)"
-                    class="w-full px-4 py-2 bg-surface-container-low border border-outline-variant rounded-lg text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20">
-              <option value="">Choose option...</option>
-              ${question.options.map(opt => `
-                <option value="${opt}" ${currentAnswer === opt ? 'selected' : ''}>${opt}</option>
-              `).join('')}
-            </select>
-            <p class="text-xs text-on-surface-variant mt-3">✓ ${question.points} points</p>
-          </div>
-        `;
-      }
-
-      renderMultipleChoice(question, currentAnswer) {
-        return `
-          <div class="bg-white p-6 rounded-lg shadow-sm border border-outline-variant/20">
-            <p class="font-semibold text-on-surface mb-4">${question.text}</p>
-            <div class="space-y-3">
+          <div class="bg-white p-6 rounded-lg shadow-sm border border-outline-variant/20 ${currentAnswer !== null && currentAnswer !== undefined ? 'border-l-4 border-l-primary' : ''}">
+            ${transcriptHtml}
+            <p class="font-semibold text-on-surface mb-4">${num ? `${num}. ` : ''}${question.text}</p>
+            <div class="space-y-2">
               ${question.options.map((opt, idx) => `
-                <label class="flex items-center gap-3 p-3 rounded-lg cursor-pointer hover:bg-surface-container-low transition">
+                <label class="flex items-center gap-3 p-3 rounded-lg cursor-pointer hover:bg-surface-container-low transition border border-transparent has-[:checked]:border-primary has-[:checked]:bg-surface-container-low">
                   <input type="radio" name="q_${question.id}" value="${idx}"
                          onchange="app.recordAnswer('${question.id}', '${idx}')"
                          ${currentAnswer === String(idx) ? 'checked' : ''}
-                         class="w-4 h-4">
-                  <span class="text-on-surface">${opt}</span>
+                         class="w-4 h-4 accent-[#006768]">
+                  <span class="text-on-surface text-sm">${opt}</span>
                 </label>
               `).join('')}
             </div>
-            <p class="text-xs text-on-surface-variant mt-3">✓ ${question.points} points</p>
-          </div>
-        `;
-      }
-
-      renderFillInBlank(question, currentAnswer) {
-        return `
-          <div class="bg-white p-6 rounded-lg shadow-sm border border-outline-variant/20">
-            <p class="font-semibold text-on-surface mb-4">${question.text}</p>
-            <input type="text" placeholder="Type your answer..."
-                   value="${currentAnswer || ''}"
-                   onchange="app.recordAnswer('${question.id}', this.value)"
-                   class="w-full px-4 py-2 bg-surface-container-low border border-outline-variant rounded-lg text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20">
-            <p class="text-xs text-on-surface-variant mt-3">✓ ${question.points} points</p>
+            <p class="text-xs text-on-surface-variant mt-3">✓ ${question.points} Punkte</p>
           </div>
         `;
       }
 
       renderWritingQuestion(question, currentAnswer) {
+        const topicKey = `${question.id}__topic`;
+        const currentTopic = this.exam.getAnswer(topicKey) || (question.topics ? question.topics[0].id : null);
+        const activeTopic = question.topics ? question.topics.find(t => t.id === currentTopic) : null;
+
+        const topicSwitcher = question.topics ? `
+          <div class="flex flex-wrap gap-3 mb-6">
+            ${question.topics.map(t => `
+              <button type="button" onclick="app.selectWritingTopic('${question.id}', '${t.id}')"
+                      class="px-4 py-2 rounded-lg text-sm font-semibold border-2 transition ${t.id === currentTopic ? 'bg-primary text-on-primary border-primary' : 'bg-white text-on-surface-variant border-outline-variant hover:border-primary'}">
+                ${t.label}
+              </button>
+            `).join('')}
+          </div>
+        ` : '';
+
         return `
           <div class="bg-white p-6 rounded-lg shadow-sm border border-outline-variant/20">
-            <p class="font-semibold text-on-surface mb-4">${question.prompt}</p>
-            <textarea onchange="app.recordAnswer('${question.id}', this.value)"
-                      placeholder="Write your response here... (150-200 words)"
-                      class="w-full px-4 py-2 bg-surface-container-low border border-outline-variant rounded-lg text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20 min-h-48">${currentAnswer || ''}</textarea>
+            ${topicSwitcher}
+            <div class="mb-4 p-4 bg-surface-container-low rounded-lg">
+              <p class="text-on-surface" id="writing-prompt-${question.id}">${activeTopic ? activeTopic.prompt : question.prompt}</p>
+            </div>
+            <textarea id="writing-textarea-${question.id}" oninput="app.updateWordCount('${question.id}')" onchange="app.recordAnswer('${question.id}', this.value)"
+                      placeholder="Schreiben Sie hier Ihren Text... (150–200 Wörter)"
+                      class="w-full px-4 py-3 bg-surface-container-low border border-outline-variant rounded-lg text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20 min-h-64">${currentAnswer || ''}</textarea>
             <div class="flex justify-between items-center mt-3">
-              <p class="text-xs text-on-surface-variant">✓ ${question.points} points</p>
-              <p id="word-count" class="text-xs text-on-surface-variant">0 words</p>
+              <p class="text-xs text-on-surface-variant">✓ ${question.points} Punkte</p>
+              <p id="word-count-${question.id}" class="text-xs text-on-surface-variant font-semibold">${(currentAnswer || '').trim() ? (currentAnswer.trim().split(/\s+/).length) : 0} Wörter</p>
             </div>
           </div>
         `;
@@ -483,15 +616,23 @@
               part.questions.forEach(question => {
                 const answer = this.exam.getAnswer(question.id);
                 const score = this.scoreQuestion(question, answer);
+                const isWriting = question.type === 'writing';
 
                 sectionDetails.push({
                   questionId: question.id,
-                  question: question.text,
+                  partTitle: part.title,
+                  question: isWriting ? null : (question.text || ''),
                   userAnswer: answer,
-                  correctAnswer: question.correctAnswer,
+                  correctAnswer: isWriting ? null : question.correctAnswer,
+                  correctAnswerLabel: this.formatCorrectAnswerLabel(question),
+                  userAnswerLabel: this.formatUserAnswerLabel(question, answer),
+                  explanation: question.explanation || null,
                   score: score,
                   maxPoints: question.points,
-                  isCorrect: score === question.points
+                  isCorrect: isWriting ? null : (score === question.points),
+                  isWriting: isWriting,
+                  topics: question.topics || null,
+                  selectedTopicId: isWriting ? (this.exam.getAnswer(question.id + '__topic') || (question.topics ? question.topics[0].id : null)) : null
                 });
 
                 sectionScore += score;
@@ -524,6 +665,27 @@
         }
 
         return answer === String(question.correctAnswer) ? question.points : 0;
+      }
+
+      formatCorrectAnswerLabel(question) {
+        if (question.type === 'writing') return null;
+        if (question.type === 'wordBank') return question.correctAnswer;
+        if (question.type === 'matching') return question.correctAnswer;
+        if ((question.type === 'multipleChoice' || question.type === 'fillInTheBlank') && question.options) {
+          const idx = parseInt(question.correctAnswer, 10);
+          return question.options[idx] !== undefined ? question.options[idx] : question.correctAnswer;
+        }
+        return question.correctAnswer;
+      }
+
+      formatUserAnswerLabel(question, answer) {
+        if (!answer) return '—';
+        if (question.type === 'wordBank' || question.type === 'matching') return answer;
+        if ((question.type === 'multipleChoice' || question.type === 'fillInTheBlank') && question.options) {
+          const idx = parseInt(answer, 10);
+          return question.options[idx] !== undefined ? question.options[idx] : answer;
+        }
+        return answer;
       }
 
       scoreWriting(question, text) {
@@ -642,6 +804,24 @@
         this.exam.recordAnswer(questionId, answer);
       }
 
+      selectWritingTopic(questionId, topicId) {
+        this.exam.recordAnswer(questionId + '__topic', topicId);
+        // Re-render current section so the prompt and topic buttons update
+        const section = this.exam.currentExam.sections.find(s =>
+          s.parts.some(p => p.questions.some(q => q.id === questionId))
+        );
+        if (section) this.renderer.selectSection(section.id);
+      }
+
+      updateWordCount(questionId) {
+        const textarea = document.getElementById(`writing-textarea-${questionId}`);
+        const counter = document.getElementById(`word-count-${questionId}`);
+        if (!textarea || !counter) return;
+        const text = textarea.value.trim();
+        const count = text ? text.split(/\s+/).length : 0;
+        counter.textContent = `${count} Wörter`;
+      }
+
       finishExam() {
         if (confirm('Are you sure you want to finish the exam? You cannot continue after this.')) {
           this.timer.stop();
@@ -666,11 +846,15 @@
       renderResults(results) {
         const resultsPage = document.getElementById('results-page');
 
+        const sectionEntries = Object.entries(results.sections);
+        const strongest = sectionEntries.reduce((a, b) => a[1].percentage >= b[1].percentage ? a : b);
+        const weakest = sectionEntries.reduce((a, b) => a[1].percentage <= b[1].percentage ? a : b);
+
         let html = `
           <div class="px-6">
             <div class="text-center mb-12">
               <h1 class="text-4xl font-bold text-on-surface mb-2">Prüfung abgeschlossen</h1>
-              <p class="text-on-surface-variant">Ihre Ergebnisse werden verarbeitet...</p>
+              <p class="text-on-surface-variant">Korrektur abgeschlossen — hier ist Ihr Ergebnis</p>
             </div>
 
             <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-sm border border-outline-variant/20 p-8 mb-8">
@@ -680,8 +864,8 @@
                 <p class="text-xl text-on-surface-variant">${results.totalPercentage}%</p>
               </div>
 
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                ${Object.entries(results.sections).map(([key, section]) => `
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                ${sectionEntries.map(([key, section]) => `
                   <div class="p-6 bg-surface-container-low rounded-lg">
                     <h3 class="font-semibold text-on-surface mb-3">${section.name}</h3>
                     <p class="text-2xl font-bold text-primary mb-2">${section.score} / ${section.maxPoints}</p>
@@ -692,17 +876,110 @@
                   </div>
                 `).join('')}
               </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="p-4 rounded-lg bg-green-50 border border-green-200 flex items-center gap-3">
+                  <span class="material-symbols-outlined text-green-700">trending_up</span>
+                  <div>
+                    <p class="text-xs text-green-700 font-semibold uppercase tracking-wide">Stärkste Leistung</p>
+                    <p class="text-on-surface font-semibold">${strongest[1].name} (${strongest[1].percentage}%)</p>
+                  </div>
+                </div>
+                <div class="p-4 rounded-lg bg-amber-50 border border-amber-200 flex items-center gap-3">
+                  <span class="material-symbols-outlined text-amber-700">flag</span>
+                  <div>
+                    <p class="text-xs text-amber-700 font-semibold uppercase tracking-wide">Größtes Verbesserungspotenzial</p>
+                    <p class="text-on-surface font-semibold">${weakest[1].name} (${weakest[1].percentage}%)</p>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div class="text-center">
+            ${sectionEntries.map(([key, section]) => this.renderSectionReview(section)).join('')}
+
+            <div class="text-center mt-8 mb-4">
               <button onclick="location.reload()" class="px-8 py-3 bg-primary text-on-primary rounded-lg font-semibold hover:bg-primary-container transition">
-                Start New Exam
+                Neue Prüfung starten
               </button>
             </div>
           </div>
         `;
 
         resultsPage.innerHTML = html;
+      }
+
+      renderSectionReview(section) {
+        const writingDetail = section.details.find(d => d.isWriting);
+        const wrongAnswers = section.details.filter(d => !d.isWriting && !d.isCorrect);
+
+        let html = `
+          <div class="max-w-4xl mx-auto mb-8">
+            <h3 class="text-xl font-bold text-on-surface mb-4">${section.name} — Details</h3>
+        `;
+
+        if (writingDetail) {
+          const topic = writingDetail.topics ? writingDetail.topics.find(t => t.id === writingDetail.selectedTopicId) : null;
+          html += `
+            <div class="bg-white rounded-lg shadow-sm border border-outline-variant/20 p-6 mb-4">
+              <div class="flex items-center justify-between mb-4">
+                <p class="font-semibold text-on-surface">Schriftlicher Ausdruck${topic ? ' — ' + topic.label : ''}</p>
+                <span class="px-3 py-1 rounded-full bg-primary text-on-primary text-sm font-semibold">${writingDetail.score.toFixed(1)} / ${writingDetail.maxPoints} Punkte</span>
+              </div>
+              ${writingDetail.userAnswer ? `
+                <div class="mb-4">
+                  <p class="text-xs font-semibold text-on-surface-variant uppercase tracking-wide mb-2">Ihr Text</p>
+                  <div class="p-4 bg-surface-container-low rounded-lg text-sm text-on-surface whitespace-pre-line">${writingDetail.userAnswer}</div>
+                </div>
+              ` : `<p class="text-sm text-on-surface-variant italic mb-4">Kein Text abgegeben.</p>`}
+              ${topic ? `
+                <details class="group">
+                  <summary class="cursor-pointer text-sm font-semibold text-primary flex items-center gap-2 select-none">
+                    <span class="material-symbols-outlined text-lg">auto_stories</span>
+                    Musterlösung zum Vergleich anzeigen
+                  </summary>
+                  <div class="mt-3 p-4 bg-surface-container-low rounded-lg text-sm text-on-surface-variant whitespace-pre-line">${topic.sampleAnswer}</div>
+                </details>
+              ` : ''}
+            </div>
+          `;
+        }
+
+        if (wrongAnswers.length > 0) {
+          html += `
+            <div class="bg-white rounded-lg shadow-sm border border-outline-variant/20 overflow-hidden">
+              <div class="px-6 py-3 bg-red-50 border-b border-outline-variant/20">
+                <p class="text-sm font-semibold text-red-700">❌ ${wrongAnswers.length} falsch beantwortete Frage${wrongAnswers.length > 1 ? 'n' : ''}</p>
+              </div>
+              <div class="divide-y divide-outline-variant/20">
+                ${wrongAnswers.map(d => `
+                  <div class="p-5">
+                    ${d.question ? `<p class="text-sm text-on-surface mb-3">${d.question}</p>` : ''}
+                    <div class="flex flex-wrap gap-4 text-sm mb-2">
+                      <span class="text-red-600">Ihre Antwort: <strong>${d.userAnswerLabel}</strong></span>
+                      <span class="text-green-700">Richtige Antwort: <strong>${d.correctAnswerLabel}</strong></span>
+                    </div>
+                    ${d.explanation ? `
+                      <div class="mt-2 p-3 bg-secondary-container/40 rounded-lg text-sm text-on-secondary-container flex items-start gap-2">
+                        <span class="material-symbols-outlined text-base mt-0.5">lightbulb</span>
+                        <span><strong>Warum?</strong> ${d.explanation}</span>
+                      </div>
+                    ` : ''}
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          `;
+        } else if (!writingDetail) {
+          html += `
+            <div class="bg-green-50 border border-green-200 rounded-lg p-5 text-green-700 text-sm font-semibold flex items-center gap-2">
+              <span class="material-symbols-outlined">check_circle</span>
+              Alle Fragen in diesem Abschnitt richtig beantwortet!
+            </div>
+          `;
+        }
+
+        html += `</div>`;
+        return html;
       }
     }
 
