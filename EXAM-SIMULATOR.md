@@ -4,16 +4,16 @@
 
 ### For Users
 
-1. **Open the simulator**
+1. **Open the Exam Library**
    ```
-   exam-simulator.html
+   index.html
    ```
 
-2. **Choose an exam**
-   - Click "Modelltest B2 — Prüfung 001"
+2. **Pick a subject**
+   - Click "Prüfung starten" on any published card
 
-3. **Start the exam**
-   - Click "Start"
+3. **The exam opens with the timer already running**
+   - No extra "Start" click — `exam-simulator.html?exam=<id>` auto-starts
    - Timer begins: 02:30:00
 
 4. **Navigate freely**
@@ -28,7 +28,9 @@
 6. **View results**
    - Total score: XXX / 225
    - Section breakdown
-   - Error analysis
+   - Error analysis with "Warum?" explanations
+   - Come back later from the library ("Ergebnisse ansehen") to see the same
+     results recomputed from your saved answers
 
 ---
 
@@ -37,6 +39,7 @@
 ### File Structure
 
 ```
+index.html            — Exam Library (home page)
 exam-simulator.html
 ├─ exam-simulator
 │  ├─ ExamManager
@@ -45,8 +48,10 @@ exam-simulator.html
 │  ├─ ScoringEngine
 │  └─ App
 
-data/
-└─ exams.json (exam questions and structure)
+data/exams/
+├─ manifest.json       (ordered list of exam ids to load)
+├─ pruefung-001.json    (real, published content)
+└─ pruefung-002.json … pruefung-101.json (draft templates — see TEMPLATE-GUIDE.md)
 ```
 
 ### Data Flow
@@ -103,7 +108,7 @@ Manages exam session and answer tracking.
 ```javascript
 class ExamManager {
   constructor()
-  loadExams()                          // Load from data/exams.json
+  loadExams()                          // Load from data/exams/<id>.json (see data/exams/manifest.json)
   startExam(examId)                    // Create new session
   generateSessionId()                  // UUID + timestamp
   saveSession()                        // Persist to localStorage
@@ -329,7 +334,7 @@ Sie haben ein Produkt online gekauft...
 
 ## Adding New Questions
 
-### Step 1: Edit data/exams.json
+### Step 1: Edit data/exams/<id>.json (see data/exams/manifest.json)
 
 ```json
 {
@@ -498,14 +503,14 @@ Server-side validation:
 
 ### Change Exam Duration
 
-**File: data/exams.json**
+**File: data/exams/<id>.json (see data/exams/manifest.json)**
 ```json
 "duration": 5400  // 90 minutes instead of 150
 ```
 
 ### Change Point Values
 
-**File: data/exams.json**
+**File: data/exams/<id>.json (see data/exams/manifest.json)**
 ```json
 {
   "maxPoints": 100,  // Change from 225
@@ -544,7 +549,7 @@ Server-side validation:
 - Check browser console for exceptions
 
 ### Questions not rendering
-- Verify data/exams.json is valid JSON
+- Verify data/exams/<id>.json (see data/exams/manifest.json) is valid JSON
 - Check file path is correct
 - Ensure all question types are defined
 
@@ -590,7 +595,7 @@ For questions or issues:
 1. Check this documentation
 2. Review exam-simulator.html code
 3. Check browser console for errors
-4. Verify data/exams.json format
+4. Verify data/exams/<id>.json (see data/exams/manifest.json) format
 
 ---
 

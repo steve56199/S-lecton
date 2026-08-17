@@ -16,10 +16,12 @@ S-Lecton implements an **Academic Precision** design language featuring:
 
 ```
 s-lecton/
-├── index.html                # Home page — links to the branding showcase and the exam simulator
-├── branding.html             # Component showcase and interactive design demo
+├── index.html                # Exam Library — home page, lists every published subject
+├── branding.html             # Component showcase and interactive design demo (unlinked, kept for reference)
 ├── exam-simulator.html       # telc B2 exam simulator application
-├── data/exams.json           # Exam content (questions, passages, transcripts)
+├── data/exams/                # One JSON file per subject + manifest.json (see TEMPLATE-GUIDE.md)
+├── scripts/generate_subject_templates.py  # Regenerates the 100 draft subject templates
+├── HOEREN-QUELLEN.md          # Sources for sourcing/writing Hörverstehen content per subject
 ├── DESIGN.md                 # Complete design system documentation
 ├── tailwind.config.js        # Tailwind CSS configuration
 ├── styles.css                # Global styles and utilities
@@ -27,7 +29,7 @@ s-lecton/
 └── README.md                  # This file
 ```
 
-Open `index.html` first — it links to both `branding.html` (design system showcase) and `exam-simulator.html` (the exam application).
+Open `index.html` — the Exam Library. Selecting a published subject goes straight into `exam-simulator.html` with the 150-minute timer already running. `branding.html` still exists but is no longer linked from the nav.
 
 ## Color Palette
 

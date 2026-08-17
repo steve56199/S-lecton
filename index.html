@@ -75,7 +75,6 @@
       </div>
       <nav class="hidden md:flex items-center gap-xl h-full">
         <a class="text-label-lg font-label-lg text-royal-blue border-b-2 border-royal-blue pt-1 flex items-center h-full" href="./index.html">Exam Library</a>
-        <a class="text-label-lg font-label-lg text-on-surface-variant hover:text-royal-blue transition-colors flex items-center h-full" href="./branding.html">Design System</a>
       </nav>
     </div>
   </header>
@@ -127,7 +126,6 @@
         <span class="text-label-md font-label-md text-metallic-silver">© 2026 S-Lecton Simulation Systems.</span>
       </div>
       <div class="flex gap-lg">
-        <a class="text-label-md font-label-md text-metallic-silver hover:text-surface-bright" href="./branding.html">Design System</a>
         <a class="text-label-md font-label-md text-metallic-silver hover:text-surface-bright" href="./README.md" target="_blank">Documentation</a>
       </div>
     </div>
@@ -267,11 +265,22 @@
       emptyState.classList.toggle('hidden', filtered.length > 0);
     }
 
+    async function loadAllExams() {
+      const manifestRes = await fetch('./data/exams/manifest.json');
+      const manifest = await manifestRes.json();
+      const exams = await Promise.all(
+        manifest.exams.map(id => fetch(`./data/exams/${id}.json`).then(r => r.json()))
+      );
+      return exams;
+    }
+
     async function init() {
       try {
-        const response = await fetch('./data/exams.json');
-        const data = await response.json();
-        allExams = data.exams;
+        const exams = await loadAllExams();
+        // Only published, complete exams appear in the library — drafts stay
+        // hidden until their content is filled in and status is flipped to
+        // "published" (see data/exams/TEMPLATE-GUIDE.md).
+        allExams = exams.filter(e => e.status === 'published');
       } catch (e) {
         console.error('Failed to load exams:', e);
         allExams = [];

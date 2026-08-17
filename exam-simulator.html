@@ -155,20 +155,17 @@
 
       async loadExams() {
         try {
-          const response = await fetch('./data/exams.json');
-          this.examsData = await response.json();
-          this.exams = this.examsData.exams;
+          const manifestRes = await fetch('./data/exams/manifest.json');
+          const manifest = await manifestRes.json();
+          // Load every exam (published AND draft) so a draft can still be opened
+          // directly by id while it's being authored — only the Exam Library
+          // (index.html) filters drafts out of what it displays.
+          this.exams = await Promise.all(
+            manifest.exams.map(id => fetch(`./data/exams/${id}.json`).then(r => r.json()))
+          );
         } catch (error) {
           console.error('Failed to load exams:', error);
-          // Fallback data
-          this.exams = [
-            {
-              id: 'pruefung-001',
-              title: 'Modelltest B2 — Prüfung 001',
-              description: 'Vollständiger telc B2 Modelltest',
-              duration: 9000
-            }
-          ];
+          this.exams = [];
         }
       }
 
@@ -273,8 +270,9 @@
       renderLandingPage() {
         const landingPage = document.getElementById('landing-page');
         const examsList = document.getElementById('exams-list');
+        const published = this.exam.exams.filter(e => e.status === 'published');
 
-        examsList.innerHTML = this.exam.exams.map(exam => `
+        examsList.innerHTML = published.map(exam => `
           <button onclick="app.startExam('${exam.id}')"
                   class="w-full p-6 bg-white rounded-lg shadow-sm border border-outline-variant/20 hover:shadow-md transition text-left">
             <h3 class="font-bold text-lg text-on-surface mb-2">${exam.title}</h3>
