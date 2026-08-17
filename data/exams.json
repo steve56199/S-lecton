@@ -1,0 +1,711 @@
+{
+  "exams": [
+    {
+      "id": "pruefung-001",
+      "title": "Modelltest B2 — Prüfung 001",
+      "description": "Vollständiger telc B2 Modelltest mit realem Zeitlimit von 150 Minuten",
+      "duration": 9000,
+      "totalPoints": 225,
+      "sections": [
+        {
+          "id": "lesen",
+          "name": "Leseverstehen",
+          "maxPoints": 75,
+          "order": 1,
+          "parts": [
+            {
+              "id": "lesen-1",
+              "title": "Teil 1",
+              "description": "Kurze Anzeigen zuordnen",
+              "pointsPerQuestion": 3,
+              "questions": [
+                {
+                  "id": "q1",
+                  "type": "matching",
+                  "points": 3,
+                  "text": "Fleischloser Genuss: Ein Trend setzt sich durch",
+                  "passage": "Immer mehr Menschen entscheiden sich für eine vegetarische Ernährung. Die Gründe sind vielfältig: Tierwohl, Umweltschutz oder die eigene Gesundheit stehen oft im Vordergrund. Supermärkte reagieren auf diesen Trend mit einem wachsenden Angebot an Fleischersatzprodukten.",
+                  "options": ["A", "B", "C", "D", "E", "F", "G", "H", "I"],
+                  "correctAnswer": "A"
+                },
+                {
+                  "id": "q2",
+                  "type": "matching",
+                  "points": 3,
+                  "text": "Arbeiten 4.0: Die Zukunft ist digital",
+                  "passage": "Die Digitalisierung verändert die Arbeitswelt radikal. Homeoffice und flexible Arbeitszeiten sind in vielen Branchen zum Standard geworden. Dies erfordert neue Kompetenzen von den Mitarbeitern, insbesondere im Bereich der digitalen Kommunikation.",
+                  "options": ["A", "B", "C", "D", "E", "F", "G", "H", "I"],
+                  "correctAnswer": "B"
+                },
+                {
+                  "id": "q3",
+                  "type": "matching",
+                  "points": 3,
+                  "text": "Klimawandel: Herausforderungen für die Landwirtschaft",
+                  "passage": "Der Klimawandel stellt Landwirte vor neue Herausforderungen. Extreme Wetterereignisse gefährden Ernten. Gleichzeitig müssen nachhaltige Anbaumethoden entwickelt werden, um die Bodenfruchtbarkeit zu sichern.",
+                  "options": ["A", "B", "C", "D", "E", "F", "G", "H", "I"],
+                  "correctAnswer": "G"
+                },
+                {
+                  "id": "q4",
+                  "type": "matching",
+                  "points": 3,
+                  "text": "Städtereisen in Europa: Beliebte Ziele",
+                  "passage": "Europa bietet vielfältige Reiseziele für Städtetouristen. Klassische Städte wie Rom, Paris und Berlin ziehen Millionen von Besuchern an. Neue Trends führen Touristen auch in kleinere, weniger bekannte Städte.",
+                  "options": ["A", "B", "C", "D", "E", "F", "G", "H", "I"],
+                  "correctAnswer": "C"
+                },
+                {
+                  "id": "q5",
+                  "type": "matching",
+                  "points": 3,
+                  "text": "Gesunder Schlaf: So finden Sie Ruhe",
+                  "passage": "Qualitativ hochwertiger Schlaf ist essentiell für die Gesundheit. Eine regelmäßige Schlafenszeit-Routine und ein dunkles Schlafzimmer fördern einen erholsamen Schlaf. Vermeiden Sie vor dem Schlafengehen Bildschirme und Koffein.",
+                  "options": ["A", "B", "C", "D", "E", "F", "G", "H", "I"],
+                  "correctAnswer": "H"
+                }
+              ]
+            },
+            {
+              "id": "lesen-2",
+              "title": "Teil 2",
+              "description": "Textverständnis Lücken",
+              "pointsPerQuestion": 3,
+              "questions": [
+                {
+                  "id": "q6",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Der Satz 'Die Künstliche Intelligenz verändert...' bedeutet:",
+                  "options": [
+                    "KI hat kein Einfluss auf moderne Technologie",
+                    "KI ist ein neuer Bereich der Wissenschaft",
+                    "KI ist nur theoretisch"
+                  ],
+                  "correctAnswer": "1"
+                },
+                {
+                  "id": "q7",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Nach dem Text, warum arbeiten viele Menschen von zu Hause aus?",
+                  "options": [
+                    "Weil es billiger ist",
+                    "Weil es die Digitalisierung ermöglicht",
+                    "Weil es Gesetz ist"
+                  ],
+                  "correctAnswer": "1"
+                },
+                {
+                  "id": "q8",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Was ist die Hauptidee des Textes über nachhaltige Landwirtschaft?",
+                  "options": [
+                    "Bioprodukte sind teuer",
+                    "Nachhaltigkeit ist notwendig für die Zukunft",
+                    "Landwirtschaft ist nicht wichtig"
+                  ],
+                  "correctAnswer": "1"
+                },
+                {
+                  "id": "q9",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Welche Konsequenz hat der Klimawandel für Bauern?",
+                  "options": [
+                    "Bessere Ernten",
+                    "Keine Veränderung",
+                    "Schwierigere Bedingungen"
+                  ],
+                  "correctAnswer": "2"
+                },
+                {
+                  "id": "q10",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Was empfiehlt der Text zum besseren Schlafen?",
+                  "options": [
+                    "Viel Kaffee trinken",
+                    "Vor dem Schlaf Bildschirme nutzen",
+                    "Regelmäßige Schlafenszeiten einhalten"
+                  ],
+                  "correctAnswer": "2"
+                }
+              ]
+            },
+            {
+              "id": "lesen-3",
+              "title": "Teil 3",
+              "description": "Längere Texte mit detailliertem Verständnis",
+              "pointsPerQuestion": 5,
+              "questions": [
+                {
+                  "id": "q11",
+                  "type": "multipleChoice",
+                  "points": 5,
+                  "text": "Der Text behandelt hauptsächlich:",
+                  "options": [
+                    "Alte Technologien",
+                    "Die Zukunft der Digitalisierung",
+                    "Vergangenheit der Industrie"
+                  ],
+                  "correctAnswer": "1"
+                },
+                {
+                  "id": "q12",
+                  "type": "multipleChoice",
+                  "points": 5,
+                  "text": "Welche Aussage ist RICHTIG?",
+                  "options": [
+                    "Digitalisierung hat keine Auswirkungen auf Arbeit",
+                    "Neue Fähigkeiten sind erforderlich",
+                    "Alles bleibt wie früher"
+                  ],
+                  "correctAnswer": "1"
+                },
+                {
+                  "id": "q13",
+                  "type": "multipleChoice",
+                  "points": 5,
+                  "text": "Der Autor argumentiert, dass:",
+                  "options": [
+                    "Nachhaltigkeit unnötig ist",
+                    "Nachhaltigkeit für die Zukunft essentiell ist",
+                    "Umweltschutz ist zu teuer"
+                  ],
+                  "correctAnswer": "1"
+                },
+                {
+                  "id": "q14",
+                  "type": "multipleChoice",
+                  "points": 5,
+                  "text": "Welche Lösung wird im Text vorgeschlagen?",
+                  "options": [
+                    "Keine Landwirtschaft mehr",
+                    "Nachhaltige Anbaumethoden entwickeln",
+                    "Alles importieren"
+                  ],
+                  "correctAnswer": "1"
+                },
+                {
+                  "id": "q15",
+                  "type": "multipleChoice",
+                  "points": 5,
+                  "text": "Was können wir aus dem Text über die Zukunft lernen?",
+                  "options": [
+                    "Nichts ändert sich",
+                    "Anpassung ist notwendig",
+                    "Die Vergangenheit wiederholt sich"
+                  ],
+                  "correctAnswer": "1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sprachbausteine",
+          "name": "Sprachbausteine",
+          "maxPoints": 30,
+          "order": 2,
+          "parts": [
+            {
+              "id": "sprachbausteine-1",
+              "title": "Teil 1",
+              "description": "Lückentextaufgaben mit Wortauswahl",
+              "pointsPerQuestion": 2,
+              "questions": [
+                {
+                  "id": "q16",
+                  "type": "fillInTheBlank",
+                  "points": 2,
+                  "text": "Die Technologie _____ die Arbeitswelt verändert.",
+                  "options": ["hat", "haben", "hadde", "habe"],
+                  "correctAnswer": "0"
+                },
+                {
+                  "id": "q17",
+                  "type": "fillInTheBlank",
+                  "points": 2,
+                  "text": "_____ du die neue Software kennengelernt?",
+                  "options": ["Geben", "Gibst", "Hast", "Hattest"],
+                  "correctAnswer": "2"
+                },
+                {
+                  "id": "q18",
+                  "type": "fillInTheBlank",
+                  "points": 2,
+                  "text": "Der Bericht zeigt, _____ die Umwelt besser geschützt werden muss.",
+                  "options": ["dass", "das", "daß", "das"],
+                  "correctAnswer": "0"
+                },
+                {
+                  "id": "q19",
+                  "type": "fillInTheBlank",
+                  "points": 2,
+                  "text": "Wenn die Temperaturen steigen, _____ die Ernte gefährdet.",
+                  "options": ["ist", "sind", "sein", "seid"],
+                  "correctAnswer": "0"
+                },
+                {
+                  "id": "q20",
+                  "type": "fillInTheBlank",
+                  "points": 2,
+                  "text": "Die Lösung _____ darin, nachhaltige Methoden zu nutzen.",
+                  "options": ["liegt", "legt", "legte", "liegen"],
+                  "correctAnswer": "0"
+                }
+              ]
+            },
+            {
+              "id": "sprachbausteine-2",
+              "title": "Teil 2",
+              "description": "Satzstruktur und Wortordnung",
+              "pointsPerQuestion": 2,
+              "questions": [
+                {
+                  "id": "q21",
+                  "type": "multipleChoice",
+                  "points": 2,
+                  "text": "Welcher Satz ist grammatikalisch korrekt?",
+                  "options": [
+                    "Ich gehe zu dem Laden, weil ich kaufe Brot.",
+                    "Ich gehe zu dem Laden, um Brot zu kaufen.",
+                    "Ich gehe zu dem Laden, darum ich kaufe Brot."
+                  ],
+                  "correctAnswer": "1"
+                },
+                {
+                  "id": "q22",
+                  "type": "multipleChoice",
+                  "points": 2,
+                  "text": "Wähle die beste Variante:",
+                  "options": [
+                    "Nachdem er ankommt, ruft er an.",
+                    "Nachdem er angekommen ist, ruft er an.",
+                    "Nachdem er wird ankommen, ruft er an."
+                  ],
+                  "correctAnswer": "1"
+                },
+                {
+                  "id": "q23",
+                  "type": "multipleChoice",
+                  "points": 2,
+                  "text": "Welcher Satz ist korrekt?",
+                  "options": [
+                    "Sie hat das Problem gelöst, ohne mit mir zu sprechen.",
+                    "Sie hat das Problem gelöst, ohne mit mir sprechen.",
+                    "Sie hat das Problem gelöst, ohne mit mir zu sprechen zu müssen."
+                  ],
+                  "correctAnswer": "0"
+                },
+                {
+                  "id": "q24",
+                  "type": "multipleChoice",
+                  "points": 2,
+                  "text": "Wähle die beste Option:",
+                  "options": [
+                    "Obwohl es regnet, gehe ich spazieren.",
+                    "Obwohl es regnet, ich gehe spazieren.",
+                    "Obwohl es regnet, gehen wir spazieren zu müssen."
+                  ],
+                  "correctAnswer": "0"
+                },
+                {
+                  "id": "q25",
+                  "type": "multipleChoice",
+                  "points": 2,
+                  "text": "Der Satz ist grammatikalisch korrekt:",
+                  "options": [
+                    "Der Mann, dessen Sohn Arzt ist, arbeitet hier.",
+                    "Der Mann, welcher Sohn Arzt ist, arbeitet hier.",
+                    "Der Mann, welches Sohn Arzt ist, arbeitet hier."
+                  ],
+                  "correctAnswer": "0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "hoeren",
+          "name": "Hörverstehen",
+          "maxPoints": 75,
+          "order": 3,
+          "parts": [
+            {
+              "id": "hoeren-1",
+              "title": "Teil 1",
+              "description": "Kurze Gespräche (5 Aufgaben)",
+              "pointsPerQuestion": 3,
+              "questions": [
+                {
+                  "id": "q26",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Was möchte der Mann?",
+                  "audioUrl": "https://example.com/audio1.mp3",
+                  "options": [
+                    "Einen Termin vereinbaren",
+                    "Ein Produkt kaufen",
+                    "Eine Beschwerde einreichen"
+                  ],
+                  "correctAnswer": "0"
+                },
+                {
+                  "id": "q27",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Wann findet die Besprechung statt?",
+                  "audioUrl": "https://example.com/audio2.mp3",
+                  "options": [
+                    "Am Montag um 10 Uhr",
+                    "Am Dienstag um 14 Uhr",
+                    "Am Mittwoch um 15 Uhr"
+                  ],
+                  "correctAnswer": "1"
+                },
+                {
+                  "id": "q28",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Was ist das Problem?",
+                  "audioUrl": "https://example.com/audio3.mp3",
+                  "options": [
+                    "Die Lieferung ist zu spät",
+                    "Das Produkt ist fehlerhaft",
+                    "Der Preis ist falsch"
+                  ],
+                  "correctAnswer": "1"
+                },
+                {
+                  "id": "q29",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Welche Lösung wird angeboten?",
+                  "audioUrl": "https://example.com/audio4.mp3",
+                  "options": [
+                    "Geld zurück",
+                    "Ersatzprodukt",
+                    "Rabatt auf nächsten Kauf"
+                  ],
+                  "correctAnswer": "1"
+                },
+                {
+                  "id": "q30",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Was vereinbaren sie?",
+                  "audioUrl": "https://example.com/audio5.mp3",
+                  "options": [
+                    "Ein weiteres Treffen",
+                    "Eine schriftliche Bestätigung",
+                    "Eine Beschwerde bei der Behörde"
+                  ],
+                  "correctAnswer": "0"
+                }
+              ]
+            },
+            {
+              "id": "hoeren-2",
+              "title": "Teil 2",
+              "description": "Radiobeitrag (10 Aufgaben)",
+              "pointsPerQuestion": 3,
+              "questions": [
+                {
+                  "id": "q31",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Das Thema des Radiobeitrags ist:",
+                  "audioUrl": "https://example.com/radio1.mp3",
+                  "options": [
+                    "Klimawandel und Landwirtschaft",
+                    "Neue Technologien in der Industrie",
+                    "Stadtentwicklung in Europa"
+                  ],
+                  "correctAnswer": "0"
+                },
+                {
+                  "id": "q32",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Was sagen Experten?",
+                  "options": [
+                    "Nichts kann man tun",
+                    "Anpassung ist dringend notwendig",
+                    "Alles bleibt wie es ist"
+                  ],
+                  "correctAnswer": "1"
+                },
+                {
+                  "id": "q33",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Welche Methode wird empfohlen?",
+                  "options": [
+                    "Konventionelle Methoden beibehalten",
+                    "Nachhaltige Anbaumethoden einführen",
+                    "Landwirtschaft komplett beenden"
+                  ],
+                  "correctAnswer": "1"
+                },
+                {
+                  "id": "q34",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Wie viele Bauern haben bereits umgestellt?",
+                  "options": [
+                    "Weniger als 10 Prozent",
+                    "Etwa die Hälfte",
+                    "Die Mehrheit"
+                  ],
+                  "correctAnswer": "0"
+                },
+                {
+                  "id": "q35",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Welche Unterstützung gibt es?",
+                  "options": [
+                    "Staatliche Subventionen",
+                    "Beratung durch Experten",
+                    "Alle Optionen"
+                  ],
+                  "correctAnswer": "2"
+                },
+                {
+                  "id": "q36",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Was ist die Zielsetzung?",
+                  "options": [
+                    "100 Prozent Bio bis 2030",
+                    "50 Prozent nachhaltige Produktion bis 2035",
+                    "Keine verbindlichen Ziele"
+                  ],
+                  "correctAnswer": "1"
+                },
+                {
+                  "id": "q37",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Welche Herausforderung wird erwähnt?",
+                  "options": [
+                    "Höhere Kosten",
+                    "Weniger Produktion",
+                    "Beides"
+                  ],
+                  "correctAnswer": "2"
+                },
+                {
+                  "id": "q38",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Wie sieht die Perspektive aus?",
+                  "options": [
+                    "Pessimistisch",
+                    "Optimistisch",
+                    "Neutral"
+                  ],
+                  "correctAnswer": "1"
+                },
+                {
+                  "id": "q39",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Was werden die Verbraucher tun?",
+                  "options": [
+                    "Nichts ändern",
+                    "Mehr nachhaltige Produkte kaufen",
+                    "Weniger essen"
+                  ],
+                  "correctAnswer": "1"
+                },
+                {
+                  "id": "q40",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Abschließend sagt der Experte:",
+                  "options": [
+                    "Es ist zu spät",
+                    "Veränderung ist möglich und notwendig",
+                    "Nichts wird sich ändern"
+                  ],
+                  "correctAnswer": "1"
+                }
+              ]
+            },
+            {
+              "id": "hoeren-3",
+              "title": "Teil 3",
+              "description": "Längerer Vortrag (10 Aufgaben)",
+              "pointsPerQuestion": 3,
+              "questions": [
+                {
+                  "id": "q41",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Der Vortrag behandelt:",
+                  "options": [
+                    "Geschichte der Technologie",
+                    "Digitalisierung in der modernen Arbeitswelt",
+                    "Zukünftige Raumfahrt"
+                  ],
+                  "correctAnswer": "1"
+                },
+                {
+                  "id": "q42",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Was ist der Hauptvorteil von Homeoffice?",
+                  "options": [
+                    "Weniger Arbeit",
+                    "Mehr Flexibilität und bessere Work-Life-Balance",
+                    "Höherer Lohn"
+                  ],
+                  "correctAnswer": "1"
+                },
+                {
+                  "id": "q43",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Welche Fähigkeiten sind wichtig?",
+                  "options": [
+                    "Nur technische Fähigkeiten",
+                    "Nur zwischenmenschliche Fähigkeiten",
+                    "Beides"
+                  ],
+                  "correctAnswer": "2"
+                },
+                {
+                  "id": "q44",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Wie reagieren Unternehmen?",
+                  "options": [
+                    "Lehnen Veränderung ab",
+                    "Investieren in Schulung und Technologie",
+                    "Warten ab"
+                  ],
+                  "correctAnswer": "1"
+                },
+                {
+                  "id": "q45",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Was ist eine Risiko?",
+                  "options": [
+                    "Zu viel Kommunikation",
+                    "Isolation von isolierten Arbeitern",
+                    "Keine Risiken"
+                  ],
+                  "correctAnswer": "1"
+                },
+                {
+                  "id": "q46",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Welche Lösung wird vorgeschlagen?",
+                  "options": [
+                    "Hybrid-Modelle",
+                    "Komplett Büro",
+                    "Komplett Homeoffice"
+                  ],
+                  "correctAnswer": "0"
+                },
+                {
+                  "id": "q47",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Was ist die Zukunftsprognose?",
+                  "options": [
+                    "Rückkehr ins Büro",
+                    "Verstärkte Digitalisierung",
+                    "Keine Veränderung"
+                  ],
+                  "correctAnswer": "1"
+                },
+                {
+                  "id": "q48",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Wie sollten sich Arbeitnehmer vorbereiten?",
+                  "options": [
+                    "Nicht handeln",
+                    "Sich weiterbilden",
+                    "Den Job wechseln"
+                  ],
+                  "correctAnswer": "1"
+                },
+                {
+                  "id": "q49",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Welche Branchen sind am meisten betroffen?",
+                  "options": [
+                    "Nur IT",
+                    "Nur Handwerk",
+                    "Alle Bereiche"
+                  ],
+                  "correctAnswer": "2"
+                },
+                {
+                  "id": "q50",
+                  "type": "multipleChoice",
+                  "points": 3,
+                  "text": "Die Botschaft des Vortrags ist:",
+                  "options": [
+                    "Digitalisierung ist schlecht",
+                    "Anpassung ist schlüssel zum Erfolg",
+                    "Alles bleibt gleich"
+                  ],
+                  "correctAnswer": "1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "schreiben",
+          "name": "Schriftlicher Ausdruck",
+          "maxPoints": 45,
+          "order": 4,
+          "parts": [
+            {
+              "id": "schreiben-1",
+              "title": "Beschwerde-Email",
+              "description": "Schreiben Sie eine Beschwerde-Email (150-200 Wörter)",
+              "questions": [
+                {
+                  "id": "q51",
+                  "type": "writing",
+                  "points": 45,
+                  "prompt": "Sie haben ein Produkt online gekauft. Das Produkt ist fehlerhaft angekommen. Schreiben Sie eine Email an den Kundendienst. Erklären Sie das Problem und fordern Sie eine Lösung. (150-200 Wörter)",
+                  "criteria": {
+                    "aufgabenbewältigung": {
+                      "description": "Werden alle Punkte angesprochen?",
+                      "maxPoints": 15
+                    },
+                    "kommunikativeGestaltung": {
+                      "description": "Struktur, Kohärenz, Konnektoren",
+                      "maxPoints": 10
+                    },
+                    "korrektheit": {
+                      "description": "Grammatik, Syntax, Orthografie",
+                      "maxPoints": 10
+                    },
+                    "wortschatz": {
+                      "description": "Vielfalt und Angemessenheit",
+                      "maxPoints": 10
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
